@@ -48,8 +48,8 @@ function button($u, $d, $l) {
 
 button("about-up.gif","About","index.php3?show=about.mrbs");
 button("demo-up.gif","Demo","index.php3?show=demo.mrbs");
-button("faq-up.gif","FAQ","index.php3?show=faq.mrbs");
 button("bugs-up.gif","Bugs","index.php3?show=bugs.mrbs");
+button("change-up.gif","ChangeLog","index.php3?show=changes.mrbs");
 button("get-up.gif","Download","index.php3?show=get.mrbs");
 button("install.gif","Install","index.php3?show=install.mrbs");
 
