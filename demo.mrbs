@@ -1,6 +1,0 @@
-Demo Installation
-You can find a demonstration installation at http://mrbs.sourceforge.net/mrbs/ - it's running the very latest version straight from CVS.
-
-There's nothing about it which is different from what you get. You can even use the Admin stuff - http://mrbs.sourceforge.net/mrbs/admin.php3 - although I would prefer it if you didn't delete <b>too</b> much! If you do go and delete a room or something then can you add another one back again when you're done.
-
-Some people have gone a bit mad with adding or deleting stuff, so I've set up a cron job that will reload the database with 'good' data at midnight PDT daily.

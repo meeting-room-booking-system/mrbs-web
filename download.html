@@ -1,7 +1,13 @@
+
+<?
+include "inc/main.inc";
+
+doPageHeader("Download");
+?>
 <html><!-- #BeginTemplate "/Templates/main.dwt" -->
 <head>
 <!-- #BeginEditable "doctitle" --> 
-<title>MRBS: Screenshot <? echo $file ?></title>
+<title>MRBS: </title>
 <!-- #EndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="mrbs.css" type="text/css">
@@ -35,7 +41,7 @@
         <tr> 
           <td height="34"></td>
           <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
-            <h1><!-- #BeginEditable "title" -->MRBS Screenshot: <? echo $file ?><!-- #EndEditable --></h1>
+            <h1><!-- #BeginEditable "title" -->Getting MRBS<!-- #EndEditable --></h1>
           </td>
         </tr>
         <tr> 
@@ -52,7 +58,22 @@
         </tr>
         <tr>
           <td height="337"></td>
-          <td colspan="3" valign="top"><!-- #BeginEditable "body" --> <IMG SRC="<? echo $file ?>"> 
+          <td colspan="3" valign="top"><!-- #BeginEditable "body" --> 
+            <ul>
+              <li class="body"><a href="http://sourceforge.net/project/showfiles.php?group_id=5113">Download 
+                Tarball</a></li>
+              <li class="body"><a href="http://sourceforge.net/cvs/?group_id=5113">CVS 
+                Instructions</a></li>
+            </ul>
+            <P class="body">The latest releases will always be available <A HREF="http://sourceforge.net/project/showfiles.php?group_id=5113">here</A> 
+              with a small comment describing what's changed. </P>
+            <P class="body"> However I tend to get a bit behind releasing files, 
+              so CVS is probably the best way to get stuff. Instructions are <A HREF="http://sourceforge.net/cvs/?group_id=5113">here</A>. 
+              The stuff actually in CVS at the moment tends to be pretty stable, 
+              as I test it a bit before I put it on CVS. </P>
+            <P class="body"> For installation instructions please refer to a file 
+              called "<a href="INSTALL.html">INSTALL</a>" in the tarball that 
+              you download. </P>
             <!-- #EndEditable --> </td>
           <td></td>
         </tr>

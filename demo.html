@@ -1,7 +1,13 @@
+
+<?
+include "inc/main.inc";
+
+doPageHeader("Demo");
+?>
 <html><!-- #BeginTemplate "/Templates/main.dwt" -->
 <head>
 <!-- #BeginEditable "doctitle" --> 
-<title>MRBS: Screenshot <? echo $file ?></title>
+<title>MRBS: Index</title>
 <!-- #EndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="mrbs.css" type="text/css">
@@ -35,7 +41,7 @@
         <tr> 
           <td height="34"></td>
           <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
-            <h1><!-- #BeginEditable "title" -->MRBS Screenshot: <? echo $file ?><!-- #EndEditable --></h1>
+            <h1><!-- #BeginEditable "title" -->Try MRBS<!-- #EndEditable --></h1>
           </td>
         </tr>
         <tr> 
@@ -52,7 +58,34 @@
         </tr>
         <tr>
           <td height="337"></td>
-          <td colspan="3" valign="top"><!-- #BeginEditable "body" --> <IMG SRC="<? echo $file ?>"> 
+          <td colspan="3" valign="top"><!-- #BeginEditable "body" -->
+            <PRE>
+ username  password
+
+  demo1     demo
+  demo2     demo
+  admin     admin
+</PRE>
+            <ul>
+              <li class="body"><a href="/mrbs/" class="body">Demonstration installation</a></li>
+              <li class="body"><a href="/mrbs/admin.php">Admin pages</a></li>
+              <li class="body"><a href="/mrbs/help.php">Additional Help</a></li>
+            </ul>
+            <p class="body">You can find a demonstration installation <A HREF="/mrbs/">here</A> 
+              it should always be running the very latest version straight from 
+              CVS, I sometimes forget to update it, but it should be a good demo 
+              of what the program does. </p>
+            <P> </P>
+            <span class="body">There's nothing about it which is different from 
+            what you get. You can even use the <A HREF="/mrbs/admin.php">admin</A> 
+            stuff although I would prefer it if you didn't delete too much! If 
+            you do go and delete a room or something then can you add another 
+            one back again when you're done. You can login as any of the following 
+            users. Additional help is available under the <A HREF=/mrbs/help.php>help</A> 
+            link at the top of the page. </span> 
+            
+            <P> </P>
+            <p></P>
             <!-- #EndEditable --> </td>
           <td></td>
         </tr>

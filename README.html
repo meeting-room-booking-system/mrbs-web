@@ -1,0 +1,145 @@
+<html><!-- #BeginTemplate "/Templates/main.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>MRBS: </title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="mrbs.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="705" border="2" cellpadding="0" cellspacing="0" bordercolor="#0066FF">
+  <tr> 
+    <td width="699" height="445" valign="top"> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#0066FF">
+        <tr> 
+          <td valign="top" height="24" colspan="5"> 
+            <table width="100%" border="0" cellpadding="3" cellspacing="0">
+              <tr> 
+                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF"><a href="index.html">Introduction</a> 
+                  | <a href="demo.html">Demo</a> | <a href="sshots.html">Screenshots</a> 
+                  | <a href="download.html">Download</a> | <a href="docs.html">Documentation</a> 
+                  | 
+                  <!-- <a href="../testimonials.html">Testimonials</a> | -->
+                  <a href="ChangeLog.html">ChangeLog</a> | <a href="donate.html">Donate</a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" colspan="2" rowspan="3"><a href="index.html"><img src="images/mrbs.png" width="130" height="50" border="0"></a></td>
+          <td width="12" height="4"></td>
+          <td width="552"></td>
+          <td width="5"></td>
+        </tr>
+        <tr> 
+          <td height="34"></td>
+          <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
+            <h1><!-- #BeginEditable "title" -->Meeting Room Booking System README<!-- #EndEditable --></h1>
+          </td>
+        </tr>
+        <tr> 
+          <td height="12"></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr> 
+          <td height="13" width="10"></td>
+          <td width="120"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td height="337"></td>
+          <td colspan="3" valign="top"><!-- #BeginEditable "body" -->
+            <pre>
+Meeting Room Booking System
+<a href="http://mrbs.sourceforge.net/">http://mrbs.sourceforge.net/</a>
+-------------------------------
+
+The Meeting Room Booking System (MRBS) is a PHP-based application for
+booking meeting rooms (surprisingly!). I got annoyed with the piles of books
+which were being used to book meetings. They were slow, hard to edit and only
+at the reception desk. I thought that a nice web-based system would be much
+nicer.
+
+Some parts of this are based on WebCalender 0.9.4 by Craig Knudsen 
+(<a href="http://www.radix.net/%7Ecknudsen/webcalendar/">http://www.radix.net/~cknudsen/webcalendar/</a>) but there is now very little
+which is similar. There are fundamental design goal differences between
+WebCalendar and MRBS - WC is for individuals, MRBS is for meeting rooms.
+
+------
+To Use
+------
+See the INSTALL file for installation instructions.
+
+Once it's installed try going to <a href="http://yourhost/mrbs/">http://yourhost/mrbs/</a> - if you loaded the
+sample data, this should give you a view of the first area meeting rooms
+for today. The (+) symbol means you can add new meetings by clicking
+there. Try it - it should all be pretty obvious. If you haven't loaded the
+sample data, start by clicking on Admin to add your Areas and Rooms.
+
+By default, anyone who can connect can add new meetings, and only connections
+from localhost are administrators. Only administrators can add rooms and
+areas, and modify any other users' meetings.  See AUTHENTICATION for a more
+complete description of the authentication system and how to configure it.
+
+If you copy testdata.php into your web site, you can view
+<a href="http://yourhost/mrbs/testdata.php">http://yourhost/mrbs/testdata.php</a> - it will generate a whole load of random
+appointments to fill up the calendar and let you play around. (Don't leave
+testdata.php in your web site, though.)
+
+Originally this was tested with PHP 3.0.16, Apache 1.3.12, MySQL 3.22.32 and
+Linux 2.2.14. The latest version was tested with PHP 4.0.4, Apache 1.3.12,
+and either MySQL 3.22.32 or PostgreSQL 7.0.3. It should work on just about
+anything that's got PHP with MySQL or PostgreSQL support.
+
+It should be pretty easy to adjust it to your corporate colours - the file
+mrbs.css is used on every page, as is style.inc. Just fiddle with these until
+you get the result you like. If it's really funky then you can tell the
+mailing list; perhaps we'll start some sort of 'skin' collection!
+
+See COPYING for licensing info.
+
+See ChangeLog for a history of changes.
+
+See AUTHENTICATION for information about user authentication/passwords.
+
+-------------
+Requirements:
+-------------
+- PHP4 with MySQL and/or PostgreSQL support (PHP3 seems to work too)
+- MySQL or PostgreSQL
+
+Recommended:
+- JavaScript-enabled browser
+- CSS-enabled browser
+
+(If you are considering porting MRBS to another database, see README.sqlapi)
+
+------
+Usage:
+------
+The current project maintainer reports using it at work with about 150 clients.
+Many other reports of successful use have been seen on the MRBS mailing list,
+and your report would be welcome there too. Let us know who is using MRBS!
+
+$Id$
+</pre>
+            <!-- #EndEditable --> </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td height="17"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

@@ -1,0 +1,297 @@
+<html><!-- #BeginTemplate "/Templates/main.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>MRBS: INSTALL</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="mrbs.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="705" border="2" cellpadding="0" cellspacing="0" bordercolor="#0066FF">
+  <tr> 
+    <td width="699" height="445" valign="top"> 
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#0066FF">
+        <tr> 
+          <td valign="top" height="24" colspan="5"> 
+            <table width="100%" border="0" cellpadding="3" cellspacing="0">
+              <tr> 
+                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF"><a href="index.html">Introduction</a> 
+                  | <a href="demo.html">Demo</a> | <a href="sshots.html">Screenshots</a> 
+                  | <a href="download.html">Download</a> | <a href="docs.html">Documentation</a> 
+                  | 
+                  <!-- <a href="../testimonials.html">Testimonials</a> | -->
+                  <a href="ChangeLog.html">ChangeLog</a> | <a href="donate.html">Donate</a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" colspan="2" rowspan="3"><a href="index.html"><img src="images/mrbs.png" width="130" height="50" border="0"></a></td>
+          <td width="12" height="4"></td>
+          <td width="552"></td>
+          <td width="5"></td>
+        </tr>
+        <tr> 
+          <td height="34"></td>
+          <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
+            <h1><!-- #BeginEditable "title" -->MRBS Installation Instructions<!-- #EndEditable --></h1>
+          </td>
+        </tr>
+        <tr> 
+          <td height="12"></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr> 
+          <td height="13" width="10"></td>
+          <td width="120"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td height="337"></td>
+          <td colspan="3" valign="top"><!-- #BeginEditable "body" --> 
+            
+            <h2>Requirements</h2>
+              
+            <p class="body">MRBS works with both MySQL and PostgreSQL database 
+              systems. You must have PHP with support for your chosen database 
+              system installed and working for this application. See the PHP (<a href="http://www.php.net">www.php.net</a>), 
+              MySQL (<a href="http://www.mysql.com/">www.mysql.com</a>), and PostgreSQL 
+              (<a href="http://www.postgresql.org/">www.postgresql.org</a>) sites 
+              for more info on setting these up. You need to know how to install, 
+              secure, run, maintain, and back up your chosen database system.</p> 
+            <p class="body">No optional PHP packages (other than the database 
+              system) are required for
+              this application. This version of MRBS was tested with PHP 4.0.4, 
+              and there
+              are reports of it working with PHP 3.0.12 and higher. (If you use 
+              PHP3,
+              you must configure your web server to process *.php files (as well 
+              as the
+              default *.php3 files) using PHP.)</p>
+            <p class="body">You can run PHP either as a CGI or an Apache module. 
+              You'll get better
+              performance with PHP setup as a module. Not only will you not have 
+              to
+              deal with the CGI performance hit, but you'll be able to use PHP's
+              database connection pooling. However, be careful that you don't 
+              exceed
+              the maximum number of connections allowed to your database; with 
+              connection
+              pooling PHP/Apache can potentially create a connection from each 
+              Apache
+              child server to the database.</p>
+            <p class="body">If you are using PHP as an Apache module, you probably 
+              want to ensure that
+              the Apache MaxRequestsPerChild is not set to 0, in case of undetected 
+              memory
+              leaks in PHP or MRBS.</p>
+            <p class="body">If you use MySQL, versions 3.22.32 and 3.23.23 have 
+              been tested and reported
+              to work.</p>
+            <p class="body">If you use PostgreSQL, you need at least version 7.0, 
+              and version 7.0.3 has
+              been tested and reported to work.</p>
+            <h2>File Unpacking</h2>
+            <p class="body">To install MRBS, just unpack the distribution into 
+              a temporary directory, then copy the files in the &quot;web&quot; 
+              subdirectory into a new directory somewhere your web server can 
+              find them.
+            <p class="body">For example:</p>
+            <p class="body">Unpack the software into a new temporary directory,
+                something like this:</p>              
+ <pre>
+ $ tar -xvzf ~/download/mrbs-1.0.tgz (or whatever version)              
+ $ cd mrbs-1.0 (or whatever version)
+ </pre>
+            <p class="body">If you are upgrading from a previous version of MRBS, 
+              you should save your
+              &quot;config.inc&quot; file so you can compare and update the new 
+              file with your
+              site-specific changes. Then rename your existing MRBS web server 
+              directory.
+              For example:</p>
+<pre>
+ $ cp /var/lib/apache/htdocs/mrbs/config.inc config.site.inc
+ $ mv /var/lib/apache/htdocs/mrbs /var/lib/apache/htdocs/mrbs.old</pre>
+            <p class="body">Now install MRBS by copying the contents of the &quot;web&quot; 
+              subdirectory of the distribution somewhere your web server can find 
+              it. For example:</p><pre>
+ $ cp -r web /var/lib/apache/htdocs/mrbs</pre>
+            <h2>Database Setup</h2>
+            <p class="body">
+              If you are upgrading from MRBS version 0.7 or later, and continuing 
+              to use MySQL, your database is already set up, so you can skip to 
+              the Application Setup section.</p>
+            <p class="body">For a new install:</p>
+            <p class="body">You can place the MRBS database tables in an existing 
+              database or
+              create a new database with the following:</p>
+<pre>
+ [MySQL] $ mysqladmin create mrbs
+ [PostgreSQL] $ createdb mrbs</pre>
+             <p class="body"> (This will create a database named &quot;mrbs&quot;, but you can 
+              use any name.)</p>
+            <p class="body">Create the MRBS tables using the supplied tables.*.sql 
+              file:</p><pre>
+ [MySQL] $ mysql mrbs &lt; tables.my.sql
+ [PostgreSQL] $ psql -a -f tables.pg.sql mrbs</pre>
+             <p class="body"> where &quot;mrbs&quot; is the name of your database (mentioned above).
+              This will create all the needed tables.
+              You may need to set rights on the tables; for PostgreSQL see &quot;grant.pg.sql&quot;.
+              If you need to delete the tables, for PostgreSQL see &quot;destroy.pg.sql&quot;.</p>
+            <p class="body">The tables are now empty and ready for use. If you 
+              want to add a few sample
+              areas and rooms without going through the Admin function, use this 
+              script:</p><pre>
+ [MySQL] $ mysql mrbs &lt; sample-data.sql
+ [PostgreSQL] $ psql -a -f sample-data.sql mrbs</pre>
+             
+            <p class="body"> Substitute the database name you used for &quot;mrbs&quot;. 
+              This script is only for use in a newly initialized database! (It 
+              will not work properly in a database where the ID counters are greater 
+              than 0.) Also see the description of testdata.php in the README 
+              file.</p>
+            <p class="body"><b>Maintenance</b>: Be sure to back up your database 
+              regularly. For PostgreSQL, be sure to run the &quot;vacuum&quot; 
+              command regularly. You can clean out old entries from your database 
+              using the supplied SQL scripts purge.my.sql (for MySQL) and purge.pg.sql 
+              (for PostgreSQL). Read the comments at the top of the scripts before 
+              using them.</p>
+            <h2>Application Setup</h2>
+            <p class="body"> 
+              Next, you will need to customize the file &quot;config.inc&quot;...</p>
+            <p class="body">If you are upgrading from a previous version of MRBS, 
+              use your saved copy of &quot;config.inc&quot; as a reference. Do 
+              not just use your old config.inc file, however, because there changes 
+              and new settings.</p>
+            <p class="body">Refer to the comments in the supplied config.inc file 
+              for more details. The following sections can be configured:</p>
+            <p class="body"> 1. Database Settings:</p>
+            <p class="body">First, select your database system. Define either: 
+              $dbsys = &quot;mysql&quot;; or, $dbsys = &quot;pgsql&quot;;</p>
+            <p class="body">Then define your database connection parameters. Set 
+              the values for:</p>
+            <p class="body"> $db_host = The hostname that the database server 
+              is running on. <br>$db_database = The name of the database containing 
+              the MRBS tables. <br>$db_login = The database login username <br>$db_password 
+              = The database login password for the above login username</p>
+            <p class="body">If the database server and web server are the same 
+              machine, use $db_host=&quot;localhost&quot;. Or, with PostgreSQL 
+              only, you can use $db_host=&quot;&quot; to use Unix Domain Sockets 
+              to connect to the database server on the same machine.</p>
+            <p class="body">By default, MRBS will use PHP persistent (pooled) 
+              database connections, for better performance. Depending on your 
+              web server and database server configuration, it is possible that 
+              this will cause MRBS to reach the maximum number of connections 
+              allowed to your database, since each Apache child process may keep 
+              a connection open. Then, users will randomly get errors when trying 
+              connecting to MRBS. If you would rather use non-persistent database 
+              connections, uncomment the line in &quot;config.inc&quot; which 
+              sets the $db_nopersist variable.</p>
+            <p class="body"> 2. Site Identification:</p>
+            <p class="body">Specify your company or site name, and contact information. 
+              The company name is displayed at the top of each page, and the contact 
+              information is displayed in the help file.<br><br>
+              $mrbs_admin = &quot;Your Administrator&quot;; <br>
+              $mrbs_admin_email = &quot;admin_email@your.org&quot;; <br>
+              $mrbs_company = &quot;Your Company&quot;;</p>
+            <p class="body"> 3. Calendar Settings:</p>
+            <p class="body">Specify the resolution in minutes. MRBS will display 
+              blocks of this size, and will round up all entries to an even multiple 
+              of this many minutes. Specify a number which divides evenly into 
+              hours, for example one of:<BR>
+              <BR>
+              $resolution = 900; # 15 minutes <br>
+              $resolution = 1800; # Half hour <br>
+              $resolution = 3600; # Whole hours</p>
+            <p class="body">Specify the start and end of the day in 24 hour notation, 
+              using whole hours. <br>
+              <br>
+              $morningstarts = 7; # First block is 7 AM. <br>
+              $eveningends = 19; # Last block starts at 7 PM. There is also $eveningends_minutes 
+              to give you more control over the last block displayed for each 
+              day. For example, to display full 24 hour days with 30 minute intervals: 
+              <br>
+              <br>
+              $resolution = 1800; <br>
+              $morningstarts = 0; <br>
+              $eveningends = 23; <br>
+              $eveningends_minutes = 30;</p>
+            <p class="body">To control international preferences for the calendar 
+              displays, use $weekstarts to change the first day of the week from 
+              the default of Sunday; use $dateformat to show dates as &quot;Month 
+              Day&quot; or &quot;Day Month&quot; in the page footers.</p>
+            <p class="body">There's also a section about Language. MRBS supports 
+              multiple languages, which can be used at the same time, based on 
+              what the client is using. One of the environment variables supplied 
+              to PHP is $HTTP_ACCEPT_LANGUAGE, which we use to choose a language 
+              file. You can specify the default in config.inc. See the file called 
+              LANGUAGE for more info.</p>
+            <p class="body"> 4. Miscellaneous Settings:</p>
+            <p class="body">These settings control the maximum number of repeat 
+              entries which can be created at once (a safety feature), the default 
+              report time period, and the number of search results to return per 
+              page.</p>
+            <p class="body"> 5. Authentication:</p>
+            <p class="body">Read the file AUTHENTICATION for information about 
+              this section. By default, config.inc uses &quot;ip&quot; authentication, 
+              allowing anyone who can connect to book rooms, and only allowing 
+              localhost to administer the system.</p>
+            <p class="body"> 6. Language:</p>
+            <p class="body">MRBS also uses your OS locale support for certain 
+              date/time strings. There is some code that tries to figure out what 
+              locale should be used based on your browser. Use &quot;locale -a&quot; 
+              on your system to find out what locale support is installed.</p>
+            <p class="body"> 7. Entry Types:</p>
+            <p class="body">By default, MRBS defines two &quot;meeting types&quot; 
+              - internal and external. There are a total of 10 types ready to 
+              be used, if you assign names to them in your config.inc file. Each 
+              type has a color, defined in the style sheet.</p>
+            <p class="body"> HELP/FAQ File:</p>
+            <p class="body">Customize site_faq.html if desired. It contains help 
+              that can be tailored to your environment.</p>
+            <h2>Security Notes!</h2>
+            <p class="body"> Configure your web server so that users can not obtain 
+              the &quot;.inc&quot; files. For example, if a user typed in the 
+              URL for the &quot;config.inc&quot; file, they would be able to see 
+              your database login and password, which is not a good thing. See 
+              your web server documentation on how to do this.</p>
+            <p class="body">There is an Apache .htaccess file included, but Apache 
+              might ignore it because of the &quot;AllowOverride None&quot; in 
+              your httpd.conf. Either change &quot;AllowOverride None&quot; to 
+              &quot;AllowOverride Limit&quot;, create a new &lt;Directory&gt; 
+              entry with the contents of the .htaccess file in it, or add the 
+              contents of the .htaccess to httpd.conf where it says &quot;&lt;Files 
+              ~ &quot;^\.ht&quot;&gt;&quot;. And then read the Apache docs five 
+              or six times, until you know what you just did.</p>
+            <p class="body">You should protect &quot;config.inc&quot; to only 
+              allow the web server to read it. For example: # chown httpd config.inc; 
+              chmod 400 config.inc</p>
+            <p class="body">The script &quot;testdata.php&quot; is for testing 
+              only. Do not leave it in a directory accessible to your web server. 
+              Anyone running this will add a large number of test entries to your 
+              database, regardless of authentication, and book all your rooms 
+              to people you've never heard of.</p>
+            <p class="body">$Id: INSTALL,v 1.10 2001/02/25 01:34:20 lbayuk Exp 
+              $</p>
+            <p></p>
+            <!-- #EndEditable --> </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td height="17"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

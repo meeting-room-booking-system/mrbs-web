@@ -1,0 +1,37 @@
+.topbar {  
+   font-weight: bold; 
+   color: #FFFFFF; 
+   font-family: Verdana, Arial, Helvetica, sans-serif; 
+   font-size: 12px
+}
+
+.topbar a {
+   color: white;
+   text-decoration: none;
+}
+
+.topbar a:hover {
+   color: red;
+   text-decoration: underline;
+}
+
+
+.body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px
+; clip:   rect(   )
+}
+
+h1 {
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 18px;
+  font-weight: bold;
+  color: #9999CC
+}
+
+h2 {
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 16px;
+  font-weight: bold;
+  color: #9999CC
+}
