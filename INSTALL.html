@@ -53,103 +53,83 @@
         <tr>
           <td height="337"></td>
           <td colspan="3" valign="top"><!-- #BeginEditable "body" --> 
-            
             <h2>Requirements</h2>
-              
             <p class="body">MRBS works with both MySQL and PostgreSQL database 
               systems. You must have PHP with support for your chosen database 
               system installed and working for this application. See the PHP (<a href="http://www.php.net">www.php.net</a>), 
               MySQL (<a href="http://www.mysql.com/">www.mysql.com</a>), and PostgreSQL 
               (<a href="http://www.postgresql.org/">www.postgresql.org</a>) sites 
               for more info on setting these up. You need to know how to install, 
-              secure, run, maintain, and back up your chosen database system.</p> 
+              secure, run, maintain, and back up your chosen database system.</p>
             <p class="body">No optional PHP packages (other than the database 
-              system) are required for
-              this application. This version of MRBS was tested with PHP 4.0.4, 
-              and there
-              are reports of it working with PHP 3.0.12 and higher. (If you use 
-              PHP3,
-              you must configure your web server to process *.php files (as well 
-              as the
-              default *.php3 files) using PHP.)</p>
+              system) are required for this application. This version of MRBS 
+              was tested with PHP 4.2.0. Older versions of PHP4 may work, but 
+              PHP3 likely won't.</p>
             <p class="body">You can run PHP either as a CGI or an Apache module. 
-              You'll get better
-              performance with PHP setup as a module. Not only will you not have 
-              to
-              deal with the CGI performance hit, but you'll be able to use PHP's
-              database connection pooling. However, be careful that you don't 
-              exceed
-              the maximum number of connections allowed to your database; with 
-              connection
-              pooling PHP/Apache can potentially create a connection from each 
-              Apache
-              child server to the database.</p>
+              You'll get better performance with PHP setup as a module. Not only 
+              will you not have to deal with the CGI performance hit, but you'll 
+              be able to use PHP's database connection pooling. However, be careful 
+              that you don't exceed the maximum number of connections allowed 
+              to your database; with connection pooling PHP/Apache can potentially 
+              create a connection from each Apache child server to the database.</p>
             <p class="body">If you are using PHP as an Apache module, you probably 
-              want to ensure that
-              the Apache MaxRequestsPerChild is not set to 0, in case of undetected 
-              memory
-              leaks in PHP or MRBS.</p>
+              want to ensure that the Apache MaxRequestsPerChild is not set to 
+              0, in case of undetected memory leaks in PHP or MRBS.</p>
             <p class="body">If you use MySQL, versions 3.22.32 and 3.23.23 have 
-              been tested and reported
-              to work.</p>
-            <p class="body">If you use PostgreSQL, you need at least version 7.0, 
-              and version 7.0.3 has
               been tested and reported to work.</p>
+            <p class="body">If you use PostgreSQL, you need at least version 7.0, 
+              and version 7.0.3 has been tested and reported to work.</p>
             <h2>File Unpacking</h2>
             <p class="body">To install MRBS, just unpack the distribution into 
               a temporary directory, then copy the files in the &quot;web&quot; 
               subdirectory into a new directory somewhere your web server can 
-              find them.
+              find them. 
             <p class="body">For example:</p>
-            <p class="body">Unpack the software into a new temporary directory,
-                something like this:</p>              
- <pre>
+            <p class="body">Unpack the software into a new temporary directory, 
+              something like this:</p>
+            <pre>
  $ tar -xvzf ~/download/mrbs-1.0.tgz (or whatever version)              
  $ cd mrbs-1.0 (or whatever version)
  </pre>
             <p class="body">If you are upgrading from a previous version of MRBS, 
-              you should save your
-              &quot;config.inc&quot; file so you can compare and update the new 
-              file with your
-              site-specific changes. Then rename your existing MRBS web server 
-              directory.
-              For example:</p>
-<pre>
+              you should save your &quot;config.inc&quot; file so you can compare 
+              and update the new file with your site-specific changes. Then rename 
+              your existing MRBS web server directory. For example:</p>
+            <pre>
  $ cp /var/lib/apache/htdocs/mrbs/config.inc config.site.inc
  $ mv /var/lib/apache/htdocs/mrbs /var/lib/apache/htdocs/mrbs.old</pre>
             <p class="body">Now install MRBS by copying the contents of the &quot;web&quot; 
               subdirectory of the distribution somewhere your web server can find 
-              it. For example:</p><pre>
+              it. For example:</p>
+            <pre>
  $ cp -r web /var/lib/apache/htdocs/mrbs</pre>
             <h2>Database Setup</h2>
-            <p class="body">
-              If you are upgrading from MRBS version 0.7 or later, and continuing 
-              to use MySQL, your database is already set up, so you can skip to 
-              the Application Setup section.</p>
+            <p class="body"> If you are upgrading from MRBS version 0.7 or later, 
+              and continuing to use MySQL, your database is already set up, so 
+              you can skip to the Application Setup section.</p>
             <p class="body">For a new install:</p>
             <p class="body">You can place the MRBS database tables in an existing 
-              database or
-              create a new database with the following:</p>
-<pre>
+              database or create a new database with the following:</p>
+            <pre>
  [MySQL] $ mysqladmin create mrbs
  [PostgreSQL] $ createdb mrbs</pre>
-             <p class="body"> (This will create a database named &quot;mrbs&quot;, but you can 
-              use any name.)</p>
+            <p class="body"> (This will create a database named &quot;mrbs&quot;, 
+              but you can use any name.)</p>
             <p class="body">Create the MRBS tables using the supplied tables.*.sql 
-              file:</p><pre>
+              file:</p>
+            <pre>
  [MySQL] $ mysql mrbs &lt; tables.my.sql
  [PostgreSQL] $ psql -a -f tables.pg.sql mrbs</pre>
-             <p class="body"> where &quot;mrbs&quot; is the name of your database (mentioned above).
-              This will create all the needed tables.
-              You may need to set rights on the tables; for PostgreSQL see &quot;grant.pg.sql&quot;.
+            <p class="body"> where &quot;mrbs&quot; is the name of your database 
+              (mentioned above). This will create all the needed tables. You may 
+              need to set rights on the tables; for PostgreSQL see &quot;grant.pg.sql&quot;. 
               If you need to delete the tables, for PostgreSQL see &quot;destroy.pg.sql&quot;.</p>
             <p class="body">The tables are now empty and ready for use. If you 
-              want to add a few sample
-              areas and rooms without going through the Admin function, use this 
-              script:</p><pre>
+              want to add a few sample areas and rooms without going through the 
+              Admin function, use this script:</p>
+            <pre>
  [MySQL] $ mysql mrbs &lt; sample-data.sql
  [PostgreSQL] $ psql -a -f sample-data.sql mrbs</pre>
-             
             <p class="body"> Substitute the database name you used for &quot;mrbs&quot;. 
               This script is only for use in a newly initialized database! (It 
               will not work properly in a database where the ID counters are greater 
@@ -162,8 +142,7 @@
               (for PostgreSQL). Read the comments at the top of the scripts before 
               using them.</p>
             <h2>Application Setup</h2>
-            <p class="body"> 
-              Next, you will need to customize the file &quot;config.inc&quot;...</p>
+            <p class="body"> Next, you will need to customize the file &quot;config.inc&quot;...</p>
             <p class="body">If you are upgrading from a previous version of MRBS, 
               use your saved copy of &quot;config.inc&quot; as a reference. Do 
               not just use your old config.inc file, however, because there changes 
@@ -176,9 +155,11 @@
             <p class="body">Then define your database connection parameters. Set 
               the values for:</p>
             <p class="body"> $db_host = The hostname that the database server 
-              is running on. <br>$db_database = The name of the database containing 
-              the MRBS tables. <br>$db_login = The database login username <br>$db_password 
-              = The database login password for the above login username</p>
+              is running on. <br>
+              $db_database = The name of the database containing the MRBS tables. 
+              <br>
+              $db_login = The database login username <br>
+              $db_password = The database login password for the above login username</p>
             <p class="body">If the database server and web server are the same 
               machine, use $db_host=&quot;localhost&quot;. Or, with PostgreSQL 
               only, you can use $db_host=&quot;&quot; to use Unix Domain Sockets 
@@ -191,11 +172,21 @@
               a connection open. Then, users will randomly get errors when trying 
               connecting to MRBS. If you would rather use non-persistent database 
               connections, uncomment the line in &quot;config.inc&quot; which 
-              sets the $db_nopersist variable.</p>
+              sets the $db_nopersist variable. </p>
+            <p class="body">With newer versions of PHP the "register_globals" 
+              option must be set to "on". This can be done in the php.ini file, 
+              or in other ways supported by PHP. I set it by adding this to my 
+              Apache httpd.conf: </p>
+            <blockquote> 
+              <p class="body"> &lt;Directory /&gt;<br>
+                php_flag register_globals on<br>
+                &lt;/Directory&gt;</p>
+            </blockquote>
             <p class="body"> 2. Site Identification:</p>
             <p class="body">Specify your company or site name, and contact information. 
               The company name is displayed at the top of each page, and the contact 
-              information is displayed in the help file.<br><br>
+              information is displayed in the help file.<br>
+              <br>
               $mrbs_admin = &quot;Your Administrator&quot;; <br>
               $mrbs_admin_email = &quot;admin_email@your.org&quot;; <br>
               $mrbs_company = &quot;Your Company&quot;;</p>
@@ -276,8 +267,8 @@
               Anyone running this will add a large number of test entries to your 
               database, regardless of authentication, and book all your rooms 
               to people you've never heard of.</p>
-            <p class="body">$Id: INSTALL,v 1.10 2001/02/25 01:34:20 lbayuk Exp 
-              $</p>
+            <p class="body">Id: INSTALL,v 1.12 2002/05/11 11:56:39 nambit Exp 
+            </p>
             <p></p>
             <!-- #EndEditable --> </td>
           <td></td>
