@@ -1,7 +1,7 @@
-<html><!-- #BeginTemplate "/Templates/main.dwt" --><!-- DW6 -->
+<html>
 <head>
-<!-- #BeginEditable "doctitle" --> 
-<title>MRBS: </title>
+<!-- #BeginEditable "doctitle" -->
+<title>MRBS: AUTHENTICATION</title>
 <!-- #EndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="mrbs.css" type="text/css">
@@ -16,12 +16,15 @@
           <td valign="top" height="24" colspan="5"> 
             <table width="100%" border="0" cellpadding="3" cellspacing="0">
               <tr> 
-                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF"><a href="index.html">Introduction</a> 
-                  | <a href="demo.html">Demo</a> | <a href="sshots.html">Screenshots</a> 
-                  | <a href="download.html">Download</a> | <a href="docs.html">Documentation</a> 
-                  | 
-                  <!-- <a href="../testimonials.html">Testimonials</a> | -->
-                  <a href="ChangeLog.html">NEWS</a>| <a href="donate.html">Donate</a></td>
+                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF">
+                    <a href="index.html">Introduction</a> 
+                  | <a href="demo.html">Demo</a>
+                  | <a href="sshots.html">Screenshots</a> 
+                  | <a href="download.html">Download</a>
+                  | <a href="docs.html">Documentation</a> 
+                  | <a href="ChangeLog.html">NEWS</a>
+                  | <a href="donate.html">Donate</a>
+                </td>
               </tr>
             </table>
           </td>
@@ -35,7 +38,7 @@
         <tr> 
           <td height="34"></td>
           <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
-            <h1><!-- #BeginEditable "title" -->Authentication support<!-- #EndEditable --></h1>
+            <h1>MRBS: Authentication support</h1>
           </td>
         </tr>
         <tr> 
@@ -52,9 +55,8 @@
         </tr>
         <tr>
           <td height="337"></td>
-          <td colspan="3" valign="top"><!-- #BeginEditable "body" -->
-            <PRE>
-  <H4>MRBS Users Authentication</H4>
+          <td colspan="3" valign="top">
+            <pre>MRBS Users Authentication
 =========================
 
 Principles
@@ -63,18 +65,18 @@ Principles
 User interface
 --------------
 
-MRBS pages can be accessed and used, depending on the user's access level.
+MRBS pages can be accessed and used, depending on the user&#039;s access level.
 
 There are three levels of access in MRBS:
 
- &nbsp; &nbsp;- Level 0 - Unknown user
- &nbsp; &nbsp;- Level 1 - Authenticated user
- &nbsp; &nbsp;- Level 2 - Administrator
+    - Level 0 - Unknown user
+    - Level 1 - Authenticated user
+    - Level 2 - Administrator
 
 Level 0 users can view most pages, but cannot make any change.
 
 Level 1 users can make bookings, and can change their own bookings.
-Level 2 users - The administrators - are allowed to modify other people's
+Level 2 users - The administrators - are allowed to modify other people&#039;s
 bookings. Administrators also have the ability to add and remove rooms and
 areas.
 
@@ -83,7 +85,7 @@ password. Then it connects to an authentication server, which is responsible
 for deciding if the user/password pair is valid. If it is, MRBS then checks if
 the name is in its list of administrators. Finally MRBS grants access to the
 page at the right level. The name and password are recorded for the duration of
-the session, and won't be asked for again.
+the session, and won&#039;t be asked for again.
 
 Configuration
 -------------
@@ -93,22 +95,22 @@ MRBS authentication configuration is done in file config.inc.php.
 This file contains a section for authentication parameters, where several
 choices must be made:
 
- &nbsp; &nbsp;- The session management scheme. (How to prompt for a user/password,
- &nbsp; &nbsp;and how keep track of it)
- &nbsp; &nbsp;- The authentication method. (What kind of server will verify the
- &nbsp; &nbsp;user/password validity)
- &nbsp; &nbsp;- The list of administrators.
+    - The session management scheme. (How to prompt for a user/password,
+    and how keep track of it)
+    - The authentication method. (What kind of server will verify the
+    user/password validity)
+    - The list of administrators.
 
 There are several alternative authentication methods. They differ by the type
 of authentication server they can connect to, and by the kind of program used
 for communicating with that server. Each method is implemented in a pluggable
 module. There are two general categories:
 
- &nbsp; &nbsp;- Internal PHP modules, which connect directly to an authentication
- &nbsp; &nbsp;server. These modules may require additional parameter settings in
- &nbsp; &nbsp;config.inc.php.
- &nbsp; &nbsp;- External programs, that do the same after being invoked by the
- &nbsp; &nbsp;special "ext" PHP authentication module.
+    - Internal PHP modules, which connect directly to an authentication
+    server. These modules may require additional parameter settings in
+    config.inc.php.
+    - External programs, that do the same after being invoked by the
+    special &quot;ext&quot; PHP authentication module.
 
 Internal PHP modules support the following kinds of authentication servers:
 LDAP servers; POP3 email servers; IMAP email servers; NIS servers ; NW servers.
@@ -123,7 +125,7 @@ Which authentication scheme to choose
 
 The right choice for you depends on where your users are:
 
-If they're all in a closed organization (A private company; a university; etc),
+If they&#039;re all in a closed organization (A private company; a university; etc),
 then this organization probably already has its own authentication service.
 MRBS can connect to several kinds of services, like LDAP servers; NT domain
 controllers; Netware servers; pop3 or imap mail servers; etc.
@@ -131,153 +133,153 @@ controllers; Netware servers; pop3 or imap mail servers; etc.
 PHP authentication modules
 --------------------------
 +------+------------------------+-------------------+------------------------+
-|Type &nbsp;|Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Pros &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Cons &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|Type  |Description             |Pros               |Cons                    |
 +------+------------------------+-------------------+------------------------+
-|none &nbsp;|Every user is accepted. | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|This was for example the| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|case of the MRBS 1.1 IP | &nbsp;- Very simple to | &nbsp;- No security at all. |
-| &nbsp; &nbsp; &nbsp;|address and computer &nbsp; &nbsp;| &nbsp;setup. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|name "authentications". | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|none  |Every user is accepted. |                   |                        |
+|      |This was for example the|                   |                        |
+|      |case of the MRBS 1.1 IP |  - Very simple to |  - No security at all. |
+|      |address and computer    |  setup.           |                        |
+|      |name &quot;authentications&quot;. |                   |                        |
 +------+------------------------+-------------------+------------------------+
-|config|Users are listed in &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|config.inc.php. &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Simple to &nbsp; &nbsp; &nbsp;| &nbsp;- Users cannot update |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;setup. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;their own password. &nbsp; |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Not dependant &nbsp;| &nbsp;- Administrators &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;on an external &nbsp; | &nbsp;manually set the user |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;authentication &nbsp; | &nbsp;passwords, which is &nbsp; |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;server, so usable| &nbsp;against normal &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;on the Internet. | &nbsp;confidentiality rules.|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|config|Users are listed in     |                   |                        |
+|      |config.inc.php.         |                   |                        |
+|      |                        |  - Simple to      |  - Users cannot update |
+|      |                        |  setup.           |  their own password.   |
+|      |                        |                   |                        |
+|      |                        |  - Not dependant  |  - Administrators      |
+|      |                        |  on an external   |  manually set the user |
+|      |                        |  authentication   |  passwords, which is   |
+|      |                        |  server, so usable|  against normal        |
+|      |                        |  on the Internet. |  confidentiality rules.|
+|      |                        |                   |                        |
 +------+------------------------+-------------------+------------------------+
-|db &nbsp; &nbsp;|Users validated using &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|web-based authentication| &nbsp;- Simple to setup| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|based on a table in mrbs| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- Does not use &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|database &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Built in MRBS &nbsp;| &nbsp;existing directory &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;but more secure &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;than 'config' &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- easy to &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;configure &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|db    |Users validated using   |                   |                        |
+|      |web-based authentication|  - Simple to setup|                        |
+|      |based on a table in mrbs|                   |  - Does not use        |
+|      |database                |  - Built in MRBS  |  existing directory    |
+|      |                        |  but more secure  |                        |
+|      |                        |  than &#039;config&#039;    |                        |
+|      |                        |                   |                        |
+|      |                        |  - easy to        |                        |
+|      |                        |  configure        |                        |
 +------+------------------------+-------------------+------------------------+
-|ldap &nbsp;|Users validated using &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|LDAP directory services.| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- For corporate &nbsp;| &nbsp;- Does not work on the|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;intranets using &nbsp;| &nbsp;Internet? &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;LDAP directory &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;services. &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|ldap  |Users validated using   |                   |                        |
+|      |LDAP directory services.|                   |                        |
+|      |                        |  - For corporate  |  - Does not work on the|
+|      |                        |  intranets using  |  Internet?             |
+|      |                        |  LDAP directory   |                        |
+|      |                        |  services.        |                        |
+|      |                        |                   |                        |
 +------+------------------------+-------------------+------------------------+
-|pop3 &nbsp;|Users validated by a &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|POP3 mail server. &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- For groups of &nbsp;| &nbsp;- Technically works on|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;users all having | &nbsp;the Internet, but it's|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;an Email address | &nbsp;unlikely all users of |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;on the same &nbsp; &nbsp; &nbsp;| &nbsp;a site will have an &nbsp; |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;server. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;Email address on the &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;same mail server. &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|pop3  |Users validated by a    |                   |                        |
+|      |POP3 mail server.       |                   |                        |
+|      |                        |  - For groups of  |  - Technically works on|
+|      |                        |  users all having |  the Internet, but it&#039;s|
+|      |                        |  an Email address |  unlikely all users of |
+|      |                        |  on the same      |  a site will have an   |
+|      |                        |  server.          |  Email address on the  |
+|      |                        |                   |  same mail server.     |
+|      |                        |                   |                        |
 +------+------------------------+-------------------+------------------------+
-|imap &nbsp;|Users validated by an &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|IMAP mail server. &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- For groups of &nbsp;| &nbsp;- Technically works on|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;users all having | &nbsp;the Internet, but it's|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;an Email address | &nbsp;unlikely all users of |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;on the same &nbsp; &nbsp; &nbsp;| &nbsp;a site will have an &nbsp; |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;server. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;Email address on the &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;same mail server. &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|imap  |Users validated by an   |                   |                        |
+|      |IMAP mail server.       |                   |                        |
+|      |                        |  - For groups of  |  - Technically works on|
+|      |                        |  users all having |  the Internet, but it&#039;s|
+|      |                        |  an Email address |  unlikely all users of |
+|      |                        |  on the same      |  a site will have an   |
+|      |                        |  server.          |  Email address on the  |
+|      |                        |                   |  same mail server.     |
+|      |                        |                   |                        |
 +------+------------------------+-------------------+------------------------+
-|nis &nbsp; |Users validated by NIS &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- This extension is &nbsp; |
-| &nbsp; &nbsp; &nbsp;|server (user contrib.) &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;not available on &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- ? &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;Windows platforms. &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|nis   |Users validated by NIS  |                   |  - This extension is   |
+|      |server (user contrib.)  |                   |  not available on      |
+|      |                        |  - ?              |  Windows platforms.    |
+|      |                        |                   |                        |
 +------+------------------------+-------------------+------------------------+
-|nw &nbsp; &nbsp;|Users validated by &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- TThis is only going |
-| &nbsp; &nbsp; &nbsp;|Netware server &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; to work on Linux. &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|(user contrib.) &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- ? &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|nw    |Users validated by      |                   |  - TThis is only going |
+|      |Netware server          |                   |   to work on Linux.    |
+|      |(user contrib.)         |  - ?              |                        |
+|      |                        |                   |                        |
 +------+------------------------+-------------------+------------------------+
-|ext &nbsp; |Validation is delegated | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;|to an external program. | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Lots of &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Most available &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;possibilities. &nbsp; | &nbsp;programs work only &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;under Unix. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|ext   |Validation is delegated |                   |                        |
+|      |to an external program. |                   |                        |
+|      |                        |  - Lots of        |  - Most available      |
+|      |                        |  possibilities.   |  programs work only    |
+|      |                        |                   |  under Unix.           |
+|      |                        |                   |                        |
 +------+------------------------+-------------------+------------------------+
 
 External authentication programs
 --------------------------------
 +------------------+------------------+-----------------+-------------------+
-|Program &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Description &nbsp; &nbsp; &nbsp; |Pros &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Cons &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|Program           |Description       |Pros             |Cons               |
 +------------------+------------------+-----------------+-------------------+
-|badpw.pl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Perl script with &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|usernames and &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|passwords hard &nbsp; &nbsp;| &nbsp;- Very simple &nbsp;| &nbsp;- No security at |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|coded in. &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;to setup. &nbsp; &nbsp; &nbsp;| &nbsp;all. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Not for use this &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|in a production &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|environment - it's| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|just to &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|demonstrate. &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|badpw.pl          |Perl script with  |                 |                   |
+|                  |usernames and     |                 |                   |
+|                  |passwords hard    |  - Very simple  |  - No security at |
+|                  |coded in.         |  to setup.      |  all.             |
+|                  |Not for use this  |                 |                   |
+|                  |in a production   |                 |                   |
+|                  |environment - it&#039;s|                 |                   |
+|                  |just to           |                 |                   |
+|                  |demonstrate.      |                 |                   |
 +------------------+------------------+-----------------+-------------------+
-|crypt_passwd.pl &nbsp; |Idem, but with &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|passwords &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|encrypted. &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|crypt_passwd.pl   |Idem, but with    |                 |                   |
+|                  |passwords         |                 |                   |
+|                  |encrypted.        |                 |                   |
 +------------------+------------------+-----------------+-------------------+
-|smb_auth &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Uses Samba SMB API| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|to authenticate &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|users at an NT &nbsp; &nbsp;| &nbsp;- For corporate| &nbsp;- Only works on a|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|domain controller.| &nbsp;intranets using| &nbsp;Unix server. &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|smb_auth.c source | &nbsp;NT domain &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|provided. &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;security. &nbsp; &nbsp; &nbsp;| &nbsp;- Requires a Unix|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;server in an &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;organization &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;using Windows &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;security. &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;Vicious! &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|smb_auth          |Uses Samba SMB API|                 |                   |
+|                  |to authenticate   |                 |                   |
+|                  |users at an NT    |  - For corporate|  - Only works on a|
+|                  |domain controller.|  intranets using|  Unix server.     |
+|                  |smb_auth.c source |  NT domain      |                   |
+|                  |provided.         |  security.      |  - Requires a Unix|
+|                  |                  |                 |  server in an     |
+|                  |                  |                 |  organization     |
+|                  |                  |                 |  using Windows    |
+|                  |                  |                 |  security.        |
+|                  |                  |                 |  Vicious!         |
+|                  |                  |                 |                   |
 +------------------+------------------+-----------------+-------------------+
-|nwauth &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Connects to a &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Netware server. &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- For corporate| &nbsp;- Only works on a|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;intranets using| &nbsp;Unix server. &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;Netware servers| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;security. &nbsp; &nbsp; &nbsp;| &nbsp;- Requires a Unix|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;server in an &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;organization &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;using Netware &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;security. &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;Vicious! &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|nwauth            |Connects to a     |                 |                   |
+|                  |Netware server.   |                 |                   |
+|                  |                  |  - For corporate|  - Only works on a|
+|                  |                  |  intranets using|  Unix server.     |
+|                  |                  |  Netware servers|                   |
+|                  |                  |  security.      |  - Requires a Unix|
+|                  |                  |                 |  server in an     |
+|                  |                  |                 |  organization     |
+|                  |                  |                 |  using Netware    |
+|                  |                  |                 |  security.        |
+|                  |                  |                 |  Vicious!         |
+|                  |                  |                 |                   |
 +------------------+------------------+-----------------+-------------------+
-|auth_ldap.pl &nbsp; &nbsp; &nbsp;|Uses LDAP &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- The PHP ldap &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;module is &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;recommended &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;instead of this &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;one. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|auth_ldap.pl      |Uses LDAP         |                 |                   |
+|                  |                  |                 |                   |
+|                  |                  |                 |  - The PHP ldap   |
+|                  |                  |                 |  module is        |
+|                  |                  |                 |  recommended      |
+|                  |                  |                 |  instead of this  |
+|                  |                  |                 |  one.             |
+|                  |                  |                 |                   |
 +------------------+------------------+-----------------+-------------------+
-|auth_ldapsearch.pl|Uses LDAP &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- The PHP ldap &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;module is &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;recommended &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;instead of this &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;one. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|auth_ldapsearch.pl|Uses LDAP         |                 |                   |
+|                  |                  |                 |                   |
+|                  |                  |                 |  - The PHP ldap   |
+|                  |                  |                 |  module is        |
+|                  |                  |                 |  recommended      |
+|                  |                  |                 |  instead of this  |
+|                  |                  |                 |  one.             |
+|                  |                  |                 |                   |
 +------------------+------------------+-----------------+-------------------+
-|auth_pam.pl &nbsp; &nbsp; &nbsp; |Uses PAM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- For Unix &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;system uses PAM| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;(especially &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;Linux, but also| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;SUN Solaris) &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+|auth_pam.pl       |Uses PAM          |                 |                   |
+|                  |                  |                 |                   |
+|                  |                  |  - For Unix     |                   |
+|                  |                  |  system uses PAM|                   |
+|                  |                  |  (especially    |                   |
+|                  |                  |  Linux, but also|                   |
+|                  |                  |  SUN Solaris)   |                   |
+|                  |                  |                 |                   |
 +------------------+------------------+-----------------+-------------------+
 
 Which session scheme to choose
@@ -285,86 +287,86 @@ Which session scheme to choose
 
 The session scheme is the way the user and password is queried and recorded.
 
-This one is a no-brainer. Use the "php" session scheme. The others are left in
+This one is a no-brainer. Use the &quot;php&quot; session scheme. The others are left in
 for historical reasons:
 
 +-------+------------------------------+--------------------+----------------+
-|Type &nbsp; |Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Pros &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Cons &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|Type   |Description                   |Pros                |Cons            |
 +-------+------------------------------+--------------------+----------------+
-|php &nbsp; &nbsp;|Use PHP's native session &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |handling. Recommended. &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |(Session data is usually saved| &nbsp;- Recommended by &nbsp;| &nbsp;- Any? &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |in a file on the server) &nbsp; &nbsp; &nbsp;| &nbsp;PHP doctors, PHP &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;moms, etc. &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|php    |Use PHP&#039;s native session      |                    |                |
+|       |handling. Recommended.        |                    |                |
+|       |(Session data is usually saved|  - Recommended by  |  - Any?        |
+|       |in a file on the server)      |  PHP doctors, PHP  |                |
+|       |                              |  moms, etc.        |                |
+|       |                              |                    |                |
 +-------+------------------------------+--------------------+----------------+
-|http &nbsp; |Use the "HTTP basic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |authentication" protocol to &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |get a user/password popup. &nbsp; &nbsp;| &nbsp;- Simple. &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- Incompatible|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;with IIS web &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- This was the &nbsp; &nbsp;| &nbsp;servers. &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;default in MRBS &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;1.1 for most &nbsp; &nbsp; &nbsp;| &nbsp;- No way to &nbsp; |
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;authentication &nbsp; &nbsp;| &nbsp;log out. &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;schemes. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|http   |Use the &quot;HTTP basic           |                    |                |
+|       |authentication&quot; protocol to   |                    |                |
+|       |get a user/password popup.    |  - Simple.         |  - Incompatible|
+|       |                              |                    |  with IIS web  |
+|       |                              |  - This was the    |  servers.      |
+|       |                              |  default in MRBS   |                |
+|       |                              |  1.1 for most      |  - No way to   |
+|       |                              |  authentication    |  log out.      |
+|       |                              |  schemes.          |                |
+|       |                              |                    |                |
 +-------+------------------------------+--------------------+----------------+
-|cookies|Save the user/password in &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |cookies on the client's web &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |browser. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Less demanding &nbsp;| &nbsp;- Some users &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;for the server &nbsp; &nbsp;| &nbsp;disable &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;than PHP native &nbsp; | &nbsp;cookies on &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;sessions. (No &nbsp; &nbsp; | &nbsp;their browser.|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;files stored) &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|cookies|Save the user/password in     |                    |                |
+|       |cookies on the client&#039;s web   |                    |                |
+|       |browser.                      |  - Less demanding  |  - Some users  |
+|       |                              |  for the server    |  disable       |
+|       |                              |  than PHP native   |  cookies on    |
+|       |                              |  sessions. (No     |  their browser.|
+|       |                              |  files stored)     |                |
+|       |                              |                    |                |
 +-------+------------------------------+--------------------+----------------+
-|nt &nbsp; &nbsp; |The users identity is queried | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |AND validated by an NT/IIS &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |server running in &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- For corporate &nbsp; | &nbsp;- Incompatible|
-| &nbsp; &nbsp; &nbsp; |authenticated access mode. &nbsp; &nbsp;| &nbsp;intranets using &nbsp; | &nbsp;with Linux &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |(That is anonymous access &nbsp; &nbsp; | &nbsp;NT/2000/XP servers| &nbsp;servers by &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |disabled, or Access Control &nbsp; | &nbsp;in authenticated &nbsp;| &nbsp;definition. &nbsp; |
-| &nbsp; &nbsp; &nbsp; |Lists enabled) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;access mode. &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Does not &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |Use in combination with &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;work on the &nbsp; |
-| &nbsp; &nbsp; &nbsp; |authentication "none", as the | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;Internet. &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; |authentication is already done| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |by IIS during the session &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Does not &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |initiation. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;allow &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;anonymous &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;browsing. &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|nt     |The users identity is queried |                    |                |
+|       |AND validated by an NT/IIS    |                    |                |
+|       |server running in             |  - For corporate   |  - Incompatible|
+|       |authenticated access mode.    |  intranets using   |  with Linux    |
+|       |(That is anonymous access     |  NT/2000/XP servers|  servers by    |
+|       |disabled, or Access Control   |  in authenticated  |  definition.   |
+|       |Lists enabled)                |  access mode.      |                |
+|       |                              |                    |  - Does not    |
+|       |Use in combination with       |                    |  work on the   |
+|       |authentication &quot;none&quot;, as the |                    |  Internet.     |
+|       |authentication is already done|                    |                |
+|       |by IIS during the session     |                    |  - Does not    |
+|       |initiation.                   |                    |  allow         |
+|       |                              |                    |  anonymous     |
+|       |                              |                    |  browsing.     |
+|       |                              |                    |                |
 +-------+------------------------------+--------------------+----------------+
-|omni &nbsp; |The users identity is queried | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |AND validated by an Omnicron &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |OmniHTTPd web server. &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- For users of &nbsp; &nbsp;| &nbsp;- For users of|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;Omnicron OmniHTTPd| &nbsp;Omnicron &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |Use in combination with &nbsp; &nbsp; &nbsp; | &nbsp;web servers. &nbsp; &nbsp; &nbsp;| &nbsp;OmniHTTPd web |
-| &nbsp; &nbsp; &nbsp; |authentication "none", as &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;servers. &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |authentication is already done| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |by OmniHTTPd during the &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |session initiation. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|omni   |The users identity is queried |                    |                |
+|       |AND validated by an Omnicron  |                    |                |
+|       |OmniHTTPd web server.         |  - For users of    |  - For users of|
+|       |                              |  Omnicron OmniHTTPd|  Omnicron      |
+|       |Use in combination with       |  web servers.      |  OmniHTTPd web |
+|       |authentication &quot;none&quot;, as     |                    |  servers.      |
+|       |authentication is already done|                    |                |
+|       |by OmniHTTPd during the       |                    |                |
+|       |session initiation.           |                    |                |
 +-------+------------------------------+--------------------+----------------+
-|ip &nbsp; &nbsp; |Users are identified by the IP| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |address of their computer. &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Easy to setup, &nbsp;| &nbsp;- Incompatible|
-| &nbsp; &nbsp; &nbsp; |Use in combination with &nbsp; &nbsp; &nbsp; | &nbsp;for MRBS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;with DHCP. &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |authentication "none" or &nbsp; &nbsp; &nbsp;| &nbsp;evaluation. &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |"config". &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;- Users cannot|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;make changes &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;from a &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;different &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;computer. &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|ip     |Users are identified by the IP|                    |                |
+|       |address of their computer.    |                    |                |
+|       |                              |  - Easy to setup,  |  - Incompatible|
+|       |Use in combination with       |  for MRBS          |  with DHCP.    |
+|       |authentication &quot;none&quot; or      |  evaluation.       |                |
+|       |&quot;config&quot;.                     |                    |  - Users cannot|
+|       |                              |                    |  make changes  |
+|       |                              |                    |  from a        |
+|       |                              |                    |  different     |
+|       |                              |                    |  computer.     |
+|       |                              |                    |                |
 +-------+------------------------------+--------------------+----------------+
-|host &nbsp; |Users are identified by the &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |DNS name of their host &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |computer. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;- Easy to setup, &nbsp;| &nbsp;- Users cannot|
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;for MRBS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;make changes &nbsp;|
-| &nbsp; &nbsp; &nbsp; |Use in combination of &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;evaluation. &nbsp; &nbsp; &nbsp; | &nbsp;from a &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; |authentication "none" or &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;different &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; |"config". &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;computer. &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|host   |Users are identified by the   |                    |                |
+|       |DNS name of their host        |                    |                |
+|       |computer.                     |  - Easy to setup,  |  - Users cannot|
+|       |                              |  for MRBS          |  make changes  |
+|       |Use in combination of         |  evaluation.       |  from a        |
+|       |authentication &quot;none&quot; or      |                    |  different     |
+|       |&quot;config&quot;.                     |                    |  computer.     |
+|       |                              |                    |                |
 +-------+------------------------------+--------------------+----------------+
 
 How to configure authentication
@@ -373,16 +375,16 @@ How to configure authentication
 Users
 -----
 
-You don't configure users in MRBS. Users (and their password) are configured in
+You don&#039;t configure users in MRBS. Users (and their password) are configured in
 an external authentication server.
 
 Exceptions:
 
-- The "config" authentication is managed by MRBS, using a list of names and
-passwords in config.inc.php. This is done by specifying: $auth["user"][
-"username1"] = "password1"; $auth["user"]["username2"] = "password2";
+- The &quot;config&quot; authentication is managed by MRBS, using a list of names and
+passwords in config.inc.php. This is done by specifying: $auth[&quot;user&quot;][
+&quot;username1&quot;] = &quot;password1&quot;; $auth[&quot;user&quot;][&quot;username2&quot;] = &quot;password2&quot;;
 etc
-- The "db" authentication is managed by MRBS, using a list of names and
+- The &quot;db&quot; authentication is managed by MRBS, using a list of names and
 passwords stored in mrbs database.
 
 Administrators
@@ -392,19 +394,19 @@ Prerequisite: Administrators are also users. They must have a valid user name
 and password in the selected authentication server.
 
 Administrators are defined in config.inc.php. This is done by specifying:
-$auth["admin"][] = "username1";
+$auth[&quot;admin&quot;][] = &quot;username1&quot;;
 
-$auth["admin"][] = "username2";
+$auth[&quot;admin&quot;][] = &quot;username2&quot;;
 etc
 
 You can have as many administrators as you want in this list.
 
 The default MRBS configuration uses PHP sessions, and a user list in
-config.inc.php for authentication. It defines three demo users 'alice' 'bob'
-and 'administrator'. The 'administrator' user is also in the administrators
+config.inc.php for authentication. It defines three demo users &#039;alice&#039; &#039;bob&#039;
+and &#039;administrator&#039;. The &#039;administrator&#039; user is also in the administrators
 list by default. You will almost surely want to change these.
 
-If IP authentication is used, for "username" use the IP address.
+If IP authentication is used, for &quot;username&quot; use the IP address.
 
 In this case, make sure to define the local host (127.0.0.1) as an
 administrator. This allows to conveniently administer the reservation system
@@ -413,10 +415,10 @@ locally on the server.
 Session type
 ------------
 
-Choose one type in the list above, and set the $auth["session"] parameter in
+Choose one type in the list above, and set the $auth[&quot;session&quot;] parameter in
 config.inc.php. Example:
 
-$auth["session"] = "php";
+$auth[&quot;session&quot;] = &quot;php&quot;;
 
 Authentication type
 -------------------
@@ -426,10 +428,10 @@ Choose the internal authentication module you want.
 Internal PHP modules
 --------------------
 
-If it's an internal PHP module, set the $auth["type"] parameter in
+If it&#039;s an internal PHP module, set the $auth[&quot;type&quot;] parameter in
 confing.inc.php. Example:
 
-$auth["type"] = "pop3";
+$auth[&quot;type&quot;] = &quot;pop3&quot;;
 
 Then set the type-specific parameters in config.inc.php. See details in the
 authentication descriptions below.
@@ -437,21 +439,21 @@ authentication descriptions below.
 External programs
 -----------------
 
-If you want to use an external authentication program, set $auth["type"] =
-"ext"; and set the additional parameters:
+If you want to use an external authentication program, set $auth[&quot;type&quot;] =
+&quot;ext&quot;; and set the additional parameters:
 
- &nbsp; &nbsp;- The name of the selected program in $auth["prog"].
- &nbsp; &nbsp;Don't forget to prefix it with "./" under Unix and ensure that the
- &nbsp; &nbsp;program is executable by the "user" that the webserver runs as.
- &nbsp; &nbsp;Example:
- &nbsp; &nbsp;$auth["prog"] = "./smb_auth";
+    - The name of the selected program in $auth[&quot;prog&quot;].
+    Don&#039;t forget to prefix it with &quot;./&quot; under Unix and ensure that the
+    program is executable by the &quot;user&quot; that the webserver runs as.
+    Example:
+    $auth[&quot;prog&quot;] = &quot;./smb_auth&quot;;
 
- &nbsp; &nbsp;- The arguments to pass to the above program in $auth["params"].
+    - The arguments to pass to the above program in $auth[&quot;params&quot;].
 
- &nbsp; &nbsp;$auth["params"] = "#USERNAME# #PASSWORD#";
- &nbsp; &nbsp;At runtime "#USERNAME#" and "#PASSWORD#" will get replaced with the username
- &nbsp; &nbsp;and password that the user entered to login. The string can contain other
- &nbsp; &nbsp;arguments in addition to the above two.
+    $auth[&quot;params&quot;] = &quot;#USERNAME# #PASSWORD#&quot;;
+    At runtime &quot;#USERNAME#&quot; and &quot;#PASSWORD#&quot; will get replaced with the username
+    and password that the user entered to login. The string can contain other
+    arguments in addition to the above two.
 
 Internal PHP Authentication Modules Configuration
 =================================================
@@ -462,22 +464,22 @@ Config Authentication
 Config Authentication uses no external server. It uses a list of users
 config.inc.php. Configure it as follows:
 
-$auth["type"] = "config";
+$auth[&quot;type&quot;] = &quot;config&quot;;
 
 Then add the list of users:
 
-$auth["user"]["username1"] = "password1";
+$auth[&quot;user&quot;][&quot;username1&quot;] = &quot;password1&quot;;
 
-$auth["user"]["username2"] = "password2";
+$auth[&quot;user&quot;][&quot;username2&quot;] = &quot;password2&quot;;
 etc
 
-Note: If the password contains the characters \ or $, then it's necessary to
+Note: If the password contains the characters \ or $, then it&#039;s necessary to
 prefix them with a \. For example for password pa$$word, use the string =
-"pa\$\$word".
+&quot;pa$$word&quot;.
 
-Finally put at least one of the users in the administrator's list.
+Finally put at least one of the users in the administrator&#039;s list.
 
-$auth["admin"][] = "username2";
+$auth[&quot;admin&quot;][] = &quot;username2&quot;;
 
 etc
 
@@ -494,13 +496,13 @@ Authentication method, usable on the Internet.
  the mrbs database.
 
  The authentication is done by the new module auth_db.inc.
- Enable it by setting $auth["type"]="db" in config.inc.php.
+ Enable it by setting $auth[&quot;type&quot;]=&quot;db&quot; in config.inc.php.
  This works only with session_php.inc or session_cookie.inc.
 
  Note: The names of administrators are still defined as usual by the
- $auth["admin"][] list in config.inc.php.
+ $auth[&quot;admin&quot;][] list in config.inc.php.
 
- The list of users is displayed by clicking on the new "User list" link in
+ The list of users is displayed by clicking on the new &quot;User list&quot; link in
  the logon box in the top banner.
  This list is managed by module edit_users.php.
  Administrators have the right to edit every entry, and add or remove users.
@@ -512,21 +514,21 @@ Authentication method, usable on the Internet.
  *** WARNING ***
 
  Whoever is doing the initial edition is assumed to have administrator
- rights AND MRBS USE "administrator" username. BE CAREFUL TO HAVE THIS
- ADMINISTRATOR DEFINED IN CONFIG.INC.PHP, OTHERWISE YOU WON'T BE ALLOWED
+ rights AND MRBS USE &quot;administrator&quot; username. BE CAREFUL TO HAVE THIS
+ ADMINISTRATOR DEFINED IN CONFIG.INC.PHP, OTHERWISE YOU WON&#039;T BE ALLOWED
  TO ENTER THE FIRST ADMINISTRATOR BELOW. After this step, you can remove
- the 'administrator' in config.inc.php.
+ the &#039;administrator&#039; in config.inc.php.
  *** END OF WARNING ***
 
  The first user he creates MUST be an administrator, already defined in
- config.inc.php. Note: There are two predefined ones, called "administrator"
- and "127.0.0.1".
- Once this initial user/administrator is defined, it's necessary to log on
+ config.inc.php. Note: There are two predefined ones, called &quot;administrator&quot;
+ and &quot;127.0.0.1&quot;.
+ Once this initial user/administrator is defined, it&#039;s necessary to log on
  using its name to create more users.
  
  Experimental:
 
- It's possible, and very simple, to add new application-specific fields in
+ It&#039;s possible, and very simple, to add new application-specific fields in
  the mrbs_users table.
  No change is needed in edit_users.php editor code.
  Edit_users.php will automatically detect the new fields and add columns for
@@ -550,20 +552,20 @@ Authentication method, usable on the Internet.
 POP3 Authentication
 -------------------
 
-MRBS has POP3 Authentication support. &nbsp;This method will first try to
+MRBS has POP3 Authentication support.  This method will first try to
 authenticate using APOP, and fall back to standard USER/PASS if that
-fails. &nbsp;This can be used by setting config.inc.php as follows:
+fails.  This can be used by setting config.inc.php as follows:
 
-$auth["type"] = "pop3";
+$auth[&quot;type&quot;] = &quot;pop3&quot;;
 
 Also you will need to change the section:
 
-# 'auth_pop3' configuration settings
+# &#039;auth_pop3&#039; configuration settings
 
 # Where is the POP3 server
-$pop3_host = "pop3-server-name";
+$pop3_host = &quot;pop3-server-name&quot;;
 # The POP3 server port
-$pop3_port = "110";
+$pop3_port = &quot;110&quot;;
 
 You will almost certainly not need to change the POP3 port number.
 
@@ -571,23 +573,23 @@ This method supports authentication against multiple servers using
 the syntax below:
 
 Multiple servers all using the same port:
-# 'auth_pop3' configuration settings
+# &#039;auth_pop3&#039; configuration settings
 # Where is the POP3 server
-$pop3_host[] = "localhost";
-$pop3_host[] = "myisp.co.uk";
+$pop3_host[] = &quot;localhost&quot;;
+$pop3_host[] = &quot;myisp.co.uk&quot;;
 # The POP3 server port
-$pop3_port = "110";
+$pop3_port = &quot;110&quot;;
 
 Multiple servers with the option of different ports for each server:
-# 'auth_pop3' configuration settings
+# &#039;auth_pop3&#039; configuration settings
 # Where is the POP3 server
-$pop3_host[] = "localhost";
-$pop3_host[] = "myisp.co.uk";
+$pop3_host[] = &quot;localhost&quot;;
+$pop3_host[] = &quot;myisp.co.uk&quot;;
 # The POP3 server ports in the same order as the hosts
-$pop3_port[] = "110";
-$pop3_port[] = "110";
+$pop3_port[] = &quot;110&quot;;
+$pop3_port[] = &quot;110&quot;;
 
-Note: if you use the later configuration then an equal number of hosts
+Note: if you use the latter configuration then an equal number of hosts
 and ports must be specified or authentication will fail.
 
 
@@ -599,81 +601,110 @@ Very similar in principle to the pop3 authentication.
 MRBS has IMAP Authentication support. This can be used by setting
 config.inc.php as follows:
 
-$auth["type"] = "imap";
+$auth[&quot;type&quot;] = &quot;imap&quot;;
 
 Also you will need to change the section:
 
-# 'auth_imap' configuration settings
+# &#039;auth_imap&#039; configuration settings
 
 # Where is the IMAP server
-$imap_host = "imap-server-name";
+$imap_host = &quot;imap-server-name&quot;;
 # The IMAP server port
-$imap_port = "143";
+$imap_port = &quot;143&quot;;
 
 You will almost certainly not need to change the IMAP port number.
 
 This method supports authentication against multiple servers using
-the syntax below. &nbsp;It will try all the servers until a match is found
+the syntax below.  It will try all the servers until a match is found
 or it fails to authenticate the user.
 
 Multiple servers all using the same port:
-# 'auth_imap' configuration settings
+# &#039;auth_imap&#039; configuration settings
 # Where is the IMAP server
-$imap_host[] = "localhost";
-$imap_host[] = "myisp.co.uk";
+$imap_host[] = &quot;localhost&quot;;
+$imap_host[] = &quot;myisp.co.uk&quot;;
 # The IMAP server port
-$imap_port = "143";
+$imap_port = &quot;143&quot;;
 
 Multiple servers with the option of different ports for each server:
-# 'auth_imap' configuration settings
+# &#039;auth_imap&#039; configuration settings
 # Where is the IMAP server
-$imap_host[] = "localhost";
-$imap_host[] = "myisp.co.uk";
+$imap_host[] = &quot;localhost&quot;;
+$imap_host[] = &quot;myisp.co.uk&quot;;
 # The IMAP server ports in the same order as the hosts
-$imap_port[] = "143";
-$imap_port[] = "143";
+$imap_port[] = &quot;143&quot;;
+$imap_port[] = &quot;143&quot;;
 
-Note: if you use the later configuration then an equal number of hosts
+Note: if you use the latter configuration then an equal number of hosts
 and ports must be specified or authentication will fail.
 
 
 LDAP Authentication
 -------------------
 
-There are three methods for doing LDAP authentication currently, the preferable
-method uses the LDAP functionality built into PHP.
+There are currently three methods for doing LDAP authentication, auth_ldap,
+auth_ldap.pl, auth_ldapsearch.pl.  The preferred method, auth_ldap, uses
+the LDAP functionality built into PHP and is described here.  The other
+methods use the &#039;ext&#039; authentication method and described further on in
+this file.
 
-To enable this change the "$auth[type]" to "ldap" and check the the
-"$ldap_host" and "$ldap_base_dn" entries are correct in config.inc.php.
+This method can be used by setting config.inc.php as follows:
 
-The program will check the username and password pair with all the
-"$ldap_base_dn" entrys until one matches.
+$auth[&quot;type&quot;] = &quot;ldap&quot;;
 
-e.g.
+Also you will need to change the section:
 
-# Authentication settings - read AUTHENTICATION
+# &#039;auth_ldap&#039; configuration settings
+# Where is the LDAP server
+$ldap_host = &quot;localhost&quot;;
+# LDAP base distinguish name
+# See AUTHENTICATION for details of how check against multiple base dn&#039;s
+$ldap_base_dn = &quot;ou=organizationalunit,dc=my-domain,dc=com&quot;;
+# Attribute within the base dn that contains the username
+$ldap_user_attrib = &quot;uid&quot;;
 
-$auth["type"] = "ldap";
+This method will attempt an authenticated bind to the ldap server using
+the supplied password and a distinguished name, which is formed from the
+base distinguished name, the user attribute and the user name. 
 
-# The LDAP server is local
+This method supports multiple $ldap_base_dn entries and $ldap_user_attrib
+values.  The authentication is attempted with each base dn in turn until it
+succeeds or it fails to authenticate the user.
 
-$ldap_host = "localhost";
+Multiple base distinguished names with the same user attribute for each
+base dn:
+# &#039;auth_ldap&#039; configuration settings
+# Where is the LDAP server
+$ldap_host = &quot;localhost&quot;;
+# LDAP base distinguish names
+$ldap_base_dn[] = &quot;ou=People, o=myCompany, c=US&quot;;
+$ldap_base_dn[] = &quot;ou=Administrators, o=myCompany, c=US&quot;;
+#
+$ldap_user_attrib = &quot;uid&quot;;
 
-# First search in the "People" then "Administrators" dn.
+Multiple base distinguished names with the option of different user attributes
+for each base dn:
+# &#039;auth_ldap&#039; configuration settings
+# Where is the LDAP server
+$ldap_host = &quot;localhost&quot;;
+# LDAP base distinguish names
+$ldap_base_dn[] = &quot;ou=People, o=myCompany, c=US&quot;;
+$ldap_base_dn[] = &quot;ou=Administrators, o=myCompany, c=US&quot;;
+#
+$ldap_user_attrib[] = &quot;uid&quot;;
+$ldap_user_attrib[] = &quot;cn&quot;;
 
-$ldap_base_dn[] = "ou=People, o=myCompany, c=US";
-$ldap_base_dn[] = "ou=Administrators, o=myCompany, c=US";
+Note: if you use the latter configuration then an equal number of base dn&#039;s
+and user attributes must be specified or authentication will fail.
 
-Note: There are two other alternative LDAP authentication methods, based on
-external programs, and described further down. This one is the recommended on
-though.
 
 NIS Authentication
 ------------------
 
-$auth["type"] = "nis";
+$auth[&quot;type&quot;] = &quot;nis&quot;;
 
 Details?
+
 
 NT Authentication
 -----------------
@@ -681,25 +712,25 @@ NT Authentication
 MRBS has Microsoft Windows NT/IIS authentication support. This can be used by
 setting config.inc.php as follows:
 
-$auth["session"] = "nt";
+$auth[&quot;session&quot;] = &quot;nt&quot;;
 
-$auth["type"] = "none";
+$auth[&quot;type&quot;] = &quot;none&quot;;
 
 Note that technically NT authentication is actually an MRBS session scheme. We
 put it in this list as it is related with authentication anyway.
 
-To add an admin, just add his user's Windows user account like this:
+To add an admin, just add his user&#039;s Windows user account like this:
 
-$auth["admin"][] = "nt_username";
+$auth[&quot;admin&quot;][] = &quot;nt_username&quot;;
 
-Also this scheme is fairly simple (it relies on IIS determining a user's
+Also this scheme is fairly simple (it relies on IIS determining a user&#039;s
 Windows user account identity, before allowing the user to establish a network
 connection with the server) there are some requirements for it to work (these
 notes are based on IIS 5.0):
 
- &nbsp; &nbsp;- You have to configure you mrbs directory (at least) to use either
- &nbsp; &nbsp;'Basic Authentication' or 'Integrated Windows Authentication' (formerly
- &nbsp; &nbsp;called NTLM or Windows NT Challenge/Response authentication).
+    - You have to configure you mrbs directory (at least) to use either
+    &#039;Basic Authentication&#039; or &#039;Integrated Windows Authentication&#039; (formerly
+    called NTLM or Windows NT Challenge/Response authentication).
 
 To enable a WWW authentication method in IIS:
 
@@ -709,33 +740,34 @@ Security property sheet. Under Anonymous Access and Authentication Control,
 click Edit. In the Authentication Methods dialog box, select one or more
 appropriate methods.
 
-The simplest way is to use 'Integrated Windows Authentication' because unlike
-'Basic authentication', it does not prompt users for a user name and password.
+The simplest way is to use &#039;Integrated Windows Authentication&#039; because unlike
+&#039;Basic authentication&#039;, it does not prompt users for a user name and password.
 The current Windows user information on the client computer is used for the
-'integrated Windows authentication'. It is also a more secure form of
+&#039;integrated Windows authentication&#039;. It is also a more secure form of
 authentication because the user name and password are not sent across the
 network.
 
 But if you really want your users to enter their domain username/password, you
-have to select 'Basic Authentication'. The advantage of Basic authentication is
+have to select &#039;Basic Authentication&#039;. The advantage of Basic authentication is
 that it is part of the HTTP specification, and is supported by most browsers.
 So, theoretically, you can log in with a valid domain username/password with a
 non-Microsoft browser, but frankly I did not tested it. The disadvantage is
-that 'Basic authentication' transmit passwords in an unencrypted form.
+that &#039;Basic authentication&#039; transmit passwords in an unencrypted form.
 
- &nbsp; &nbsp;- To use 'Integrated Windows Authentication', you HAVE TO use the
- &nbsp; &nbsp;Microsoft browser too. Currently, only Internet Explorer, version 2.0 and
- &nbsp; &nbsp;later, supports this.
- &nbsp; &nbsp;- The 'Anonymous access' must be disabled.
+    - To use &#039;Integrated Windows Authentication&#039;, you HAVE TO use the
+    Microsoft browser too. Currently, only Internet Explorer, version 2.0 and
+    later, supports this.
+    - The &#039;Anonymous access&#039; must be disabled.
 
- &nbsp; &nbsp;- If you enable both Basic and Integrated authentication, Integrated
- &nbsp; &nbsp;authentication takes precedence over Basic authentication.
- &nbsp; &nbsp;- 'Integrated Windows authentication' does not work over HTTP Proxy
- &nbsp; &nbsp;connections or other firewall applications. So this scheme is more suitable
- &nbsp; &nbsp;for an Intranet, but 'Basic Authentication' should work (not tested).
+    - If you enable both Basic and Integrated authentication, Integrated
+    authentication takes precedence over Basic authentication.
+    - &#039;Integrated Windows authentication&#039; does not work over HTTP Proxy
+    connections or other firewall applications. So this scheme is more suitable
+    for an Intranet, but &#039;Basic Authentication&#039; should work (not tested).
 
 All this was tested against IIS 5.0 on Windows 2000 server and Windows 2000
 workstations using Internet Explorer 6.0, but this should work from IIS 4.0.
+
 
 OMNI Authentication
 --------------------
@@ -743,9 +775,9 @@ OMNI Authentication
 OMNI Authentication using Omnicron OmniHTTPd web server security features.
 Very similar in principle to NT authentication.
 
-$auth["session"] = "omni";
+$auth[&quot;session&quot;] = &quot;omni&quot;;
 
-$auth["type"] = "none";
+$auth[&quot;type&quot;] = &quot;none&quot;;
 
 Note that technically Omni authentication is actually an MRBS session scheme.
 We put it in this list as it is related with authentication anyway.
@@ -756,34 +788,34 @@ External Authentication Programs Configuration
 Perl password list
 ------------------
 
-"badpw.pl" is a short piece of Perl, which can quickly be used to demonstrate
-how the "ext" authentication provider works.
+&quot;badpw.pl&quot; is a short piece of Perl, which can quickly be used to demonstrate
+how the &quot;ext&quot; authentication provider works.
 
-It has usernames and passwords hard coded. I don't expect anyone to use this in
-a production environment - it's just to demonstrate.
+It has usernames and passwords hard coded. I don&#039;t expect anyone to use this in
+a production environment - it&#039;s just to demonstrate.
 
 In the config.inc.php file authentication section, set:
 
 # Authentication settings - read AUTHENTICATION
 
-$auth["type"] = "ext";
-$auth["prog"] = "./badpw.pl";
-$auth["params"] = "#USERNAME# #PASSWORD#";
+$auth[&quot;type&quot;] = &quot;ext&quot;;
+$auth[&quot;prog&quot;] = &quot;./badpw.pl&quot;;
+$auth[&quot;params&quot;] = &quot;#USERNAME# #PASSWORD#&quot;;
 
-NOTE: The last line are parameters that will get passed to the 'badpw.pl'
-script. At runtime "#USERNAME#" and "#PASSWORD" will get replaced with the
+NOTE: The last line are parameters that will get passed to the &#039;badpw.pl&#039;
+script. At runtime &quot;#USERNAME#&quot; and &quot;#PASSWORD&quot; will get replaced with the
 username and password that the user entered to login.
 
-NOTE: Under Unix, make sure badpw.pl has execution rights: 'chmod +x badpw.pl'
+NOTE: Under Unix, make sure badpw.pl has execution rights: &#039;chmod +x badpw.pl&#039;
 
 Once you have changed this then look at the /mrbs/ page through your browser.
 When you click one of the (+) buttons, you will be asked for a username and
 password. Check badpw.pl for the valid combinations.
 
-To try out an "admin" user, add an appropriate username to the section that
+To try out an &quot;admin&quot; user, add an appropriate username to the section that
 says:
 
-$auth["admin"][] = "....";
+$auth[&quot;admin&quot;][] = &quot;....&quot;;
 
 Crypted password authentication
 -------------------------------
@@ -793,10 +825,10 @@ usernames and their crypted passwords
 
 config.inc.php should be changed to have a section that reads something like:
 
-$auth["type"] = "ext";
+$auth[&quot;type&quot;] = &quot;ext&quot;;
 
-$auth["prog"] = "../crypt_passwd.pl";
-$auth["params"] = "/etc/httpd/mrbs_passwd #USERNAME# #PASSWORD#";
+$auth[&quot;prog&quot;] = &quot;../crypt_passwd.pl&quot;;
+$auth[&quot;params&quot;] = &quot;/etc/httpd/mrbs_passwd #USERNAME# #PASSWORD#&quot;;
 
 As you can see the crypt_passwd.pl script takes 3 parameters.
 
@@ -806,8 +838,8 @@ user the web server is running as. The password file must consist of pairs of
 username and crypted password, seperated by a colon. See crypt_passwd.example
 for an example password file.
 
-NOTE: Under Unix, make sure crypt_passwd.pl has execution rights: 'chmod +x
-crypt_passwd.pl'
+NOTE: Under Unix, make sure crypt_passwd.pl has execution rights: &#039;chmod +x
+crypt_passwd.pl&#039;
 
 SMB Authentication
 ------------------
@@ -815,16 +847,16 @@ SMB Authentication
 Here are instructions gathered from several users for using SMB authentication:
 
 Included is the source (smb_auth.c). This is a very simple program, that
-returns "true" if the username/password are valid and "false" otherwise.
+returns &quot;true&quot; if the username/password are valid and &quot;false&quot; otherwise.
 
 FOLLOW THESE STEPS TO INSTALL
 
 - Download the PAM library from
 
-<A HREF="http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/">http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/</a> (current one is 1.1.7)
+<a href="http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/">http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/</a> (current one is 1.1.7)
 or type:
 
-$ wget <A HREF="http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/pam_smb-1.1.7.tar.gz">http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/pam_smb-1.1.7.tar.gz</a>
+$ wget <a href="http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/pam_smb-1.1.7.tar.gz">http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/pam_smb-1.1.7.tar.gz</a>
 
 - $ tar -xvzf pam_smb-1.1.7.tar.gz
 
@@ -845,11 +877,11 @@ $ gmake ]
 
 You can ignore any errors/warnings after the line
 
-make[1]: Leaving directory `...../pam_smb/smbval'
+make[1]: Leaving directory `...../pam_smb/smbval&#039;
 any problems before this need to be fixed as smbvalid.a needs to be created.
 
 - copy smb_auth.c that come with the MRBS package in /pam_smb/ directory:
-$ cp /<wherever>/smb_auth.c .
+$ cp /&lt;wherever&gt;/smb_auth.c .
 
 - $ gcc -o smb_auth smb_auth.c smbval/smbvalid.a
 
@@ -879,14 +911,14 @@ returns 1 on failure
 
 # Authentication settings - read AUTHENTICATION
 
-$auth["type"] = "ext";
-$auth["prog"] = "/usr/bin/smb_auth";
-$auth["params"] = "#USERNAME# #PASSWORD# SERVER BACKUP DOMAIN";
+$auth[&quot;type&quot;] = &quot;ext&quot;;
+$auth[&quot;prog&quot;] = &quot;/usr/bin/smb_auth&quot;;
+$auth[&quot;params&quot;] = &quot;#USERNAME# #PASSWORD# SERVER BACKUP DOMAIN&quot;;
 
 The [params] are:
 
 * #USERNAME# is replaced by the actual username presented
-* #PASSWORD# is replaced by the user's password
+* #PASSWORD# is replaced by the user&#039;s password
 * Primary Server used for password validation
 * Secondary server used for password validation
 * NT domain under which the user is registered
@@ -896,13 +928,13 @@ Netware Authentication
 
 This is only going to work on Linux.
 
-There's a program called "nwauth" which is included with ncpfs. To use it
-you'll need to have IPX support compiled in your kernel. There might be other
+There&#039;s a program called &quot;nwauth&quot; which is included with ncpfs. To use it
+you&#039;ll need to have IPX support compiled in your kernel. There might be other
 requirements as well - see the stuff that comes with ncpfs.
 
-You can get it from <A HREF="ftp://platan.vc.cvut.cz/pub/linux/ncpfs/">ftp://platan.vc.cvut.cz/pub/linux/ncpfs/</a>
+You can get it from <a href="ftp://platan.vc.cvut.cz/pub/linux/ncpfs/">ftp://platan.vc.cvut.cz/pub/linux/ncpfs/</a>
 
-I've only tested this with ncpfs-2.2.0.18
+I&#039;ve only tested this with ncpfs-2.2.0.18
 
 Please see README.nwauth for more information on Netware authentication.
 
@@ -916,7 +948,7 @@ The second LDAP authentication method uses a very small Perl program
 ldap_auth.pl. It requires the Net::LDAP module be installed and working.
 For me this simply meant doing:
 
-perl -MCPAN -e"install Net::LDAP"
+perl -MCPAN -e&quot;install Net::LDAP&quot;
 
 The script simply attemps to bind to a server using a supplied dn and password.
 It expects the full thing to be passed in - eg
@@ -928,12 +960,12 @@ are:
 
 # Authentication settings - read AUTHENTICATION
 
-$auth["type"] = "ext";
-$auth["prog"] = "/home/httpd/html/mrbs/auth_ldap.pl";
-$auth["params"] = "LDAPSERVER cn=#USERNAME# #PASSWORD#";
+$auth[&quot;type&quot;] = &quot;ext&quot;;
+$auth[&quot;prog&quot;] = &quot;/home/httpd/html/mrbs/auth_ldap.pl&quot;;
+$auth[&quot;params&quot;] = &quot;LDAPSERVER cn=#USERNAME# #PASSWORD#&quot;;
 
-NOTE: Under Unix, make sure auth_ldap.pl has execution rights: 'chmod +x
-auth_ldap.pl'
+NOTE: Under Unix, make sure auth_ldap.pl has execution rights: &#039;chmod +x
+auth_ldap.pl&#039;
 
 The third also uses a perl script that simply calls ldapsearch.
 
@@ -943,16 +975,16 @@ LDAP configuration. NOTE, the script disallows any usernames which
 contain uppercase or space characters in them, for the reason behind
 this please see the script its self.
 
-$auth["realm"] = "MRBS";
+$auth[&quot;realm&quot;] = &quot;MRBS&quot;;
 
-$auth["type"] = "ext";
-$auth["prog"] = "/home/httpd/html/mrbs/auth_ldapsearch.pl";
-$auth["params"] = "LDAPSERVER cn=#USERNAME# #PASSWORD#";
-$auth["params"] = "YourServer \"Your search root\" \"#USERNAME#\"
-\"#PASSWORD#\"";
+$auth[&quot;type&quot;] = &quot;ext&quot;;
+$auth[&quot;prog&quot;] = &quot;/home/httpd/html/mrbs/auth_ldapsearch.pl&quot;;
+$auth[&quot;params&quot;] = &quot;LDAPSERVER cn=#USERNAME# #PASSWORD#&quot;;
+$auth[&quot;params&quot;] = &quot;YourServer \&quot;Your search root\&quot; \&quot;#USERNAME#\&quot;
+\&quot;#PASSWORD#\&quot;&quot;;
 
-NOTE: Under Unix, make sure auth_ldapsearch.pl has execution rights: 'chmod +x
-auth_ldapsearch.pl'
+NOTE: Under Unix, make sure auth_ldapsearch.pl has execution rights: &#039;chmod +x
+auth_ldapsearch.pl&#039;
 
 PAM Authentification
 --------------------
@@ -964,8 +996,8 @@ the user name and the user password.
 This perl script requires Authen::PAM.
 
 The script has to be run as SUID. Therefore you should take some precautions
-to not undermine your system's security. Change the group of the script to that
-of your Web Server (for Apache this is normally nobody or apache) and don't
+to not undermine your system&#039;s security. Change the group of the script to that
+of your Web Server (for Apache this is normally nobody or apache) and don&#039;t
 make it readable and executeable to anybody else, eg.:
 
 chgrp nobody auth_pam.pl
@@ -981,13 +1013,13 @@ Now add the configuration to web/config.inc.php in your MRBS directory.
 This looks as follows (adapt the path to auth_pam.pl according to your
 your configuration):
 
-$auth["realm"] = "MY REALM";
+$auth[&quot;realm&quot;] = &quot;MY REALM&quot;;
 
-$auth["type"] = "ext";
-$auth["prog"] = "/var/www/html/mrbs/auth_pam.pl";
-$auth["params"] = "#USERNAME# #PASSWORD#";
+$auth[&quot;type&quot;] = &quot;ext&quot;;
+$auth[&quot;prog&quot;] = &quot;/var/www/html/mrbs/auth_pam.pl&quot;;
+$auth[&quot;params&quot;] = &quot;#USERNAME# #PASSWORD#&quot;;
 
-That's it.
+That&#039;s it.
 
 Note that this has been only tested with Red Hat 7.x. Feedback on whether this
 works on other systems ( eg. Solaris) is appreciated.
@@ -1004,26 +1036,26 @@ be done using one of the two following techniques:
 Using a PHP module
 ------------------
 
-You must create a new module called "auth_xxx.inc".
+You must create a new module called &quot;auth_xxx.inc&quot;.
 
 It will be configured by setting in config.inc.php:
 
-$auth["type"] = "xxx";
+$auth[&quot;type&quot;] = &quot;xxx&quot;;
 
-The "auth_xxx.inc" file needs to define the following functions:
+The &quot;auth_xxx.inc&quot; file needs to define the following functions:
 
 +-------------------------+----------------------------+---------------------+
-|Function Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |Returns &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|Function Name            |Description                 |Returns              |
 +-------------------------+----------------------------+---------------------+
-|authValidateUser($user, &nbsp;|Checks if the specified &nbsp; &nbsp; |0 = The pair is &nbsp; &nbsp; &nbsp;|
-|$pass) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |username/password pair are &nbsp;|invalid or does not &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |valid. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|exist. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Non 0 = The pair is &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|valid &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|authValidateUser($user,  |Checks if the specified     |0 = The pair is      |
+|$pass)                   |username/password pair are  |invalid or does not  |
+|                         |valid.                      |exist.               |
+|                         |                            |Non 0 = The pair is  |
+|                         |                            |valid                |
 +-------------------------+----------------------------+---------------------+
-|authGetUserLevel($user) &nbsp;|Determines the users access |0 = Unknown &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |level. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|1 = User &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|2 = Administrator &nbsp; &nbsp;|
+|authGetUserLevel($user)  |Determines the users access |0 = Unknown          |
+|                         |level.                      |1 = User             |
+|                         |                            |2 = Administrator    |
 +-------------------------+----------------------------+---------------------+
 Store any configuration parameters specific to your module in a dedicated
 section in config.inc.php.
@@ -1034,25 +1066,25 @@ Using an external program
 -------------------------
 
 External authentication programs are invoked via the internal PHP configuration
-proxy module called "auth_ext.inc".
+proxy module called &quot;auth_ext.inc&quot;.
 
 The external program must take the username, password, and possibly other
-values as parameters. Its exit code must be a zero for "OK", and anything else
-for "not OK".
+values as parameters. Its exit code must be a zero for &quot;OK&quot;, and anything else
+for &quot;not OK&quot;.
 
-"auth_ext.inc" takes the following parameters in config.inc.php:
+&quot;auth_ext.inc&quot; takes the following parameters in config.inc.php:
 
-$auth["type"] = "ext";
+$auth[&quot;type&quot;] = &quot;ext&quot;;
 
-$auth["prog"] = "the_pathname_of_your_program";
-$auth["params"] = "the arguments your program needs";
+$auth[&quot;prog&quot;] = &quot;the_pathname_of_your_program&quot;;
+$auth[&quot;params&quot;] = &quot;the arguments your program needs&quot;;
 
-"auth_ext.inc" constructs a command line to execute like:
+&quot;auth_ext.inc&quot; constructs a command line to execute like:
 
-$cmd = $auth["prog"] . ' ' . $auth["params"];
+$cmd = $auth[&quot;prog&quot;] . &#039; &#039; . $auth[&quot;params&quot;];
 
-$cmd = preg_replace('/#USERNAME#/',$user,$cmd);
-$cmd = preg_replace('/#PASSWORD#/',$pass,$cmd);
+$cmd = preg_replace(&#039;/#USERNAME#/&#039;,$user,$cmd);
+$cmd = preg_replace(&#039;/#PASSWORD#/&#039;,$pass,$cmd);
 
 This should allow a lot of flexibility with different authenticators.
 
@@ -1064,37 +1096,37 @@ password. They also manage the way the name and password are recorded
 throughout a session.
 
 To create a new scheme, you must create a new PHP module called
-"session_xxx.inc".
+&quot;session_xxx.inc&quot;.
 
 It will be configured by setting in config.inc.php:
 
-$auth["session"] = "xxx";
+$auth[&quot;session&quot;] = &quot;xxx&quot;;
 
-The "session_xxx.inc" file needs to define certain functions:
+The &quot;session_xxx.inc&quot; file needs to define certain functions:
 
 +-----------------+---------------------------------------------+------------+
-|Function Name &nbsp; &nbsp;|Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Returns &nbsp; &nbsp; |
+|Function Name    |Description                                  |Returns     |
 +-----------------+---------------------------------------------+------------+
-|authGet() &nbsp; &nbsp; &nbsp; &nbsp;|Prompt the user for username/password. &nbsp; &nbsp; &nbsp; |Nothing &nbsp; &nbsp; |
+|authGet()        |Prompt the user for username/password.       |Nothing     |
 +-----------------+---------------------------------------------+------------+
-|getUserName() &nbsp; &nbsp;|Returns the current user name. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |The user &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |name, &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |or null if &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |not known. &nbsp;|
+|getUserName()    |Returns the current user name.               |The user    |
+|                 |                                             |name,       |
+|                 |                                             |or null if  |
+|                 |                                             |not known.  |
 +-----------------+---------------------------------------------+------------+
-|getUserPassword()|Returns the current password. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|His &nbsp; &nbsp; &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |password, &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |or null if &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |not known. &nbsp;|
+|getUserPassword()|Returns the current password.                |His         |
+|                 |                                             |password,   |
+|                 |                                             |or null if  |
+|                 |                                             |not known.  |
 +-----------------+---------------------------------------------+------------+
-|PrintLogonBox() &nbsp;|Optional. If defined, it will be used to draw|Nothing &nbsp; &nbsp; |
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |the contents of the logon/logoff box in MRBS | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
-| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |top banner. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+|PrintLogonBox()  |Optional. If defined, it will be used to draw|Nothing     |
+|                 |the contents of the logon/logoff box in MRBS |            |
+|                 |top banner.                                  |            |
 +-----------------+---------------------------------------------+------------+
 Note: Session schemes are also useful in the case where a web server enforces
 its own session and authentication management. See the session_nt.inc and
 session session_omni.inc files as examples. In this case, use in combination
-with authentication "none", as the real authentication is already done during
+with authentication &quot;none&quot;, as the real authentication is already done during
 the session initiation, and needs not be done again inside MRBS.
 
 A little bit of history
@@ -1102,38 +1134,38 @@ A little bit of history
 
 The original version of MRBS, created by Daniel Gardner, did not have
 username/password support. Each booking that was made had the IP address of the
-client machine logged as the "creator" of the booking.
+client machine logged as the &quot;creator&quot; of the booking.
 
-In this case the IP address functions as the "username".
+In this case the IP address functions as the &quot;username&quot;.
 
 This works well in the case where all IPs are static, and everyone is allowed
 access to the system. In the wider world there are occasions where this is a
 little too liberal.
 
 To combat this MRBS 0.8 introduced authentication, initially provided by Sam
-Mason <smason@mtc.ricardo.com>.
+Mason &lt;smason@mtc.ricardo.com&gt;.
 
 There are three levels of access in MRBS:
 
- &nbsp; &nbsp;- Level 0 - not logged in
- &nbsp; &nbsp;- Level 1 - Authenticated
- &nbsp; &nbsp;- Level 2 - Administrator
+    - Level 0 - not logged in
+    - Level 1 - Authenticated
+    - Level 2 - Administrator
 
-The administrators are allowed to modify other people's bookings, whereas Level
+The administrators are allowed to modify other people&#039;s bookings, whereas Level
 1 users can only change their own. Administrators also have the ability to add
 and remove rooms and areas.
 
 With time, several alternative authentication methods were introduced.
 All rely on the same basic principles:
 
- &nbsp; &nbsp;- Each user is identified by a name.
- &nbsp; &nbsp;- Each name has a corresponding password.
- &nbsp; &nbsp;- The name/password pair must be valid in the authentication service
- &nbsp; &nbsp;MRBS connects to.
- &nbsp; &nbsp;- Some users have additional MRBS administration rights. Their names
- &nbsp; &nbsp;are listed in the $auth["admin"] list in config.inc.php.
- &nbsp; &nbsp;- It's the web site creator's responsibility to manually enter the
- &nbsp; &nbsp;names of all the users that will have administrator rights in this list.
+    - Each user is identified by a name.
+    - Each name has a corresponding password.
+    - The name/password pair must be valid in the authentication service
+    MRBS connects to.
+    - Some users have additional MRBS administration rights. Their names
+    are listed in the $auth[&quot;admin&quot;] list in config.inc.php.
+    - It&#039;s the web site creator&#039;s responsibility to manually enter the
+    names of all the users that will have administrator rights in this list.
 
 Before accessing a restricted page, MRBS prompts the user for a name and
 password. Then it connects to an authentication server, which is responsible
@@ -1145,21 +1177,21 @@ controllers; Netware servers; POP3 email servers; IMAP email servers; etc.
 
 Still the initial authentication system had shortcomings:
 
- &nbsp; &nbsp;- The user/password prompt relied on the HTTP basic authentication
- &nbsp; &nbsp;protocol, in a mode not supported by IIS web servers.
- &nbsp; &nbsp;- MRBS was increasingly used on the Internet, where central
- &nbsp; &nbsp;authentication servers are not available in the general case.
- &nbsp; &nbsp;- There was no way to log off.
+    - The user/password prompt relied on the HTTP basic authentication
+    protocol, in a mode not supported by IIS web servers.
+    - MRBS was increasingly used on the Internet, where central
+    authentication servers are not available in the general case.
+    - There was no way to log off.
 
 In MRBS 1.2, the authentication system was restructured by Jean-François
-Larvoire <jf.larvoire@sf.net>
+Larvoire &lt;jf.larvoire@sf.net&gt;
 
 The main change was to separate the user/password acquisition (Also called
 session initiation), from its validation (called authentication).
 
 The existing routines for querying the user identity were moved to module
 session_http.inc. This module is left in for backwards compatibility, but
-deprecated. A new session management module was introduced, based on PHP's
+deprecated. A new session management module was introduced, based on PHP&#039;s
 built-in session management. This is the one recommended now on. It includes
 the ability to log off.
 
@@ -1169,9 +1201,8 @@ simple list of users in config.inc.php. Eventually there will also be another
 authentication module, using a table of users in the MRBS database.
 
 $Id$
-    </PRE>
-            <!--Built by Text2Html - http://www.cyber-matrix.com/txt2htm.htm -->
-            <!-- #EndEditable --> </td>
+</pre>
+          </td>
           <td></td>
         </tr>
         <tr>
@@ -1186,4 +1217,4 @@ $Id$
   </tr>
 </table>
 </body>
-<!-- #EndTemplate --></html>
+</html>

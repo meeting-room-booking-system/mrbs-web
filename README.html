@@ -1,7 +1,7 @@
-<html><!-- #BeginTemplate "/Templates/main.dwt" --><!-- DW6 -->
+<html>
 <head>
-<!-- #BeginEditable "doctitle" --> 
-<title>MRBS: </title>
+<!-- #BeginEditable "doctitle" -->
+<title>MRBS: README</title>
 <!-- #EndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="mrbs.css" type="text/css">
@@ -16,12 +16,15 @@
           <td valign="top" height="24" colspan="5"> 
             <table width="100%" border="0" cellpadding="3" cellspacing="0">
               <tr> 
-                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF"><a href="index.html">Introduction</a> 
-                  | <a href="demo.html">Demo</a> | <a href="sshots.html">Screenshots</a> 
-                  | <a href="download.html">Download</a> | <a href="docs.html">Documentation</a> 
-                  | 
-                  <!-- <a href="../testimonials.html">Testimonials</a> | -->
-                  <a href="ChangeLog.html">NEWS</a>| <a href="donate.html">Donate</a></td>
+                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF">
+                    <a href="index.html">Introduction</a> 
+                  | <a href="demo.html">Demo</a>
+                  | <a href="sshots.html">Screenshots</a> 
+                  | <a href="download.html">Download</a>
+                  | <a href="docs.html">Documentation</a> 
+                  | <a href="ChangeLog.html">NEWS</a>
+                  | <a href="donate.html">Donate</a>
+                </td>
               </tr>
             </table>
           </td>
@@ -35,7 +38,7 @@
         <tr> 
           <td height="34"></td>
           <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
-            <h1><!-- #BeginEditable "title" -->Meeting Room Booking System README<!-- #EndEditable --></h1>
+            <h1>MRBS: README</h1>
           </td>
         </tr>
         <tr> 
@@ -52,12 +55,9 @@
         </tr>
         <tr>
           <td height="337"></td>
-          <td colspan="3" valign="top"><!-- #BeginEditable "body" --> 
-            <pre>
-  Meeting Room Booking System
-
-
-http://mrbs.sourceforge.net/
+          <td colspan="3" valign="top">
+            <pre>Meeting Room Booking System
+<a href="http://mrbs.sourceforge.net/">http://mrbs.sourceforge.net/</a>
 -------------------------------
 
 The Meeting Room Booking System (MRBS) is a PHP-based application for
@@ -67,7 +67,7 @@ at the reception desk. I thought that a nice web-based system would be much
 nicer.
 
 Some parts of this are based on WebCalender 0.9.4 by Craig Knudsen 
-(http://www.radix.net/~cknudsen/webcalendar/) but there is now very little
+(<a href="http://www.radix.net/~cknudsen/webcalendar/">http://www.radix.net/~cknudsen/webcalendar/</a>) but there is now very little
 which is similar. There are fundamental design goal differences between
 WebCalendar and MRBS - WC is for individuals, MRBS is for meeting rooms.
 
@@ -76,26 +76,26 @@ To Use
 ------
 See the INSTALL file for installation instructions.
 
-Once it's installed try going to http://yourhost/mrbs/ - if you loaded the
+Once it&#039;s installed try going to <a href="http://yourhost/mrbs/">http://yourhost/mrbs/</a> - if you loaded the
 sample data, this should give you a view of the first area meeting rooms
 for today. The (+) symbol means you can add new meetings by clicking
-there. Try it - it should all be pretty obvious. If you haven't loaded the
+there. Try it - it should all be pretty obvious. If you haven&#039;t loaded the
 sample data, start by clicking on Admin to add your Areas and Rooms.
 
-By default, anyone can connect and only demo users "alice" and "bob" can add 
-new meetings (passwords "a" and "b"), and only connections
-from user "administrator"/"secret" are administrators. Only administrators 
-can add rooms and areas, and modify any other users' meetings.  See 
+By default, anyone can connect and only demo users &quot;alice&quot; and &quot;bob&quot; can add 
+new meetings (passwords &quot;a&quot; and &quot;b&quot;), and only connections
+from user &quot;administrator&quot;/&quot;secret&quot; are administrators. Only administrators 
+can add rooms and areas, and modify any other users&#039; meetings.  See 
 AUTHENTICATION for a more complete description of the authentication.
 
 If you copy testdata.php into your web site, you can view
-http://yourhost/mrbs/testdata.php - it will generate a whole load of random
-appointments to fill up the calendar and let you play around. (Don't leave
+<a href="http://yourhost/mrbs/testdata.php">http://yourhost/mrbs/testdata.php</a> - it will generate a whole load of random
+appointments to fill up the calendar and let you play around. (Don&#039;t leave
 testdata.php in your web site, though.)
 
 The latest version was tested with PHP 4.3.2, Apache 1.3.28, and either
 MySQL 4.0.14 or PostgreSQL 7.2. It should work on just about anything
-that's got PHP4 with MySQL or PostgreSQL support but PostgreSQL 7.3 and above.
+that&#039;s got PHP4 with MySQL or PostgreSQL support but PostgreSQL 7.3 and above.
 
 It should be pretty easy to adjust it to your corporate colours - the file
 mrbs.css is used on every page, as is style.inc. Just fiddle with these until
@@ -118,14 +118,14 @@ Recommended:
 - JavaScript-enabled browser
 - CSS-enabled browser
 - PHP module connection to the server (also called SAPI) if you want to use any
-  of the basic http authentication schemes provided.
+  of the basic http authentication schemes provided.
 
 (If you are considering porting MRBS to another database, see README.sqlapi)
 
 Warning:
 - Some users reported errors using some accelerators (APC, PHP Accelerator).
-  If you get messages like this : "Internal Zend error - Missing class
-  information for ...", your accelerator is the cause.
+  If you get messages like this : &quot;Internal Zend error - Missing class
+  information for ...&quot;, your accelerator is the cause.
 
 ------
 Usage:
@@ -135,9 +135,8 @@ Many other reports of successful use have been seen on the MRBS mailing list,
 and your report would be welcome there too. Let us know who is using MRBS!
 
 $Id$
-    
-            </pre>
-            <!-- #EndEditable --> </td>
+</pre>
+          </td>
           <td></td>
         </tr>
         <tr>
@@ -152,4 +151,4 @@ $Id$
   </tr>
 </table>
 </body>
-<!-- #EndTemplate --></html>
+</html>

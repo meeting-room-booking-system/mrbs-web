@@ -1,7 +1,7 @@
-<html><!-- #BeginTemplate "/Templates/main.dwt" --><!-- DW6 -->
+<html>
 <head>
-<!-- #BeginEditable "doctitle" --> 
-<title>MRBS: </title>
+<!-- #BeginEditable "doctitle" -->
+<title>MRBS: LANGUAGE</title>
 <!-- #EndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="mrbs.css" type="text/css">
@@ -16,12 +16,15 @@
           <td valign="top" height="24" colspan="5"> 
             <table width="100%" border="0" cellpadding="3" cellspacing="0">
               <tr> 
-                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF"><a href="index.html">Introduction</a> 
-                  | <a href="demo.html">Demo</a> | <a href="sshots.html">Screenshots</a> 
-                  | <a href="download.html">Download</a> | <a href="docs.html">Documentation</a> 
-                  | 
-                  <!-- <a href="../testimonials.html">Testimonials</a> | -->
-                  <a href="ChangeLog.html">NEWS</a>| <a href="donate.html">Donate</a></td>
+                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF">
+                    <a href="index.html">Introduction</a> 
+                  | <a href="demo.html">Demo</a>
+                  | <a href="sshots.html">Screenshots</a> 
+                  | <a href="download.html">Download</a>
+                  | <a href="docs.html">Documentation</a> 
+                  | <a href="ChangeLog.html">NEWS</a>
+                  | <a href="donate.html">Donate</a>
+                </td>
               </tr>
             </table>
           </td>
@@ -35,7 +38,7 @@
         <tr> 
           <td height="34"></td>
           <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
-            <h1><!-- #BeginEditable "title" -->MRBS Language Support<!-- #EndEditable --></h1>
+            <h1>MRBS: Language Support</h1>
           </td>
         </tr>
         <tr> 
@@ -52,44 +55,42 @@
         </tr>
         <tr>
           <td height="337"></td>
-          <td colspan="3" valign="top"><!-- #BeginEditable "body" -->
-            <PRE>
- &nbsp; &nbsp; &nbsp; &nbsp;MRBS Language Support
+          <td colspan="3" valign="top">
+            <pre>        MRBS Language Support
 
-Each "lang.*" file (in the web/ directory) contains the text strings for
-a language. &nbsp;Not all of these files are complete. &nbsp;Note that MRBS always
-reads the reference file "lang.en" first, before reading another language
+Each &quot;lang.*&quot; file (in the web/ directory) contains the text strings for
+a language.  Not all of these files are complete.  Note that MRBS always
+reads the reference file &quot;lang.en&quot; first, before reading another language
 file.
 
 Porting MRBS to another language is relatively easy. From the Admin page,
-you will see "Your browser is set to use "xx" language". If no "lang.xx"
-file is available, copy "lang.en" to "lang.xx" (replace xx with the code
+you will see &quot;Your browser is set to use &quot;xx&quot; language&quot;. If no &quot;lang.xx&quot;
+file is available, copy &quot;lang.en&quot; to &quot;lang.xx&quot; (replace xx with the code
 you found in Admin), and then edit the file to change the English strings
-to your language. &nbsp;For example, you might
-change: $vocab["gototoday"] = "Go To Today";
- &nbsp; &nbsp;to: $vocab["gototoday"] = "gehe zum heutigen Tag";
+to your language.  For example, you might
+change: $vocab[&quot;gototoday&quot;] = &quot;Go To Today&quot;;
+    to: $vocab[&quot;gototoday&quot;] = &quot;gehe zum heutigen Tag&quot;;
 
 You will then find that MRBS starts to use your language file
 automatically. If you are having trouble getting this to work, see the
 language section of config.inc.php.
 
 If you would like to complete or improve an existing language file, the
-"checklang.php" script included in the distribution can help. Copy this
+&quot;checklang.php&quot; script included in the distribution can help. Copy this
 to your web server area, into the same directory as the MRBS lang.* files.
 Now use your browser to access:
- &nbsp; &nbsp; &nbsp; &nbsp; <A HREF="http://your-host-and-dir/checklang.php?lang=xx">http://your-host-and-dir/checklang.php?lang=xx</a>
-(where "xx" is the code of the language file you want to check). This
-will report missing or untranslated strings in "lang.xx" compared to
-"lang.en". If you omit the parameter and access:
- &nbsp; &nbsp; &nbsp; &nbsp; <A HREF="http://your-host-and-dir/checklang.php">http://your-host-and-dir/checklang.php</a>
+         <a href="http://your-host-and-dir/checklang.php?lang=xx">http://your-host-and-dir/checklang.php?lang=xx</a>
+(where &quot;xx&quot; is the code of the language file you want to check). This
+will report missing or untranslated strings in &quot;lang.xx&quot; compared to
+&quot;lang.en&quot;. If you omit the parameter and access:
+         <a href="http://your-host-and-dir/checklang.php">http://your-host-and-dir/checklang.php</a>
 you will see the results of checking all available language files.
 
 If you do create or improve a language file, please post a message about
 it on the mailing list, so it can be included in future releases. Thanks!
 
-$Id$
-    </PRE>
-            <!-- #EndEditable --> </td>
+$Id$</pre>
+          </td>
           <td></td>
         </tr>
         <tr>
@@ -104,4 +105,4 @@ $Id$
   </tr>
 </table>
 </body>
-<!-- #EndTemplate --></html>
+</html>

@@ -1,10 +1,10 @@
 <html>
 <head>
 <!-- #BeginEditable "doctitle" -->
-<title>MRBS: </title>
+<title>MRBS: <!-- insert page title --></title>
 <!-- #EndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="../mrbs.css" type="text/css">
+<link rel="stylesheet" href="mrbs.css" type="text/css">
 </head>
 
 <body bgcolor="#FFFFFF" text="#000000">
@@ -16,18 +16,21 @@
           <td valign="top" height="24" colspan="5"> 
             <table width="100%" border="0" cellpadding="3" cellspacing="0">
               <tr> 
-                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF"><a href="../index.html">Introduction</a> 
-                  | <a href="../demo.html">Demo</a> | <a href="../sshots.html">Screenshots</a> 
-                  | <a href="../download.html">Download</a> | <a href="../docs.html">Documentation</a> 
-                  | 
-                  <!-- <a href="../testimonials.html">Testimonials</a> | -->
-                  <a href="../ChangeLog.html">NEWS</a>| <a href="../donate.html">Donate</a></td>
+                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF">
+                    <a href="index.html">Introduction</a> 
+                  | <a href="demo.html">Demo</a>
+                  | <a href="sshots.html">Screenshots</a> 
+                  | <a href="download.html">Download</a>
+                  | <a href="docs.html">Documentation</a> 
+                  | <a href="ChangeLog.html">NEWS</a>
+                  | <a href="donate.html">Donate</a>
+                </td>
               </tr>
             </table>
           </td>
         </tr>
         <tr> 
-          <td valign="top" colspan="2" rowspan="3"><a href="../index.html"><img src="../images/mrbs.png" width="130" height="50" border="0"></a></td>
+          <td valign="top" colspan="2" rowspan="3"><a href="index.html"><img src="images/mrbs.png" width="130" height="50" border="0"></a></td>
           <td width="12" height="4"></td>
           <td width="552"></td>
           <td width="5"></td>
@@ -35,7 +38,7 @@
         <tr> 
           <td height="34"></td>
           <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
-            <h1><!-- #BeginEditable "title" -->Title<!-- #EndEditable --></h1>
+            <h1><!-- insert title --></h1>
           </td>
         </tr>
         <tr> 
@@ -52,10 +55,9 @@
         </tr>
         <tr>
           <td height="337"></td>
-          <td colspan="3" valign="top"><!-- #BeginEditable "body" --> 
-            <p class="body">jkhkjhkjhkjhkjh</p>
-            <p class="body">jhkjhkjh</p>
-            <!-- #EndEditable --> </td>
+          <td colspan="3" valign="top">
+            <!-- insert body -->
+          </td>
           <td></td>
         </tr>
         <tr>
