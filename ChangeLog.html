@@ -54,6 +54,60 @@
           <td height="337"></td>
           <td colspan="3" valign="top"><!-- #BeginEditable "body" --> 
             <pre>[============================]<br>[   Mrbs NEWS Legend:        ]<br>[                            ]<br>[ + Added feature            ]<br>[ * Improved/changed feature ]<br>[ - Bug fixed (we hope)      ]<br>[============================]<br>
+-------------------------------------------------------------------------------
+<strong>Version 1.2-pre3</strong> (Fri May 14 04:00:00 GMT 2004):
+
+[+] Added long awaited "periods" support. Calendar can displays 'periods'
+ &nbsp; &nbsp; &nbsp;instead of classic time of the day.
+[+] New authentication scheme 'auth_db'. This is a web-based authentication,
+ &nbsp; &nbsp; &nbsp;based on a user table in the mrbs database. User administration page has
+ &nbsp; &nbsp; &nbsp;a special feature to automatically display fields that admin may add to
+ &nbsp; &nbsp; &nbsp;the user table, no need to edit the code. This new authentication is not
+ &nbsp; &nbsp; &nbsp;yet implemented for Postgresql.
+ &nbsp; &nbsp; &nbsp;PLEASE READ RELEVANT SECTION IN "AUTHENTICATION" BEFORE THE FIRST USE.
+[+] Added email support. Emails can be sent to MRBS administrator, area or
+ &nbsp; &nbsp; &nbsp;room administrators, or bookers and for each entry creation, change or
+ &nbsp; &nbsp; &nbsp;deletion. Emails for changed entries display the value of previous
+ &nbsp; &nbsp; &nbsp;settings. Added emails fields to room/area admin and edit_users pages.
+[+] Added option to retrieve users emails from other authentication
+ &nbsp; &nbsp; &nbsp;schemes as auth_db (if ldap is used, user email will be username plus
+ &nbsp; &nbsp; &nbsp;domain name)
+[+] Added option to allow for a day to start at say 8:30 am.
+[+] Database tables names are now variables defined in config.inc.php. This
+      will allow users to install multiple sets of mrbs tables when only one
+      SQL database is available, or resolve table name conflicts.
+[+] Booking is now possible from the month view by clicking a new 'plus sign',
+ &nbsp; &nbsp; &nbsp;taking the user to an add entry page for that day of the month.
+[+] Using auth_db, the link "you are XXXX" becomes a link to all upcoming
+ &nbsp; &nbsp; &nbsp;entries belonging to XXXX (report page).
+[+] Added support for multiple pop3 or imap server to be used for
+ &nbsp; &nbsp; &nbsp;authentication (in case of failure).
+[+] Added greek language (Stavros Papadakis), updated finish (Tom Ingberg),
+ &nbsp; &nbsp; &nbsp;german (Michael Glaessel) and swedish (MissterX) languages.
+[+] Added option to determine the default starting view, i.e. month, week or
+ &nbsp; &nbsp; &nbsp;day (Warren Turkal) and the starting room.
+[+] Added support for changing area/room in Add/Edit entry form.
+[*] Capacity is not displayed in brackets next to room name if capacity is 0
+[*] Preview page now displays the color key.
+[*] Added option to display both time and descriptions in month view.
+[*] Various enhancements to display/navigation (added pop-up messages in
+ &nbsp; &nbsp; &nbsp;various places, added direct links between room headings and week
+ &nbsp; &nbsp; &nbsp;view, highlighting of cells on mouse-over, highlighting of current
+ &nbsp; &nbsp; &nbsp;month/week/day in mini calendars, ability to book a room by clicking
+ &nbsp; &nbsp; &nbsp;anywhere in cells, navigation link duplicated under the calendar...)
+[*] Added option to display time on right side in day and week view
+[*] Enhancements to report page: added 'type', 'creator' and various sorting
+ &nbsp; &nbsp; &nbsp;options.
+[*] LDAP servers login processes, does an anonymous bind first
+[*] Fixed bug/enhancements to avoid url problems when using a proxy in
+ &nbsp; &nbsp; &nbsp;the environment. Although breaking HTTP specs, use of relative paths
+ &nbsp; &nbsp; &nbsp;allows to run mrbs with https (ssl).
+[*] Added some javascript code to control user inputs mainly in edit_entry.php
+ &nbsp; &nbsp; &nbsp;(avoid selecting february 30,...)
+
+and several other minor bug fixes and minor changes. To see details, please
+read /web/Changelog file from Dec 07 2003.
+
 -------------------------------------------------------------------------------<br><strong>Version 1.2-pre2</strong> (Sun Dec 07 00:00:00 GMT 2003):<br>
 [+] Completely revamped authentication logic.<br>    Now MRBS make use of sessions to store temporary user informations,<br>    ability to log on/off, and so on.. This is now the default mode. <br>    See AUTHENTICATION for more details.<br>[+] Revamped localisation. <br>      Automatic language determination made much better, works for<br>	  Windows and Unix servers now<br>[+] Added utility to convert text in the database to UTF8.<br>[+] Revamped internationalisation. MRBS can now be called  fulled Unicode. <br>      MRBS serves all of it's pages in UTF-8 and stores everything in the <br>      database in UTF-8. This means that all languages work together.<br>[+] Bubbles are displayed when mouse hover entries in day, week and month <br>      view, showing a more complete description.<br>[+] Allow to view weeks in the bottom of the web pages as week numbers <br>      instead of 'first day of the week' (Per Wermelin - SKIOLD S&aelig;by A/S&quot;<br>	  &lt;ela@skiold.dk&gt;).<br>[*] Added a new script for the &quot;ext&quot; authentication scheme that<br>	  allows you to use a password file with usernames and their<br>	  crypted passwords.<br>[-] Fixed bug #853410: When changing a non n-weekly entry, field &quot;Number of <br>      weeks (for n-weekly)&quot; appear...<br>[-] Fixed bug #846337: We can create rooms with no area<br>[-] Fixed bug #413175, #831310: Daylight savings time shift entries one hour <br>[-] Fixed bug: Always displays &quot;Edit Entry&quot; instead of &quot;Edit Series&quot; at top <br>      of page when editing a serie.<br>[-] Fixed bug in pop3 auth scheme.<br>[-] and several other minor bug fixes.<br>[*] Warning: MRBS does not work with postgreSQL 7.3 and above. <br>
 -------------------------------------------------------------------------------<br><strong>Version 1.2-pre1</strong> (Tue Sep 23 06:00:00 GMT 2003):<br>
