@@ -15,6 +15,6 @@ include "inc/main.inc";
 doPageHeader("Image Viewer");
 ?>
 
-<IMG SRC="<?= $file ?>">
+<IMG SRC="<? echo $file ?>">
 
 <? doPageFooter(); ?>

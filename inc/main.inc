@@ -5,7 +5,7 @@ function doPageHeader($title)
 ?>
 <HTML>
  <HEAD>
-  <TITLE>MRBS - <?= $title ?></TITLE>
+  <TITLE>MRBS - <? echo $title ?></TITLE>
  </HEAD>
  <BODY BGCOLOR=#ffffff>
   <TABLE BORDER=0 HEIGHT=100% CELLPADDING=2>
