@@ -1,9 +1,0 @@
-Getting MRBS
-Current
-The most recent version is "0.8-pre1". 0.8 introduces user authentication, which involves some quite large changes in the code-base. -pre1 is to check for any major problems before the "real" 0.8 release.
-
-Download
-The best way to get the source is to use CVS - see the <a href=http://sourceforge.net/cvs/?group_id=5113>CVS page</a> at sourceforge. CVS is really easy - if you haven't tried it yet then start now! If you really are that scared of CVS or don't have it yet for some reason then you can get a tarball. Check <a href=http://sourceforge.net/project/filelist.php?group_id=5113>the released files</a> for the latest stable version.
-
-Install
-There's a file called INSTALL in the distribution. Surprisingly enough it will tell you how to install MRBS.
