@@ -6,7 +6,7 @@ doPageHeader("Screen Shots");
 
 <H2>See MRBS</H2>
 <P>
- Some screen shots. Sorry its from IE, but Netscape was playing up, its late
+ Some screen shots.  Sorry it's from IE, but Netscape was playing up, it's late
  and I want to go home.
 </P>
 <TABLE>
@@ -41,6 +41,7 @@ doPageHeader("Screen Shots");
  </TR>
 </TABLE>
 <P>
- Thats most of the important pages.
+ That's most of the important pages.
 </P>
+
 <? doPageFooter(); ?>

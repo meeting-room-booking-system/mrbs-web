@@ -6,9 +6,9 @@ doPageHeader("Home");
 
 <H2>Introduction</H2>
 <P>
- MRBS is a free, GPL, web application using PHP and mySQL for booking
+ MRBS is a free, GPL, web application using PHP and MySQL for booking
  meeting rooms. The program supports multiple rooms grouping them by
- building.  The program automatically ensures that conflicting entrys
+ building.  The program automatically ensures that conflicting entry's
  cannot be entered, when making a booking you can choose to make the
  booking repeat at daily
 </P>
@@ -48,7 +48,7 @@ doPageHeader("Home");
 <H2>History</H2>
 <P>
  MRBS was originally written by <A HREF="mailto:daniel@pl14759.demon.co.uk">
- Daniel Gardner</A>.  With the codebase initally taken from
+ Daniel Gardner</A>.  With the codebase initially taken from
  <A HREF="http://webcalendar.sourceforge.net/">WebCalendar</A> because
  it seemed as though they had similar objectives.  These days there
  is very little code from the original project.

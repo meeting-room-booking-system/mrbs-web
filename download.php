@@ -8,7 +8,7 @@ doPageHeader("Download");
 <P>
  The latest releases will always be available
  <A HREF="http://sourceforge.net/project/showfiles.php?group_id=5113">here</A>
- with a small comment describing whats changed.
+ with a small comment describing what's changed.
 </P>
 <P>
  However I tend to get a bit behind releasing files, so CVS is probably the
