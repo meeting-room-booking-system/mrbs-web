@@ -13,9 +13,9 @@ doPageHeader("Download");
 <P>
  However I tend to get a bit behind releasing files, so CVS is probably the
  best way to get stuff.  Instructions are
- <A HREF="http://sourceforge.net/cvs/?group_id=5113">here</A>.  The stuff actually
- in CVS at the moment tends to be pretty stable, as I test it a bit before I
- put it up.
+ <A HREF="http://sourceforge.net/cvs/?group_id=5113">here</A>.  The stuff 
+ actually in CVS at the moment tends to be pretty stable, as I test it a bit
+ before I put it on CVS.
 </P>
 <P>
  For installation instructions please refer to a file called "INSTALL" in the

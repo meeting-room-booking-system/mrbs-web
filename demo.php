@@ -9,8 +9,8 @@ doPageHeader("Demo");
  You can find a demonstration installation
  <A HREF="http://mrbs.sourceforge.net/mrbs/">here</A>
  it should always be running the very latest version straight from CVS, I
- sometimes forget ^H^H^H^H^H^H^H am to busy do update it, but it should work at
- the least.
+ sometimes forget to update it, but it should be a good demo of what the
+ program does.
 <P>
 </P>
  There's nothing about it which is different from what you get. You can even

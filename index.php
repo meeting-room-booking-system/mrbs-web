@@ -13,7 +13,8 @@ doPageHeader("Home");
  booking repeat at daily
 </P>
 <P>
- It would be easier to look at the <A HREF="demo.php">demo</A> it shows what the whole thing is about. 
+ It would be easier to look at the <A HREF="demo.php">demo</A> it shows what
+ the whole thing is about. 
 </P>
 <P>
  It is very reliable at this point. All the features that are needed in
@@ -39,10 +40,14 @@ doPageHeader("Home");
 </P>
 <P>
  If you do happen to install MRBS then I'd love to hear from you. It would
- be quite useful to know if this was being implemented anywhere. 
+ be quite useful to know if this was being implemented anywhere.  Also, if you
+ make any changes that you think would be usefull to other people, please send
+ me an email with the changes attached, a diff to the latest version is
+ the preferable format, but I should be able to sort out what's changed if
+ you just send me a tarball of your mrbs directory.
 </P>
 <P>
- Also if you think anything should be added or changed on this website
+ Also if you think of anything should be added or changed on this website
  then, again, please contact me. 
 </P>
 <H2>History</H2>
