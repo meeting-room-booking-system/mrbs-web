@@ -4,7 +4,7 @@ if (! preg_match("/^\w+\.mrbs$/",$show)) {
 }
 
 if (! preg_match("/MSIE|Lynx/",$HTTP_USER_AGENT)) {
-	$dontbedull = 1;
+	$dontbedull = 0;
 }
 
 $farray = file($show);
@@ -35,6 +35,7 @@ background=bg.gif>
 
 <?
 }
+
 function button($u, $d, $l) {
 	global $dontbedull;
 	if ($dontbedull) {
@@ -50,16 +51,16 @@ button("demo-up.gif","Demo","index.php3?show=demo.mrbs");
 button("faq-up.gif","FAQ","index.php3?show=faq.mrbs");
 button("bugs-up.gif","Bugs","index.php3?show=bugs.mrbs");
 button("get-up.gif","Download","index.php3?show=get.mrbs");
+button("install.gif","Install","index.php3?show=install.mrbs");
 
 if ($dontbedull) {
 ?>
 <img src=ae_end1.gif>
-
 <p>
-
 </td><td valign=top>
 <?
 }
+
 echo "<h1>$title</h1>\n";
 
 while (list($key, $val) = each($farray)) {
@@ -80,6 +81,7 @@ Meeting Room Booking System Web<br>
 </tr>
 </table>
 <? } ?>
+
 </body>
 </html>
 
@@ -87,8 +89,9 @@ Meeting Room Booking System Web<br>
 
 if (! (preg_match("/xindex\.php3/",$HTTP_REFERER))) {
 	$logstr = date("Y-m-d H:i:s")."\t$HTTP_ACCEPT_LANGUAGE\t$REQUEST_URI\t".gethostbyaddr($REMOTE_ADDR)."\t$HTTP_REFERER\t$HTTP_USER_AGENT\n";
-	$log = fopen("/home/groups/mrbs/log2/mrbs.log","a");
-	fwrite($log,$logstr);
-	fclose($log);
+	if ($log = fopen("/home/groups/mrbs/log2/mrbs.log","a")) {;
+		fwrite($log,$logstr);
+		fclose($log);
+	}
 }
 ?>
