@@ -1,0 +1,12 @@
+Reporting Bugs
+There might be a problem with MRBS and mySQL version 3.23.x - there has been one report that appointments do not show up using 3.23. This is unconfirmed at this time, please let me know about your experiances. 
+
+I'm not sure if this counts as a mySQL or MRBS bug, seeing as <b>there is no problem with 3.22.x</b>.
+
+Apart from that there are no known bugs in MRBS. But if you should happen to find any
+then I'd love to hear from you. If the bug report comes with a diff attached
+then that'd be even better!
+
+The two best ways to report a bug are posting to the mailing list -
+mrbs-general@lists.sourceforge.net - and posting to the bugs page on
+sourceforge ( http://sourceforge.net/bugs/?group_id=5113 )
