@@ -23,7 +23,9 @@ doPageHeader("Home");
 </P>
 <P>
  Different languages are supported, currently English and Japanese string files
- are included. 
+ are included.  This allows the program to be customised to book things other
+ than meeting rooms. I have had reports of people using it for booking
+ planes (at a flying club), and tables in a restaurant.
 </P>
 <H2>Contact</H2>
 <P>
