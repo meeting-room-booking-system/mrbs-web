@@ -2,10 +2,24 @@
 Viewing a whole area in month or week view
 ==========================================
 
-These are the files that Gavin sent to the mrbs-general mailing
-list.
+These are updated files that John and I have previously sent to the
+mrbs-general mailing list.
 
-Take the .txt extension off the end of the filenames and use them as
-directed in Gavin's original messages.
+There are four files:
+functions.inc.txt
+week_area.php.txt
+week_area2.php.txt
+month_area.php.txt
 
-John.
+These files should be saved to your installation directory.
+Save your current week.php and/or month.php to another name so that you
+can put them back if you don't like these new versions.
+Copy functions.inc.txt to functions.inc
+Copy week_area.php.txt or week_area2.php.txt to week.php
+ and/or
+Copy month_area.php.txt to month.php
+
+These files are compatible with version 1.2.1.
+
+Gavin
+19-Feb-2004

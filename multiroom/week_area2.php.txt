@@ -317,7 +317,6 @@ echo "</tr>\n";
 # move to the next day to get the hours in the day.
 ( $dst_change[0] != -1 ) ? $j = 1 : $j = 0;
 
-$row_class = "even_row";
 for ($thisday = 0; $thisday<=($num_of_days-1) ; $thisday++)
 {
 	# Show the time linked to the URL for highlighting that time:
@@ -331,6 +330,7 @@ for ($thisday = 0; $thisday<=($num_of_days-1) ; $thisday++)
 	utf8_strftime($dformat, $td) . "</a></td>\n";
 	echo "</tr>"; 
 	
+$row_class = "even_row";
 	for (
 		$t = mktime($morningstarts, $morningstarts_minutes, 0, $month, $day+$j, $year);
 		$t <= mktime($eveningends, $eveningends_minutes, 0, $month, $day+$j, $year);
