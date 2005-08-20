@@ -163,6 +163,18 @@ PHP authentication modules
 |      |                        |  - easy to        |                        |
 |      |                        |  configure        |                        |
 +------+------------------------+-------------------+------------------------+
+|db_ext|Users validated using   |                   |                        |
+|      |a table in an external  |  - Uses an        |                        |
+|      |MySQL database          |  existing         |  - MySQL only at the   |
+|      |                        |  authentication   |  moment.               |
+|      |                        |  database thereby |                        |
+|      |                        |  saving directory |                        |
+|      |                        |  duplication.     |                        |
+|      |                        |                   |                        |
+|      |                        |  - easy to        |                        |
+|      |                        |  configure        |                        |
+|      |                        |                   |                        |
++------+------------------------+-------------------+------------------------+
 |ldap  |Users validated using   |                   |                        |
 |      |LDAP directory services.|                   |                        |
 |      |                        |  - For corporate  |  - Does not work on the|
@@ -548,6 +560,46 @@ Authentication method, usable on the Internet.
  all other authentications in mrbs, which delegate the user accounts
  management to an external authority.
 
+
+External DB (db_ext) Authentication
+-----------------------------------
+
+Authentication method, usable on the Internet.
+
+ Works only with Mysql currently.
+
+It works by using one of the installer&#039;s own MySQL databases. You can
+configure how to connect to the database server, what database/table to
+use and the names of the &quot;user&quot; and &quot;password&quot; columns.
+
+The configuration items are held in config.inc.php and are as follows:
+
+$auth[&#039;db_ext&#039;][&#039;db_host&#039;] = &#039;localhost&#039;;
+
+The MySQL server to connect to.
+
+$auth[&#039;db_ext&#039;][&#039;db_username&#039;] = &#039;authuser&#039;;
+$auth[&#039;db_ext&#039;][&#039;db_password&#039;] = &#039;authpass&#039;;
+
+The MySQL username and password to connect with.
+
+$auth[&#039;db_ext&#039;][&#039;db_name&#039;] = &#039;authdb&#039;;
+
+The name of the database.
+
+$auth[&#039;db_ext&#039;][&#039;db_table&#039;] = &#039;users&#039;;
+
+The table that holds the authentication data.
+
+$auth[&#039;db_ext&#039;][&#039;column_name_username&#039;] = &#039;name&#039;;
+$auth[&#039;db_ext&#039;][&#039;column_name_password&#039;] = &#039;password&#039;;
+
+The names of the two columns that hold the authentication data.
+
+$auth[&#039;db_ext&#039;][&#039;password_format&#039;] = &#039;md5&#039;;
+
+This is the format of the password entries in the table. You can specify
+&#039;md5&#039;, &#039;sha1&#039;, &#039;crypt&#039; or &#039;plaintext&#039;.
 
 POP3 Authentication
 -------------------
