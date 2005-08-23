@@ -73,10 +73,19 @@ doPageHeader("Download");
               <img src="images/mrbs_download.png"
                alt="Picture of SF download page" width="591" height="90"> 
             </P>
-            <P class="body"> However I tend to get a bit behind releasing files, 
-              so CVS is probably the best way to get stuff. Instructions are <A HREF="http://sourceforge.net/cvs/?group_id=5113">here</A>. 
-              The stuff actually in CVS at the moment tends to be pretty stable, 
-              as I test it a bit before I put it on CVS. </P>
+            <P class="body">Alternatively you can get MRBS via CVS,
+              insructions are <A HREF="http://sourceforge.net/cvs/?group_id=5113">here</A>.
+              Currently major development is happening on the trunk, so
+              unless you want to help us testing that, you probably want to
+              check out the 1.2 branch, i.e.:
+            </P>
+            
+            <PRE>
+      # Assuming you have set CVSROOT correctly first
+      $ cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/mrbs \
+      > co -r mrbs-1_2-branch mrbs -P
+</PRE>
+
             <P class="body"> For installation instructions please refer to a file 
               called "<a href="INSTALL.html">INSTALL</a>" in the tarball that 
               you download. </P>
