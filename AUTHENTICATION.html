@@ -115,7 +115,7 @@ module. There are two general categories:
 Internal PHP modules support the following kinds of authentication servers:
 LDAP servers; POP3 email servers; IMAP email servers; NIS servers ; NW servers.
 In addition, three special internal modules support a local list of users for 
-one; a local list of users stored in databse for tthe second; and 
+one; a local list of users stored in databse for the second; and 
 authenticating anybody for the other.
 
 External programs support: NT Domain controllers; Netware servers; PAM servers.
@@ -358,6 +358,16 @@ for historical reasons:
 |       |authentication is already done|                    |                |
 |       |by OmniHTTPd during the       |                    |                |
 |       |session initiation.           |                    |                |
++-------+------------------------------+--------------------+----------------+
+|remote_|The user&#039;s identity is        |                    |                |
+|user   |determined by reading the     |                    |                |
+|       |REMOTE_USER environment       | - For users that   |  - Requires a  |
+|       |variable.                     | already have an    |  web server    |
+|       |Use in combination with       | wider auth.        |  setup that    |
+|       |authentication &quot;none&quot;, as     | scheme that sets   |  sets          |
+|       |authentication has already    | REMOTE_USER, allows|  REMOTE_USER.  |
+|       |been done by the system that  | MRBS to use that   |  Could be hard |
+|       |sets REMOTE_USER              | scheme             |  to set up     |
 +-------+------------------------------+--------------------+----------------+
 |ip     |Users are identified by the IP|                    |                |
 |       |address of their computer.    |                    |                |
@@ -696,9 +706,10 @@ LDAP Authentication
 
 There are currently three methods for doing LDAP authentication, auth_ldap,
 auth_ldap.pl, auth_ldapsearch.pl.  The preferred method, auth_ldap, uses
-the LDAP functionality built into PHP and is described here.  The other
-methods use the &#039;ext&#039; authentication method and described further on in
-this file.
+PHP&#039;s LDAP extension which must be compiled into PHP or installed and loaded
+as a plugin extension in your php.ini. This method is described here.
+The other methods use the &#039;ext&#039; authentication method and are described
+further on in this file.
 
 This method can be used by setting config.inc.php as follows:
 
@@ -709,11 +720,16 @@ Also you will need to change the section:
 # &#039;auth_ldap&#039; configuration settings
 # Where is the LDAP server
 $ldap_host = &quot;localhost&quot;;
+# If you have a non-standard LDAP port, you can define it here
+#$ldap_port = 389;
 # LDAP base distinguish name
 # See AUTHENTICATION for details of how check against multiple base dn&#039;s
 $ldap_base_dn = &quot;ou=organizationalunit,dc=my-domain,dc=com&quot;;
 # Attribute within the base dn that contains the username
 $ldap_user_attrib = &quot;uid&quot;;
+
+You only need to set $ldap_port if your LDAP server uses a non-standard
+port.
 
 This method will attempt an authenticated bind to the ldap server using
 the supplied password and a distinguished name, which is formed from the
@@ -755,7 +771,9 @@ NIS Authentication
 
 $auth[&quot;type&quot;] = &quot;nis&quot;;
 
-Details?
+Authenticates the user from the NIS passwd.byname map. Requires the crypt
+password to be stored in the passwd.byname map and won&#039;t therefore work
+with shadow password NIS.
 
 
 NT Authentication
@@ -833,6 +851,20 @@ $auth[&quot;type&quot;] = &quot;none&quot;;
 
 Note that technically Omni authentication is actually an MRBS session scheme.
 We put it in this list as it is related with authentication anyway.
+
+REMOTE_USER Authentication
+--------------------------
+
+Get user identity/password using the REMOTE_USER environment variable
+
+To use this session scheme, set in config.inc.php:
+
+  $auth[&#039;session&#039;]  = &#039;remote_user&#039;;
+  $auth[&#039;type&#039;] = &#039;none&#039;;
+
+If you want to display a logout link, set in config.inc.php:
+
+  $auth[&#039;remote_user&#039;][&#039;logout_link&#039;] = &#039;/logout/link.html&#039;
 
 External Authentication Programs Configuration
 ==============================================
