@@ -22,7 +22,8 @@
                   | <a href="sshots.html">Screenshots</a> 
                   | <a href="download.html">Download</a>
                   | <a href="docs.html">Documentation</a> 
-                  | <a href="ChangeLog.html">NEWS</a>
+                  | <a href="NEWS.html">NEWS</a>
+                  | <a href="ChangeLog.html">ChangeLog</a>
                   | <a href="donate.html">Donate</a>
                 </td>
               </tr>
@@ -519,7 +520,6 @@ Authentication method, usable on the Internet.
 
  The authentication is done by the new module auth_db.inc.
  Enable it by setting $auth[&quot;type&quot;]=&quot;db&quot; in config.inc.php.
- This works only with session_php.inc or session_cookie.inc.
 
  Note: The names of administrators are still defined as usual by the
  $auth[&quot;admin&quot;][] list in config.inc.php.
@@ -722,6 +722,10 @@ Also you will need to change the section:
 $ldap_host = &quot;localhost&quot;;
 # If you have a non-standard LDAP port, you can define it here
 #$ldap_port = 389;
+# If you want to use LDAP v3, change the following to true
+$ldap_v3 = false;
+# If you want to use TLS, change following to true
+$ldap_tls = false;
 # LDAP base distinguish name
 # See AUTHENTICATION for details of how check against multiple base dn&#039;s
 $ldap_base_dn = &quot;ou=organizationalunit,dc=my-domain,dc=com&quot;;
@@ -730,6 +734,9 @@ $ldap_user_attrib = &quot;uid&quot;;
 
 You only need to set $ldap_port if your LDAP server uses a non-standard
 port.
+
+If you want to use LDAP v3, or TLS over LDAP set $ldap_v3 or $ldap_tls
+to true, respectively.
 
 This method will attempt an authenticated bind to the ldap server using
 the supplied password and a distinguished name, which is formed from the
@@ -1195,11 +1202,6 @@ The &quot;session_xxx.inc&quot; file needs to define certain functions:
 +-----------------+---------------------------------------------+------------+
 |getUserName()    |Returns the current user name.               |The user    |
 |                 |                                             |name,       |
-|                 |                                             |or null if  |
-|                 |                                             |not known.  |
-+-----------------+---------------------------------------------+------------+
-|getUserPassword()|Returns the current password.                |His         |
-|                 |                                             |password,   |
 |                 |                                             |or null if  |
 |                 |                                             |not known.  |
 +-----------------+---------------------------------------------+------------+
