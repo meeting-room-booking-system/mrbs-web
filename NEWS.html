@@ -66,6 +66,45 @@
 [============================]
 
 -------------------------------------------------------------------------------
+<strong>Version 1.2.6</strong> (Mon Jan 28 15:00:00 GMT 2008):
+
+[*] Added options to LDAP authentication, so that the DN to be used for
+ authentication checking can be obtained by first doing a search in
+ the directory. This allows MRBS to authenticate against a Microsoft AD
+ server, along with any other LDAP server that behaves in this manner.
+[+] Added support for Slovenian language and added translation provided
+ by Martin Terbuc.
+[*] Added updated Italian translation, and new Italian FAQ.
+[-] Removed invalid HTML in edit area/room page. Fixes SF tracker #1696383,
+ as reported by &#039;mikedip&#039;.
+[-] Fixed SQL escaping in the edit users page.
+[*] Improved i18n/l10n code.
+[+] Added Catalan support and Catalan translation as provided by Jordi
+ Prats.
+[-] Fixed bug in language preference code, as reported by many users.
+ Fix supplied by &#039;mikedip&#039; in SF tracker #1696382
+[-] Fixed HTML escaping problem in the edit booking screen.
+[-] Update of the room list as you change area in the edit entry screen
+ is now correct. This is a fix for SF tracker #1666299, as supplied by the
+ reporter, &#039;northtommy&#039;.
+[*] Translations now do not include terminating colons in many places
+ as they used to, these have now been moved to the code.
+[*] Added JavaScript and server-side checking for various things in the
+ new/edit booking page, which stops odd conditions ocurring, and gives
+ better feedback.
+[*] Emails sent by MRBS are now UTF-8, unless configured to use a
+ different charset.
+[-] Removed possible infinite loop in n-weekly booking creation.
+[-] Fixed invalid truncation of text in month view, it could
+ truncate  descriptions mid-UTF8 sequence before.
+[+] Added new authentication method, imap_php, which authenticates via IMAP,
+ but  using the PHP &#039;imap&#039; extension, which allows for SSL/TLS connections.
+[*] Updated French translation, as provided by &#039;dionysos-sf&#039;.
+[+] Added Turkish language support and Turkish translation, as provided
+ by Ahmet YILDIZ.
+[*] Added copy booking/series feature, as provided by Julian Eglestaff.
+
+-------------------------------------------------------------------------------
 <strong>Version 1.2.5</strong> (Sat Feb 24 20:00:00 GMT 2007):
 
 [*] Added options to LDAP authentication so that LDAP v3 and TLS connections
