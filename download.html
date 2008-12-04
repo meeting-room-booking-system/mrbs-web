@@ -1,5 +1,5 @@
 
-<?
+<?php
 include "inc/main.inc";
 
 doPageHeader("Download");
@@ -62,29 +62,31 @@ doPageHeader("Download");
           <td height="337"></td>
           <td colspan="3" valign="top"><!-- #BeginEditable "body" --> 
             <ul>
-              <li class="body"><a href="http://sourceforge.net/projects/mrbs/">Download 
+              <li class="body"><a
+            href="http://sourceforge.net/project/showfiles.php?group_id=5113/">Download 
                 Tarball</a></li>
-              <li class="body"><a href="http://sourceforge.net/cvs/?group_id=5113">CVS 
+              <li class="body"><a
+                href="http://sourceforge.net/svn/?group_id=5113">SVN 
                 Instructions</a></li>
             </ul>
-            <P class="body">The latest releases will always be available <A HREF="http://sourceforge.net/projects/mrbs/">here</A> 
-              with a small comment describing what's changed. Just scroll down 
-              to the &quot;Latest File Releases&quot; section and click the &quot;download&quot; 
+            <P class="body">The latest releases will always be available <A
+            HREF="http://sourceforge.net/project/showfiles.php?group_id=5113">here</A> 
+              along with release notes describing what's changed. Just find
+              the latest release and click the &quot;download&quot; 
               link in front of &quot;mrbs&quot; package like this :</P>
             <P align="center" class="body"><br>
               <img src="images/mrbs_download.png"
-               alt="Picture of SF download page" width="591" height="90"> 
+               alt="Picture of SF download page" width="505" height="107"> 
             </P>
-            <P class="body">Alternatively you can get MRBS via CVS,
-              insructions are <A HREF="http://sourceforge.net/cvs/?group_id=5113">here</A>.
-              Currently major development is happening on the trunk, so
-              unless you want to help us testing that, you probably want to
-              check out the 1.2 branch, i.e.:
+            <P class="body">Alternatively you can get MRBS via SVN,
+              insructions are <A HREF="http://sourceforge.net/svn/?group_id=5113">here</A>.
+              Releases are currently made from the trunk <b>mrbs/trunk</b>,
+              but further minor releases are likely to be made on a stabke
+              branch.
             </P>
             
             <PRE>
-      $ cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/mrbs \
-      > co -r mrbs-1_2-branch -P mrbs
+      $ svn co https://mrbs.svn.sourceforge.net/svnroot/mrbs/mrbs/trunk mrbs
 </PRE>
 
             <P class="body"> For installation instructions please refer to a file 
