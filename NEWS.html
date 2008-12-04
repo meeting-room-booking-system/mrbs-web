@@ -66,6 +66,107 @@
 [============================]
 
 -------------------------------------------------------------------------------
+<strong>Version 1.4</strong> (Wed Dec  3 15:00:00 GMT 2008):
+
+[+] Added Hungarian internationalision, in preparation for an offered
+ translation.
+[-] Removed all HTML entities apart from &amp;nbsp; from the translations,
+ so that the flawed PHP function html_entity_decode() doesn&#039;t need
+ to be used in the email sending code - solving a problem when running
+ MRBS with PHP 4.
+[*] Booking highlighting is now performed with CSS rather than JavaScript
+ by default, except in IE6, which doesn&#039;t support the appropriate
+ CSS feature. This improves performance in IE7/8, and makes the highlighting
+ not depend on JavaScript, which is good.
+[*] After making a booking (change), you now return to the view you
+ came from, be in day, week or month.
+[*] Improved highlighting of booking links in month view.
+[*] The day/week you&#039;re browsing is now maintained as you change between
+ day, week and month views, as far as is possible. This so-called
+ &quot;sticky day&quot; is highlighted in the mini-calendars also.
+[*] &quot;Plus&quot; graphics for adding new bookings are now not shown by default.
+[-] Fixed bug that stopped correct booking of meetings when in &quot;periods&quot;
+ mode. Reported and solved by Chris Cook.
+[-] Fixed bug in the add booking screen that caused selection of
+ multiple rooms to not work, and a similar bug that stopped selection
+ of booking type in the report screen.
+[-] Fixed bug in the date selector.
+[*] Deleted .cz translation, in preference of the .cs translation, which
+ is the right language code.
+[+] Added Dutch FAQ, provided by Cor Marjee.
+[*] Translation updates for Slovenian (Martin Terbuc), Dutch (Cor Marjee),
+ Italian (Erica Maria Peressini), Turkish (Ahmet YILDIZ), Spanish (SoTMaR),
+ French (Alain PORTAL), Japanese (MATSUURA Takanori).
+[*] Improved display of the trailer.
+[+] Implemented a configuration option for a simple trailer, as suggested
+ by Chris Cook.
+[*] Improved layout of the &quot;type&quot; colour key.
+[*] The area select box is no longer shows if there is only one area.
+[-] Fixed some problems shows up by 1.4beta1.
+[+] MRBS now validates as HTML 4.01 Strict, a lot of this work is courtesy of
+ Claudio Strizzolo.
+[*] MRBS now uses CSS for all styling, courtesy of sterling effort by
+ Campbell Morrison.
+[*] Improved default styling, courtesy of Campbell Morrison.
+[+] Added Simplified Chinese translation, provided by &#039;sunjunps&#039;.
+[-] Made the MySQL database use an explicit database connection
+ throughout.
+[*] Updated Japanese translation, provided by MATSUURA Takanori.
+[+] Added Basque translation, provided by Juan Ezeiza Gutierrez.
+[*] Updated Postgresql schema to match the MySQL one.
+[-] Improved HTML and SQL escaping throughout.
+[*] Improved code style/indenting throughout.
+[-] Improved form handling, individual form components are now pulled out
+ as their expected types, improving security.
+[*] Improved way in which MRBS calls the database, to make things
+ tidier/safer.
+[*] Improved print preview functionality, now use a print media CSS
+ stylesheet.
+[*] Updated German translation somewhat.
+[+] Added server time to the help page, to help diagnose time zone
+ issues.
+[*] Improved the output of the &quot;browser language&quot; section in the admin
+ page, and show it in the help page too.
+[-] Fixed a bug in the &#039;mysqli&#039; database abstraction.
+[*] Added default duration configuration variable to the config file, to
+ allow administrators to change it without editing the MRBS code.
+[-] Corrected short PHP tag in testdata.php.
+[*] Improved security of &#039;cookie&#039; session scheme - utilises Crypt_Blowfish
+ PEAR module.
+[-] Fixed AIX internationalisation function, patch provided by bwiberg
+ in SF tracker #2057646.
+[*] MRBS now encodes the subject of emails correctly.
+[*] Moved the translation of strings used in MRBS emails into the lang.*
+ files, where they belong - most languages now have no translation for
+ these strings.
+[*] Changed default booking slot configuration to give half-hourly slots
+ from 07:00 to 19:300, with the last slot being 18:30-&gt;19:00.
+[*] Fixed a bug that made all-day bookings not reserve the last slot in
+ the day.
+[*] Help, report and search pages now show the logon box in the header.
+[-] Fixed HTML escaping of period descriptions, period descriptions must
+ be valid HTML in config.inc.php.
+[*] Bookings that cover more than one slot now show as merged slots in
+ day and week views, replacing the previous &quot;ditto marks&quot; behaviour.
+[-] Fixed a number of issues that were reported during the 1.4 beta
+ phase.
+[+] You can now set the timezone that your meetings run in from
+ config.inc.php. In some configurations this must be done to get
+ proper DST behaviour.
+[*] The &#039;db&#039; authentication scheme now ensures that usernames are
+ unique.
+
+
+-------------------------------------------------------------------------------
+<strong>Version 1.2.6.1</strong> (Wed Jan 30 11:00:00 GMT 2008):
+
+[-] Fixed major bug in the new LDAP authentication functionality. If
+ $ldap_dn_search_attrib was set, any username/password combination
+ was allowed in.
+[*] Changed configuration default so that LDAP v3 is enabled by
+ default in the LDAP authentication scheme.
+
+-------------------------------------------------------------------------------
 <strong>Version 1.2.6</strong> (Mon Jan 28 15:00:00 GMT 2008):
 
 [*] Added options to LDAP authentication, so that the DN to be used for
