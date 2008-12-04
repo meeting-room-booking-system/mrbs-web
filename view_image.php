@@ -1,7 +1,7 @@
 <html><!-- #BeginTemplate "/Templates/main.dwt" --><!-- DW6 -->
 <head>
 <!-- #BeginEditable "doctitle" --> 
-<title>MRBS: Screenshot <?php echo $file ?></title>
+<title>MRBS: Screenshot <?php echo $_GET['file'] ?></title>
 <!-- #EndEditable -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" href="mrbs.css" type="text/css">
@@ -37,7 +37,7 @@
         <tr> 
           <td height="34"></td>
           <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
-            <h1><!-- #BeginEditable "title" -->MRBS Screenshot: <?php echo $file ?><!-- #EndEditable --></h1>
+            <h1><!-- #BeginEditable "title" -->MRBS Screenshot: <?php echo $_GET['file'] ?><!-- #EndEditable --></h1>
           </td>
         </tr>
         <tr> 
@@ -54,7 +54,7 @@
         </tr>
         <tr>
           <td height="337"></td>
-          <td colspan="3" valign="top"><!-- #BeginEditable "body" --> <IMG SRC="<?php echo $file ?>"> 
+          <td colspan="3" valign="top"><!-- #BeginEditable "body" --> <IMG SRC="<?php echo $_GET['file'] ?>"> 
             <!-- #EndEditable --> </td>
           <td></td>
         </tr>
