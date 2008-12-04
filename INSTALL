@@ -1,63 +1,4 @@
-<html>
-<head>
-<!-- #BeginEditable "doctitle" -->
-<title>MRBS: INSTALL</title>
-<!-- #EndEditable -->
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="mrbs.css" type="text/css">
-</head>
-
-<body bgcolor="#FFFFFF" text="#000000">
-<table width="705" border="2" cellpadding="0" cellspacing="0" bordercolor="#0066FF">
-  <tr> 
-    <td width="699" height="445" valign="top"> 
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="#0066FF">
-        <tr> 
-          <td valign="top" height="24" colspan="5"> 
-            <table width="100%" border="0" cellpadding="3" cellspacing="0">
-              <tr> 
-                <td width="691" height="24" valign="top" class="topbar" bgcolor="#0066FF">
-                    <a href="index.html">Introduction</a> 
-                  | <a href="demo.html">Demo</a>
-                  | <a href="sshots.html">Screenshots</a> 
-                  | <a href="download.html">Download</a>
-                  | <a href="docs.html">Documentation</a> 
-                  | <a href="NEWS.html">NEWS</a>
-                  | <a href="ChangeLog.html">ChangeLog</a>
-                  | <a href="donate.html">Donate</a>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <tr> 
-          <td valign="top" colspan="2" rowspan="3"><a href="index.html"><img src="images/mrbs.png" width="130" height="50" border="0"></a></td>
-          <td width="12" height="4"></td>
-          <td width="552"></td>
-          <td width="5"></td>
-        </tr>
-        <tr> 
-          <td height="34"></td>
-          <td colspan="2" valign="middle" bgcolor="#FFFFFF"> 
-            <h1>MRBS: Installation Instructions</h1>
-          </td>
-        </tr>
-        <tr> 
-          <td height="12"></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr> 
-          <td height="13" width="10"></td>
-          <td width="120"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td height="337"></td>
-          <td colspan="3" valign="top">
-            <pre>        MRBS Installation Instructions
+        MRBS Installation Instructions
 
 
 
@@ -79,14 +20,14 @@ You can run PHP either as a CGI or with a direct module interface (also called
 SAPI). These servers include Apache, Microsoft Internet Information Server, 
 Netscape and iPlanet servers. Many other servers have support for ISAPI, the 
 Microsoft module interface.
-You&#039;ll get better performance with PHP setup as a module.  Not only will you 
-not have to deal with the CGI performance hit, but you&#039;ll be able to use PHP&#039;s
-database connection pooling. However, be careful that you don&#039;t exceed
+You'll get better performance with PHP setup as a module.  Not only will you 
+not have to deal with the CGI performance hit, but you'll be able to use PHP's
+database connection pooling. However, be careful that you don't exceed
 the maximum number of connections allowed to your database; with connection
 pooling PHP/Apache can potentially create a connection from each Apache
 child server to the database. 
 Also many mrbs authentication schemes use basic http authentication. These 
-don&#039;t work if you run PHP as a CGI.
+don't work if you run PHP as a CGI.
 
 If you are using PHP as an Apache module, you probably want to ensure that
 the Apache MaxRequestsPerChild is not set to 0, in case of undetected memory
@@ -101,7 +42,7 @@ and 8.1.4 has been tested and reported to work.
 FILE UNPACKING
 ---------------------------------------------------------------------------
 To install MRBS, just unpack the distribution into a temporary directory,
-then copy the files in the &quot;web&quot; subdirectory into a new directory somewhere
+then copy the files in the "web" subdirectory into a new directory somewhere
 your web server can find them.
 
 For example:
@@ -111,13 +52,13 @@ Unpack the software into a new temporary directory, something like this:
     $ cd mrbs-1.0                             (or whatever version)
 
 If you are upgrading from a previous version of MRBS, you should save your
-&quot;config.inc.php&quot; file so you can compare and update the new file with your
+"config.inc.php" file so you can compare and update the new file with your
 site-specific changes. Then rename your existing MRBS web server directory.
 For example:
     $ cp /var/lib/apache/htdocs/mrbs/config.inc.php config.site.inc
     $ mv /var/lib/apache/htdocs/mrbs /var/lib/apache/htdocs/mrbs.old
 
-Now install MRBS by copying the contents of the &quot;web&quot; subdirectory of the
+Now install MRBS by copying the contents of the "web" subdirectory of the
 distribution somewhere your web server can find it.  For example:
     $ cp -r web /var/lib/apache/htdocs/mrbs
 
@@ -135,27 +76,27 @@ create a new database with the following:
 [MySQL]         $ mysqladmin create mrbs
 [PostgreSQL]    $ createdb mrbs
 
-(This will create a database named &quot;mrbs&quot;, but you can use any name.)
+(This will create a database named "mrbs", but you can use any name.)
 
 Create the MRBS tables using the supplied tables.*.sql file:
 
-[MySQL]         $ mysql mrbs &lt; tables.my.sql
+[MySQL]         $ mysql mrbs < tables.my.sql
 [PostgreSQL]    $ psql -a -f tables.pg.sql mrbs
 
-where &quot;mrbs&quot; is the name of your database (mentioned above).
+where "mrbs" is the name of your database (mentioned above).
 This will create all the needed tables.
-You may need to set rights on the tables; for PostgreSQL see &quot;grant.pg.sql&quot;.
+You may need to set rights on the tables; for PostgreSQL see "grant.pg.sql".
 If you use a PHP version less than 4.2, you will also need to replace the pgsql
 driver file pgsql.inc with pgsql.before_php42.inc, and rename it to pgsql.inc.
-If you need to delete the tables, for PostgreSQL see &quot;destroy.pg.sql&quot;.
+If you need to delete the tables, for PostgreSQL see "destroy.pg.sql".
 
 The tables are now empty and ready for use. If you want to add a few sample
 areas and rooms without going through the Admin function, use this script:
 
-[MySQL]         $ mysql mrbs &lt; sample-data.sql
+[MySQL]         $ mysql mrbs < sample-data.sql
 [PostgreSQL]    $ psql -a -f sample-data.sql mrbs
 
-Substitute the database name you used for &quot;mrbs&quot;.
+Substitute the database name you used for "mrbs".
 This script is only for use in a newly initialized database! (It will not
 work properly in a database where the ID counters are greater than 0.)
 Also see the description of testdata.php in the README file.
@@ -165,7 +106,7 @@ For an upgrade:
 The database format changed slightly between 0.6 and 0.7. To change the
 format of your data do:
 
-[MySQL]         $ mysql mrbs &lt; upgrade.my.sql
+[MySQL]         $ mysql mrbs < upgrade.my.sql
 
 (This does not apply to PostgreSQL, which was not supported then.)
 Also see the file UPGRADE in the distribution.
@@ -173,16 +114,16 @@ Also see the file UPGRADE in the distribution.
 For a second installation or to use different table names:
 
 If you have table name conflicts or want to do a second installation
-and only have access to one database, then you can modify the &#039;mrbs_&#039;
+and only have access to one database, then you can modify the 'mrbs_'
 prefix for the table names.
 
 In tables.*.sql you will need to change the table names and then follow
 the instructions above for creating the tables in your database.
 
 When editting config.inc.php, you need to change the table name prefix
-from &quot;mrbs_&quot; to the value you chose using the variable $db_tbl_prefix.
+from "mrbs_" to the value you chose using the variable $db_tbl_prefix.
 
-WARNING: All of the .sql files are setup to use the &#039;mrbs_&#039; prefix
+WARNING: All of the .sql files are setup to use the 'mrbs_' prefix
          therefore you will have to edit them before you use them if you
          change the prefix for your tables.
 
@@ -190,17 +131,17 @@ WARNING: All of the .sql files are setup to use the &#039;mrbs_&#039; prefix
 Maintenance:
 
 Be sure to back up your database regularly.
-For PostgreSQL, be sure to run the &quot;vacuum&quot; command regularly.
+For PostgreSQL, be sure to run the "vacuum" command regularly.
 You can clean out old entries from your database using the supplied SQL
 scripts purge.my.sql (for MySQL) and purge.pg.sql (for PostgreSQL). Read
 the comments at the top of the scripts before using them.
 
 APPLICATION SETUP
 ---------------------------------------------------------------------------
-Next, you will need to customize the file &quot;config.inc.php&quot;...
+Next, you will need to customize the file "config.inc.php"...
 
 If you are upgrading from a previous version of MRBS, use your saved
-copy of &quot;config.inc.php&quot; as a reference. Do not just use your old config.inc.php
+copy of "config.inc.php" as a reference. Do not just use your old config.inc.php
 file, however, because there changes and new settings.
 
 Refer to the comments in the supplied config.inc.php file for more details.
@@ -211,9 +152,9 @@ The following sections can be configured:
 
 First, select your database system. Define one of the following:
 
-    $dbsys = &quot;mysql&quot;;
-    $dbsys = &quot;mysqli&quot;;
-    $dbsys = &quot;pgsql&quot;;
+    $dbsys = "mysql";
+    $dbsys = "mysqli";
+    $dbsys = "pgsql";
 
 Then define your database connection parameters. Set the values for:
 
@@ -223,7 +164,7 @@ Then define your database connection parameters. Set the values for:
     $db_password =  The database login password for the above login username
 
 If the database server and web server are the same machine, use 
-$db_host=&quot;localhost&quot;. Or, with PostgreSQL only, you can use $db_host=&quot;&quot; to
+$db_host="localhost". Or, with PostgreSQL only, you can use $db_host="" to
 use Unix Domain Sockets to connect to the database server on the same machine.
 
 By default, MRBS will use PHP persistent (pooled) database connections,
@@ -232,12 +173,12 @@ configuration, it is possible that this will cause MRBS to reach the maximum
 number of connections allowed to your database, since each Apache child
 process may keep a connection open. Then, users will randomly get errors
 when trying connecting to MRBS.  If you would rather use non-persistent
-database connections, uncomment the line in &quot;config.inc.php&quot; which sets the
+database connections, uncomment the line in "config.inc.php" which sets the
 $db_nopersist variable.
 
 If you want to install multiple sets of mrbs tables when only one
 SQL database is available, or resolve table name conflicts, you have
-to change the prefix of &quot;mrbs_&quot; for the tables in your database,
+to change the prefix of "mrbs_" for the tables in your database,
 then you will need to set the value of:
 
     $db_tbl_prefix = The table name prefix
@@ -249,22 +190,22 @@ Specify your company or site name, and contact information. The company name
 is displayed at the top of each page, and the contact information is
 displayed in the help file.
 
-    $mrbs_admin = &quot;Your Administrator&quot;;
-    $mrbs_admin_email = &quot;admin_email@your.org&quot;;
-    $mrbs_company = &quot;Your Company&quot;;
+    $mrbs_admin = "Your Administrator";
+    $mrbs_admin_email = "admin_email@your.org";
+    $mrbs_company = "Your Company";
 
 Alternately, if you want to display your organization logo, replace the 
 $mrbs_company line like this :
 
-$mrbs_company = &quot;&lt;a href=http://www.your_organization.com/&gt;&lt;img src=your_logo.gif border=0&gt;&lt;/a&gt;&quot;;
+$mrbs_company = "<a href=http://www.your_organization.com/><img src=your_logo.gif border=0></a>";
 
-$url_base = &quot;&quot;;
+$url_base = "";
 
 This is to fix URL problems when using a proxy in the environment
 If links inside MRBS appear broken, then specify here the URL of
 your MRBS root directory, as seen by the users. For example:
 
-$url_base =  &quot;http://webtools.uab.ericsson.se/oam&quot;;
+$url_base =  "http://webtools.uab.ericsson.se/oam";
 
 It is also recommended that you set this if you intend to use email
 notifications, to ensure that the correct URL is displayed in the
@@ -332,15 +273,15 @@ The settings for each option are described below:
     descriptive name for the period or the start and end time.
 
     For example:
-        $periods[] = &quot;Period&amp;nbsp;1&quot;;
-        $periods[] = &quot;Period&amp;nbsp;2&quot;;
+        $periods[] = "Period&nbsp;1";
+        $periods[] = "Period&nbsp;2";
         ...
     or
-        $periods[] = &quot;09:15&amp;nbsp;-&amp;nbsp;09:50&quot;;
-        $periods[] = &quot;09:55&amp;nbsp;-&amp;nbsp;10:35&quot;;
+        $periods[] = "09:15&nbsp;-&nbsp;09:50";
+        $periods[] = "09:55&nbsp;-&nbsp;10:35";
         ...
 
-    &amp;nbsp; is used to ensure that the name or description is not wrapped
+    &nbsp; is used to ensure that the name or description is not wrapped
     when the browser determines the column widths to use in day and week
     views.
 
@@ -357,7 +298,7 @@ To control international preferences for the calendar displays,
 
 - use $weekstarts to change the first day of the week from the default of
 Sunday; 
-- use $dateformat to show dates as &quot;Month Day&quot; or &quot;Day Month&quot;
+- use $dateformat to show dates as "Month Day" or "Day Month"
 in the page footers;
 - use $twentyfourhour_format to show dates in 12 or 24 hour
 format.
@@ -376,7 +317,7 @@ These settings control:
 - the way entries are displayed in monthly view (start/end slot, brief
   description or both),
 - the way weeks are displayed in the bottom of the page (as week numbers (ie.
-  42) instead of &#039;first day of the week&#039; (13 Oct)),
+  42) instead of 'first day of the week' (13 Oct)),
 - display of times on right and left side in day and week view,
 - display of horizontal stripes on the day view,
 - cells highlighting options,
@@ -387,10 +328,10 @@ These settings control:
 5. Authentication:
 
 Read the file AUTHENTICATION for information about this section. By default, 
-config.inc.php uses &quot;php&quot; session management and &quot;config&quot; authentication 
-method, allowing only demo users to book rooms, and &quot;administrator&quot; is defined 
-to administer the system. Demo users are &quot;alice&quot; and &quot;bob&quot; (passwords &quot;a&quot; and 
-&quot;b&quot;) and &quot;administrator&quot; (password &#039;secret&#039;) is administrator.
+config.inc.php uses "php" session management and "config" authentication 
+method, allowing only demo users to book rooms, and "administrator" is defined 
+to administer the system. Demo users are "alice" and "bob" (passwords "a" and 
+"b") and "administrator" (password 'secret') is administrator.
 
 
 6. Email support:
@@ -406,7 +347,7 @@ There are four recipients types:
 
 With settings described below, you can decide that MRBS sends emails to all
 these recipients, or any combination of them. Each one can be selected
-individually. Note that the word &#039;administrator&#039; is used here only for mail
+individually. Note that the word 'administrator' is used here only for mail
 purposes, it is not related to any approval workflow.
 
 There are three events types:
@@ -465,7 +406,7 @@ is FALSE. MRBS can turn some of your user databases to advantage, as there
 are several authentication schemes where the username is the same as
 the email address username .For example, if your mrbs users come from an
 ldap directory and mrbs use this authentication scheme, it is likely your
-organisation emails addresses will use this username with &#039;@domain&#039;. If
+organisation emails addresses will use this username with '@domain'. If
 this is the case, you just have to set MAIL_BOOKER to TRUE and provide your
 domain below. This setting is available too if you use MRBS own user
 database (auth_db).
@@ -473,26 +414,26 @@ database (auth_db).
 MAIL_DOMAIN
 
 If MAIL_BOOKER is set to TRUE (see above) and you use an authentication
-scheme other than &#039;auth_db&#039;, you need to provide the mail domain that will
+scheme other than 'auth_db', you need to provide the mail domain that will
 be appended to the username to produce a valid email address (ie.
-&quot;@domain.com&quot;).
+"@domain.com").
 
 MAIL_USERNAME_SUFFIX
 
 If you use MAIL_DOMAIN above and username returned by mrbs contains extra
-strings appended like domain name (&#039;username.domain&#039;), you need to provide
+strings appended like domain name ('username.domain'), you need to provide
 this extra string here so that it will be removed from the username.
 
 MAIL_ADMIN_BACKEND
 
-Set the name of the backend to use to transport your mails. Either &quot;mail&quot;,
-&quot;smtp&quot; or &quot;sendmail&quot;:
+Set the name of the backend to use to transport your mails. Either "mail",
+"smtp" or "sendmail":
 
 ·   mail
 Sends a mail using PHPs build-in mail()-function. This means this function
 must not be disabled and you have a minimal control over your server and
 settings in php.ini :
-    &#039;SMTP&#039; and &#039;smtp_port&#039; for Windows and &#039;sendmail_from&#039; and &#039;sendmail_path&#039;
+    'SMTP' and 'smtp_port' for Windows and 'sendmail_from' and 'sendmail_path'
     for Unix
 
 ·   sendmail
@@ -505,45 +446,45 @@ Sends a mail connecting directly to an smtp server.
 
 SENDMAIL_PATH
 
-Set the path of the Sendmail program (only used with &quot;sendmail&quot; backend).
-Default is &quot;/usr/bin/sendmail&quot;
+Set the path of the Sendmail program (only used with "sendmail" backend).
+Default is "/usr/bin/sendmail"
 
 SENDMAIL_ARGS
 
-Set additional Sendmail parameters (only used with &quot;sendmail&quot; backend).
-(example &quot;-t -i&quot;). Default is &quot;&quot;
+Set additional Sendmail parameters (only used with "sendmail" backend).
+(example "-t -i"). Default is ""
 
 # SMTP settings
 
 SMTP_HOST
 
-Set smtp server to connect. Default is &#039;localhost&#039; (only used with &quot;smtp&quot;
+Set smtp server to connect. Default is 'localhost' (only used with "smtp"
 backend).
 
 SMTP_PORT
 
-Set smtp port to connect. Default is &#039;25&#039; (only used with &quot;smtp&quot; backend).
+Set smtp port to connect. Default is '25' (only used with "smtp" backend).
 
 SMTP_AUTH
 
-Set whether or not to use SMTP authentication. Default is &#039;FALSE&#039;
+Set whether or not to use SMTP authentication. Default is 'FALSE'
 
 SMTP_USERNAME
 
 Set the username to use for SMTP authentication. Use only if SMTP_AUTH is
-set to TRUE. Default is &#039;&#039;
+set to TRUE. Default is ''
 
 SMTP_PASSWORD
 
 Set the password to use for SMTP authentication. Use only if SMTP_AUTH is
-set to TRUE. Default is &#039;&#039;
+set to TRUE. Default is ''
 
 # Miscellaneous settings
 
 MAIL_ADMIN_LANG
 
 Set the language used for emails (chooses from an available lang.* file).
-Default is &#039;en&#039;.
+Default is 'en'.
 
 MAIL_FROM
 
@@ -553,40 +494,40 @@ variable.
 MAIL_RECIPIENTS
 
 Set the recipient email. Default is $mrbs_admin_email. You can define
-more than one recipient like this &quot;john@doe.com,scott@tiger.com&quot;
+more than one recipient like this "john@doe.com,scott@tiger.com"
 
 MAIL_CC
 
-Set email address of the Carbon Copy field. Default is &#039;&#039;. You can define
+Set email address of the Carbon Copy field. Default is ''. You can define
 more than one recipient (see MAIL_RECIPIENTS)
 
-$mail[&quot;subject&quot;]
+$mail["subject"]
 
 Set the content of the Subject field. Default is
-&quot;Entry added/changed for $mrbs_company MRBS&quot;
+"Entry added/changed for $mrbs_company MRBS"
 
-$mail[&quot;subject_delete&quot;]
+$mail["subject_delete"]
 
 Set the content of the Subject field for deleted fields. Default is
-&quot;Entry deleted for $mrbs_company MRBS&quot;;
+"Entry deleted for $mrbs_company MRBS";
 
-$mail[&quot;new_entry&quot;]
+$mail["new_entry"]
 
 Set the content of the message when a new entry is booked. What you type
 here will be added at the top of the message body. Default is:
-&quot;A new entry has been booked, here are the details:&quot;
+"A new entry has been booked, here are the details:"
 
-$mail[&quot;changed_entry&quot;]
+$mail["changed_entry"]
 
 Set the content of the message when an entry is modified. What you type
 here will be added at the top of the message body. Default is:
-&quot;An entry has been modified, here are the details:&quot;
+"An entry has been modified, here are the details:"
 
-$mail[&quot;deleted_entry&quot;]
+$mail["deleted_entry"]
 
 Set the content of the message when an entry is deleted. What you type
 here will be added at the top of the message body. Default is
-&quot;An entry has been deleted, here are the details:&quot;
+"An entry has been deleted, here are the details:"
 
 
 7. Language:
@@ -594,12 +535,12 @@ here will be added at the top of the message body. Default is
 MRBS supports multiple languages, which can be used at the same time, based on 
 what the client is using. Users can configure their web browsers to prefer
 one language over another, and MRBS will attempt to serve the MRBS pages in
-the user&#039;s preferred language. You can specify the default language in
+the user's preferred language. You can specify the default language in
 config.inc.php. See the file called LANGUAGE for more info.
 
-MRBS also uses your server&#039;s OS locale support to localise date/time strings.
+MRBS also uses your server's OS locale support to localise date/time strings.
 MRBS attempts to figure out what locale should be used based on your
-preferred language and the server OS. Use &quot;locale -a&quot; on your unix system to
+preferred language and the server OS. Use "locale -a" on your unix system to
 find out what locale support is installed. On Windows any language supported
 by Windows should work.
 
@@ -612,10 +553,10 @@ together.
 IF THIS DOES NOT WORK for you (your server may not have unicode support),
 just set $unicode_encoding to 0. MRBS will run the old way, with pages
 being served in an encoding based on the language, and the encoding of data
-in the database being a mess of different encodings based on the users&#039;
+in the database being a mess of different encodings based on the users'
 preferred language.
 
-To use Unicode, php should be built with &#039;iconv&#039; support (&#039;--with-iconv&#039;
+To use Unicode, php should be built with 'iconv' support ('--with-iconv'
 directive), or have the iconv extension installed and enabled. On Windows,
 if you are using PHP 5, iconv support is built-in.
 
@@ -642,7 +583,7 @@ Note: Upgrading mysql database from previous charsets to Unicode :
 
 8. Entry Types:
 
-By default, MRBS defines two &quot;meeting types&quot; - internal and external. There
+By default, MRBS defines two "meeting types" - internal and external. There
 are a total of 10 types ready to be used, if you assign names to them in
 your config.inc.php file. Each type has a color, defined in the style sheet.
 
@@ -656,41 +597,24 @@ languages.
 
 SECURITY NOTES!
 ---------------------------------------------------------------------------
-You can configure your web server so that users can not obtain the &quot;.inc&quot;
+You can configure your web server so that users can not obtain the ".inc"
 files but this is not essential, since critical files containing your
-database login and password use a &quot;.php&quot; extension like config.inc.php.
+database login and password use a ".php" extension like config.inc.php.
 See your web server documentation on how to do this.
 
 There is an Apache .htaccess file included, but Apache might ignore it because
-of the &quot;AllowOverride None&quot; in your httpd.conf. Either change &quot;AllowOverride
-None&quot; to &quot;AllowOverride Limit&quot;, create a new &lt;Directory&gt; entry with the
+of the "AllowOverride None" in your httpd.conf. Either change "AllowOverride
+None" to "AllowOverride Limit", create a new <Directory> entry with the
 contents of the .htaccess file in it, or add the contents of the .htaccess
-to httpd.conf where it says &quot;&lt;Files ~ &quot;^\.ht&quot;&gt;&quot;. And then read the Apache
+to httpd.conf where it says "<Files ~ "^\.ht">". And then read the Apache
 docs five or six times, until you know what you just did.
 
-You may protect &quot;config.inc.php&quot; to only allow the web server to read it.
+You may protect "config.inc.php" to only allow the web server to read it.
 For example:   # chown httpd config.inc.php; chmod 400 config.inc.php
 
-The script &quot;testdata.php&quot; is for testing only.  Do not leave it in a
+The script "testdata.php" is for testing only.  Do not leave it in a
 directory accessible to your web server. Anyone running this will add a
 large number of test entries to your database, regardless of
-authentication, and book all your rooms to people you&#039;ve never heard of.
+authentication, and book all your rooms to people you've never heard of.
 
-$Id$
-</pre>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td height="17"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-</body>
-</html>
+$Id: INSTALL 798 2008-04-13 19:59:24Z jberanek $
