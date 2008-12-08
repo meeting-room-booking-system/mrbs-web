@@ -5,7 +5,7 @@ body {
   background-color: #4B667B;
   margin: 0;
   padding: 0;
-  color: #111111;
+  color: #131A1F;
 }
 
 h1, h2 {
@@ -73,7 +73,7 @@ div#header {
   display: table-cell;
   height: 100%;
   list-style: none;
-  padding: 0 0.5em;
+  padding: 0;
   border-color: #BCC7CE;
   border-style: solid;
   border-width: 0 0 1px 1px; 
@@ -82,6 +82,10 @@ div#header {
   -moz-border-radius-topright: 10px;
   -webkit-border-top-left-radius: 10px;
   -webkit-border-top-right-radius: 10px;
+}
+
+#header li:hover {
+  background-color: #FBFD96;
 }
 
 #header li:first-child {
@@ -93,15 +97,23 @@ div#header {
   border-bottom-width: 0;
 }
 
-#header li a {
+#header a {
   display: block;   /* so that the link is active for the  */ 
-  height: 100%;     /* whole of the tab, not just the text */
+  height: 100%;     /* whole of the tab, not just the text */ 
+}
+
+#header a:link {
+  color: #4B667B;
+  text-decoration: none;
+}
+
+#header a:visited {
   color: #4B667B;
   text-decoration: none;
 }
 
 #header a:hover {
-  color: #4B667B;
+  color: #384D5C;
   text-decoration: underline;
 }
 
@@ -124,6 +136,7 @@ div#title {
 
 #screen_shots img {
   margin: 5px;
+  border: 1px solid #9AAAB5;
 }
 
 div.ss_large {
@@ -134,7 +147,7 @@ div.ss_large {
 }
 
 .ss_large img {
-  border: 1px solid #999999;
+  border: 1px solid #9AAAB5;
 }
 
 img#features {
@@ -151,8 +164,8 @@ img#download {
 /* A table class copied from MediaWiki and modified */
 table.prettytable {
   margin: 2em 1em 0 0;
-  background: #f9f9f9;
-  border: 1px #aaaaaa solid;
+  background: #F2F4F6;
+  border: 1px #A6B3BE solid;
   border-collapse: separate;
   border-spacing: 0;
   -moz-border-radius: 7px;
@@ -160,7 +173,7 @@ table.prettytable {
 }
 
 table.prettytable th, table.prettytable td {
-  border-color: #aaaaaa;
+  border-color: #A6B3BE;
   border-style: solid;
   border-width: 0;
   padding: 0.2em 0.5em;
@@ -186,7 +199,7 @@ table.prettytable td:first-child {
 }
 
 table.prettytable th {
-  background: #f2f2f2;
+  background: #D3DADF;
   text-align: center;
 }
 

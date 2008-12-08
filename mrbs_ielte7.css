@@ -14,6 +14,7 @@ div#header {
 #header li {
   display: inline-block;   /* Undo the display: table-cell */
   border-bottom-width: 0;  /* can't use a bottom border as the ul isn't full width  */
+  padding: 0 0.5em;        /* we can't rely on the table display to stretch the elements */
 }
 
 #header li {
@@ -31,7 +32,7 @@ table.prettytable {
 }
 
 table.prettytable th,  table.prettytable td{
-  border: 1px #aaaaaa solid;
+  border: 1px #A6B3BE solid;
 }
 
 div#content {
