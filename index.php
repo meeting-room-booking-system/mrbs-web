@@ -28,6 +28,8 @@ page_header(NULL, "Introduction");
   <li>Reporting option</li>
   <li>Selectable DAY / WEEK / MONTH views</li>
   <li>Multiple auth levels (read-only, user, admin)</li>
+  <li>Support for bookings by time or period - ideal for use in schools</li>
+  <li>Room administrators can be notified of bookings by email</li>
   <li>
     Multiple languages supported (translated to Catalan, Czech,
     Chinese, Danish, Dutch, Finnish, French, German, Greek,
