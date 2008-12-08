@@ -30,7 +30,7 @@ pre {
 }
 
 div#frame {
-  width: 720px;
+  width: 56em;
   margin: 1.0em auto;
   border: 0;
   -moz-border-radius: 10px;
