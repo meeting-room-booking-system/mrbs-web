@@ -1,5 +1,6 @@
 <?php
 
+// Include standard functions
 include("inc/functions.inc.php");
 
 page_header(NULL, "Demo");
