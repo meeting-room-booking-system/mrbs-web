@@ -56,8 +56,14 @@ function page_header($title, $section)
 function page_footer()
 {
 ?>    
+        <a href="http://sourceforge.net/projects/mrbs/">
+          <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=5113&amp;type=5"
+               width="120" height="30" border="0"
+               alt="Get Meeting Room Booking System at SourceForge.net. Fast, secure and Free Open Source software downloads">
+        </a>
       </div>
     </div>
+    
     <!-- Piwik -->
     <script type="text/javascript">
     var pkBaseURL = (("https:" == document.location.protocol) ? "https://apps.sourceforge.net/piwik/mrbs/" : "http://apps.sourceforge.net/piwik/mrbs/");

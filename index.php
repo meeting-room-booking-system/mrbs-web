@@ -78,11 +78,6 @@ page_header(NULL, "Introduction");
   Everything is provided by <a href="http://sourceforge.net/">SourceForge</a> -
   because they're nice like that.
 </p>
-<p>
-  <a href="http://sourceforge.net">
-    <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=5113&amp;type=1" width="88" height="31" alt="SourceForge Logo"> 
-  </a>
-</p>
 
 <?php
 
