@@ -12,6 +12,7 @@ function page_header($title, $section)
       "NEWS" => array("link" => "view_text.php?section=NEWS&amp;file=NEWS"),
       "ChangeLog" => array("link" => "view_text.php?section=ChangeLog&amp;file=ChangeLog"),
       "Donate" => array("link" => "donate.php"),
+      "Contact" => array("link" => "contact.php"),
     );
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">

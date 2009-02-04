@@ -60,12 +60,11 @@ page_header(NULL, "Introduction");
   all strings are stored in language-specific files.
 </p>
 <h2>Contact</h2>
+
 <p>
-  The main MRBS mailing list is
-  <a href="mailto:mrbs-general@lists.sourceforge.net"> 
-    mrbs-general@lists.sourceforge.net</a> send absolutely anything 
-  there. You can sign up <a href="http://lists.sourceforge.net/mailman/listinfo/mrbs-general"> 
-    here</a>, or browse the archives etc. </p>
+  See the <a href="contact.php">contact page</a>.
+</p>
+
 <h2>History</h2>
 <p>
   MRBS was originally written by Daniel Gardner. With the codebase initially 
