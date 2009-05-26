@@ -7,6 +7,7 @@ page_header(NULL, "Introduction");
 ?>
 
 <h2>What is MRBS?</h2>
+
 <p>
   MRBS is a free, GPL, web application using PHP and 
   MySQL/pgsql for booking meeting rooms or other resources.
