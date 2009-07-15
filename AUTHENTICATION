@@ -1,4 +1,4 @@
-RBS Users Authentication
+MRBS Users Authentication
 =========================
 
 Principles
@@ -41,7 +41,7 @@ choices must be made:
     and how keep track of it)
     - The authentication method. (What kind of server will verify the
     user/password validity)
-    - The list of administrators.
+    - The list of administrators (not used by the 'db' authentication method)
 
 There are several alternative authentication methods. They differ by the type
 of authentication server they can connect to, and by the kind of program used
@@ -365,6 +365,11 @@ etc
 
 You can have as many administrators as you want in this list.
 
+Exceptions:
+
+- In the "db" authentication method, access rights are stored in the MRBS
+database and are managed by MRBS.
+
 The default MRBS configuration uses PHP sessions, and a user list in
 config.inc.php for authentication. It defines three demo users 'alice' 'bob'
 and 'administrator'. The 'administrator' user is also in the administrators
@@ -453,59 +458,60 @@ DB Authentication
 
 Authentication method, usable on the Internet.
 
- Works only with Mysql, will be implemented for Postgresql in an upcoming
- release.
+It works by storing the list of users in a new table called mrbs_users in
+the mrbs database.
 
- It works by storing the list of users in a new table called mrbs_users in
- the mrbs database.
+The authentication is done by the module auth_db.inc.
+Enable it by setting $auth["type"]="db" in config.inc.php.
 
- The authentication is done by the new module auth_db.inc.
- Enable it by setting $auth["type"]="db" in config.inc.php.
+The list of users is displayed by clicking on the "User list" link in
+the logon box in the top banner.
+This list is managed by module edit_users.php.
+Administrators have the right to edit every entry, and add or remove users.
+Simple users only have the right to edit their own entry.
 
- Note: The names of administrators are still defined as usual by the
- $auth["admin"][] list in config.inc.php.
+The first time it is accessed, the mrbs_users table is automatically
+created.
 
- The list of users is displayed by clicking on the new "User list" link in
- the logon box in the top banner.
- This list is managed by module edit_users.php.
- Administrators have the right to edit every entry, and add or remove users.
- Simple users only have the right to edit their own entry.
-
- The first time it is accessed, the mrbs_users table is automatically
- created.
-
- *** WARNING ***
-
- Whoever is doing the initial edition is assumed to have administrator
- rights AND MRBS USE "administrator" username. BE CAREFUL TO HAVE THIS
- ADMINISTRATOR DEFINED IN CONFIG.INC.PHP, OTHERWISE YOU WON'T BE ALLOWED
- TO ENTER THE FIRST ADMINISTRATOR BELOW. After this step, you can remove
- the 'administrator' in config.inc.php.
- *** END OF WARNING ***
-
- The first user he creates MUST be an administrator, already defined in
- config.inc.php. Note: There are two predefined ones, called "administrator"
- and "127.0.0.1".
- Once this initial user/administrator is defined, it's necessary to log on
- using its name to create more users.
+*** WARNING ***
  
- Experimental:
+After you have set up MRBS, the first thing you must do is go to the 
+"User list" and set up a user with administrator rights.    Until you 
+do this the system is open and the first person to go to the "User list" link
+will be able to set up an administrator and lock you out of the system.  You
+will then only be able to get back into the system by droppng the users
+table.
+ 
+Once you have set up the first administrator you can then log on to
+the system using the username and password you have just created and
+create more users.
+ 
+*** END OF WARNING ***
 
- It's possible, and very simple, to add new application-specific fields in
- the mrbs_users table.
- No change is needed in edit_users.php editor code.
- Edit_users.php will automatically detect the new fields and add columns for
- them.
- The new fields can either be added beforehand in the code that creates the
- table in the beginning of edit_users.php (See comments there);
- Or they can be added afterwards using mysql.exe or phpMyAdmin, or the
- equivalent for other databases. Note: The first three fields (id, name,
- password) must not be tampered with. All others are modifiable at will.
+Upgrading from pre-1.4.2 systems:
  
- Important: does not work with PosgreSql.
+Versions of MRBS before 1.4.2 did not store access rights in the database
+and relied on the list of admins in the config file.    If you are upgrading
+from a pre-1.4.2 system, MRBS will automatically upgrade the users table in the
+database by adding a field for access rights level and give admin rights to
+those users for whom admin access is defined in the config file.   So, if 
+upgrading, you will need to make sure that your admins are set in the config
+file until you have run edit_users.php (by following the "User list" link) for 
+the first time.  Once you have run edit_users.php the admin definitions in the 
+config file are no longer used and can be deleted if you wish.
  
- Future improvements
- - Manage the user rights (user/admin) in the mrbs_users table too.
+It's possible, and very simple, to add new application-specific fields in
+the mrbs_users table.
+No change is needed in edit_users.php editor code.
+Edit_users.php will automatically detect the new fields and add columns for
+them.
+The new fields can either be added beforehand in the code that creates the
+table in the beginning of edit_users.php (See comments there);
+Or they can be added afterwards using database admin tools
+Note: The first three fields (id, level, name, password) must not be
+tampered with. All others are modifiable at will.
+ 
+Future improvements
  - Have a second level of administrators (level 3 users), with only such
  level 3 users allowed to edit the user database. This would be similar to
  all other authentications in mrbs, which delegate the user accounts
@@ -517,15 +523,18 @@ External DB (db_ext) Authentication
 
 Authentication method, usable on the Internet.
 
-It works by using one of the installer's own MySQL databases. You can
-configure how to connect to the database server, what database/table to
+It works by using one of the installer's own databases. The database can
+be any database system for which MRBS has a database abstraction. You can
+configure how to connect to the database server, what kind of database
+system it is (mysql, mysqli, pgsql currently), the database/table to
 use and the names of the "user" and "password" columns.
 
 The configuration items are held in config.inc.php and are as follows:
 
+$auth['db_ext']['db_system'] = 'mysql'; /* Or 'mysqli', 'pgsql' */
 $auth['db_ext']['db_host'] = 'localhost';
 
-The MySQL server to connect to.
+The server to connect to.
 
 $auth['db_ext']['db_username'] = 'authuser';
 $auth['db_ext']['db_password'] = 'authpass';
@@ -1225,4 +1234,4 @@ session code removed. A simple module (auth_config.inc) was added, managing a
 simple list of users in config.inc.php. Eventually there will also be another
 authentication module, using a table of users in the MRBS database.
 
-$Id: AUTHENTICATION 996 2009-01-15 09:22:10Z jberanek $
+$Id: AUTHENTICATION 1032 2009-02-24 22:52:28Z jberanek $
