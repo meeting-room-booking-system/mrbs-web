@@ -14,7 +14,7 @@ page_header(NULL, "Contact");
   <a href="http://lists.sourceforge.net/mailman/listinfo/mrbs-general">
     mailing list management page</a>. <b>Note: You will not be able to
   post to the list until you subscribe, but you can subscribe and
-  disable email delivery (or choose to receive digests) if your prefer.
+  disable email delivery (or choose to receive digests) if you prefer.
   This is a measure to keep the mailing list free of spam.</b>
 </p>
 
