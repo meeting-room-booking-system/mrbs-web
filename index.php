@@ -72,8 +72,9 @@ page_header(NULL, "Introduction");
   taken from <a href="http://webcalendar.sourceforge.net/">WebCalendar</a> 
   because it seemed as though they had similar objectives. These days 
   there is very little (if any) code from the original project. There 
-  have been many contributors to the project, most notably Sam Mason 
-  and L J Bayak.
+  have been many contributors to the project, most recently Campbell
+  Morrison has implemented many features, with some support by John
+  Beranek.
 </p>
 <p>
   Everything is provided by <a href="http://sourceforge.net/">SourceForge</a> -
