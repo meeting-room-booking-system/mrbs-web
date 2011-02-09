@@ -11,6 +11,7 @@ page_header(NULL, "Documentation");
 <ul>
   <li><a href="view_text.php?section=Documentation&amp;file=README">README</a></li>
   <li><a href="view_text.php?section=Documentation&amp;file=INSTALL">INSTALL</a></li>
+  <li><a href="view_text.php?section=Documentation&amp;file=UPGRADE">UPGRADE</a></li>
   <li><a href="view_text.php?section=Documentation&amp;file=AUTHENTICATION">AUTHENTICATION</a></li>
   <li><a href="view_text.php?section=Documentation&amp;file=LANGUAGE">LANGUAGE</a></li>
 </ul>

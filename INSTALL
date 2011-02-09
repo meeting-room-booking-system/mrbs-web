@@ -94,14 +94,14 @@ procedure might be:
 
 Create the MRBS tables using the supplied tables.*.sql file:
 
-[MySQL]         $ mysql mrbs < tables.my.sql
-[PostgreSQL]    $ psql -a -f tables.pg.sql mrbs
+[MySQL]             $ mysql mrbs < tables.my.sql
+[MySQL < 4.1]       $ mysql mrbs < tables.my.pre41.sql
+[PostgreSQL]        $ psql -a -f tables.pg.sql mrbs
+[PostgreSQL < 7.3]  $ psql -a -f tables.pg.pre73.sql mrbs
 
 where "mrbs" is the name of your database (mentioned above).
 This will create all the needed tables.
 You may need to set rights on the tables; for PostgreSQL see "grant.pg.sql".
-If you use a PHP version less than 4.2, you will also need to replace the pgsql
-driver file pgsql.inc with pgsql.before_php42.inc, and rename it to pgsql.inc.
 If you need to delete the tables, for PostgreSQL see "destroy.pg.sql".
 
 The tables are now empty and ready for use. If you want to add a few sample
@@ -120,7 +120,7 @@ For an upgrade:
 If you are upgrading from MRBS 1.2-pre3 or later, your database will be
 upgraded automatically if necessary when you first run MRBS.   You will
 be prompted for a database (not MRBS) username and password with rights
-to create and alter tables.     Otherwise, please se the UPGRADE file.
+to create and alter tables.     Otherwise, please see the UPGRADE file.
 
 For a second installation or to use different table names:
 
@@ -180,18 +180,19 @@ At the moment only text, varchar, int, smallint and tinyint columns are
 supported, displayed as textarea, text or checkbox fields as appropriate.
 Whether a varchar is displayed as a text or textarea input depends on its
 maximum length, with the breakpoint determined by a configuration variable.
-Smallints and tinyints are assumed to be booleans and are displayed as checkboxes.
+Ints are treated as integer types, as you would expect.   However smallints
+and tinyints are assumed to be booleans and are displayed as checkboxes.
+
+[Note:  smallints are assumed to be booleans because the boolean type in 
+PostgreSQL presents some problems in PHP when trying to process the results
+of a query in a database independent way, so it is more convenient to use a 
+smallint instead of a boolean in PostgreSQL.]
 
 Text descriptions are looked for in the lang files with the tag room.column_name,
 eg room.coffee_machine, or users.phone enabling translations to be provided.   
 If not present, the column name will be used for labels etc.  If you are adding
 columns to the entry and repeat tables then you only need to add the 
 entry.column_name tags:  you don't need to add a repeat.column_name tag.
-
-[Note:  smallints are assumed to be booleans because the boolean type in 
-PostgreSQL presents some problems in PHP when trying to process the results
-of a query in a database independent way, so it is more convenient to use a 
-smallint instead of a boolean in PostgreSQL.]
 
 As an example, to add a field to the room table recording whether or not
 there is a coffee machine you would, in MySQL, add the column 
@@ -412,19 +413,11 @@ to "Computer", then look for the appropriate string in the lang files and edit i
 INTERNATIONALISATION
 ---------------------------------------------------------------------------
 
-From mrbs-1.2-pre2, MRBS is internationalised as long as the config
-variable $unicode_encoding is set to 1 (which is the default setting). 
-If this is set, then MRBS serves all of its pages in UTF-8 and stores
-everything in the database in UTF-8. This means that all languages work
-together.
+From MRBS 1.4.6, MRBS is internationalised and uses UTF-8 throughout.
+MRBS will serve all of its pages in UTF-8 and stores everything in the
+database in UTF-8. This means that all languages work together.
 
-IF THIS DOES NOT WORK for you (your server may not have unicode support),
-just set $unicode_encoding to 0. MRBS will run the old way, with pages
-being served in an encoding based on the language, and the encoding of data
-in the database being a mess of different encodings based on the users'
-preferred language.
-
-To use Unicode, php should be built with 'iconv' support ('--with-iconv'
+To use Unicode, PHP should be built with 'iconv' support ('--with-iconv'
 directive), or have the iconv extension installed and enabled. On Windows,
 if you are using PHP 5, iconv support is built-in.
 
@@ -439,14 +432,13 @@ For PHP 4 on Windows, three things are needed :
   \%phpdir%\extensions\
 
 
-Note: Upgrading mysql database from previous charsets to Unicode :
+Note: Upgrading MySQL database from previous charsets to Unicode :
 
   You can use convert_db_to_utf8.php script to convert text in the
-  database to UTF8, to use MRBS with $unicode_encoding set to 1. The
-  administrator should copy it into the web directory, run it (choosing
-  the encoding to convert from) ONCE, and then move it back out of the
-  web directory. We recommend you backup your database before running
-  this script if you are at all worried.
+  database to UTF8. The administrator should copy this file into the web
+  directory, run it (choosing the encoding to convert from) ONCE, and then
+  move it back out of the web directory. We recommend you backup your
+  database before running this script if you are at all worried.
 
   
 PERIODS
@@ -493,4 +485,4 @@ directory accessible to your web server. Anyone running this will add a
 large number of test entries to your database, regardless of
 authentication, and book all your rooms to people you've never heard of.
 
-$Id: INSTALL 1586 2010-11-05 11:49:58Z cimorrison $
+$Id: INSTALL 1758 2011-01-27 08:12:02Z cimorrison $
