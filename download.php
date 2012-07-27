@@ -12,7 +12,7 @@ page_header(NULL, "Download");
       Download Tarball/Zip</a>
   </li>
   <li>
-    <a href="http://sourceforge.net/scm/?type=svn&amp;group_id=5113">
+    <a href="https://sourceforge.net/p/mrbs/code/">
       SVN Instructions</a>
   </li>
 </ul>
@@ -27,14 +27,12 @@ page_header(NULL, "Download");
    alt="Picture of SF download page" width="505" height="107"> 
 <p>
   Alternatively you can get MRBS via SVN,
-  instructions are <a href="http://sourceforge.net/scm/?type=svn&amp;group_id=5113">here</a>.
-  Releases are currently made from the trunk <b>mrbs/trunk</b>,
-  but further minor releases are likely to be made on a stable
-  branch.
+  instructions are <a href="https://sourceforge.net/p/mrbs/code/">here</a>.
+  Releases are currently made from the trunk <b>mrbs/trunk</b>.
 </p>
             
 <pre>
-  $ svn co https://mrbs.svn.sourceforge.net/svnroot/mrbs/mrbs/trunk mrbs
+  $ svn co svn://svn.code.sf.net/p/mrbs/code/mrbs/trunk mrbs
 </pre>
 
 <p>

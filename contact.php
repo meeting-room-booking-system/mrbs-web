@@ -20,9 +20,22 @@ page_header(NULL, "Contact");
 
 <p>
   If you prefer, you can use the bug/support request/feature request
-  trackers available on the <a href="http://sourceforge.net/tracker/?group_id=5113">
-  MRBS Sourceforge tracker page</a>.
+  trackers available on the project page:
 </p>
+<ul>
+  <li>
+    <a href="https://sourceforge.net/p/mrbs/support-requests/">Support Requests</a>
+  </li>
+  <li>
+    <a href="https://sourceforge.net/p/mrbs/bugs/">Bugs</a>
+  </li>
+  <li>
+    <a href="https://sourceforge.net/p/mrbs/patches/">Patches</a>
+  </li>
+  <li>
+    <a href="https://sourceforge.net/p/mrbs/feature-requests/">Feature Requests</a>
+  </li>
+</ul>
 
 <p>
   Please do <b>not</b> contact the MRBS developers or administrators directly -
