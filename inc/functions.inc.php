@@ -20,7 +20,7 @@ function page_header($title, $section)
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>MRBS: <?php echo($title ? $title : $section) ?></title>
+    <title>MRBS: <?php echo(htmlspecialchars(($title ? $title : $section)) ?></title>
     <link rel="stylesheet" href="mrbs.css" type="text/css">
     <!--[if lte IE 7]>
     <link rel="stylesheet" href="mrbs_ielte7.css" type="text/css">
