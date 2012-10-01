@@ -20,7 +20,7 @@ function page_header($title, $section)
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>MRBS: <?php echo(htmlspecialchars(($title ? $title : $section)) ?></title>
+    <title>MRBS: <?php echo(htmlspecialchars($title ? $title : $section)) ?></title>
     <link rel="stylesheet" href="mrbs.css" type="text/css">
     <!--[if lte IE 7]>
     <link rel="stylesheet" href="mrbs_ielte7.css" type="text/css">
@@ -46,7 +46,7 @@ function page_header($title, $section)
     <div id="title">               
       <a href="/"><img src="images/mrbs.png" width="130" height="50" alt="logo"></a>
     
-      <h1><?php echo(isset($title) ? $title : (isset($top_links[$section]['subtitle']) ? $top_links[$section]['subtitle'] : $section)) ?></h1>
+      <h1><?php echo(isset($title) ? htmlspecialchars($title) : (isset($top_links[$section]['subtitle']) ? $top_links[$section]['subtitle'] : htmlspecialchars($section))) ?></h1>
     </div>
     
     <div id="content">         
