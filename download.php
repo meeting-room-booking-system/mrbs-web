@@ -23,8 +23,10 @@ page_header(NULL, "Download");
   describing what's changed. Just find the latest release and click the
   &quot;Download&quot; link by the &quot;mrbs&quot; package like this :
 </p>
-  <img id="download" src="images/mrbs_download.png"
-   alt="Picture of SF download page" width="505" height="107"> 
+  <a href="http://sourceforge.net/projects/mrbs/files">
+    <img id="download" src="images/mrbs_download.png"
+     alt="Picture of SF download page" width="505" height="107" border=0> 
+  </a>
 <p>
   Alternatively you can get MRBS via SVN,
   instructions are <a href="https://sourceforge.net/p/mrbs/code/">here</a>.
