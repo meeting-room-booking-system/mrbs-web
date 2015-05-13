@@ -13,7 +13,7 @@ page_header(NULL, "Download");
   </li>
   <li>
     <a href="https://sourceforge.net/p/mrbs/hg-code/">
-      SVN Instructions</a>
+      Mercurial Instructions</a>
   </li>
 </ul>
 <p>
