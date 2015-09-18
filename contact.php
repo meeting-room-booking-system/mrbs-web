@@ -7,7 +7,9 @@ page_header(NULL, "Contact");
 ?>
 
 <p>
-  The preferred method of contact with the MRBS development team is the main MRBS
+  The preferred method of getting support from the MRBS development team is
+  via the <a href="https://sourceforge.net/p/mrbs/support-requests/">Support Requests</a>
+  tracker at Sourceforge. You can also ask questions on the the main MRBS
   mailing list, <a href="mailto:mrbs-general@lists.sourceforge.net">
     mrbs-general@lists.sourceforge.net</a>. You can send absolutely anything
   there - you can sign up or browse the archives from the
@@ -19,8 +21,8 @@ page_header(NULL, "Contact");
 </p>
 
 <p>
-  If you prefer, you can use the bug/support request/feature request
-  trackers available on the project page:
+  We run a number of different trackers at Sourceforge to track different sorts
+  of things, please try to choose the appropriate one from the below:
 </p>
 <ul>
   <li>
