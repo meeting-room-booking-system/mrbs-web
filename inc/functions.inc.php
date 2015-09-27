@@ -61,7 +61,8 @@ function page_footer()
                width="120" height="30" border="0"
                alt="Get Meeting Room Booking System at SourceForge.net. Fast, secure and Free Open Source software downloads">
         </a>
-        <script type="text/javascript" src="http://www.ohloh.net/p/433/widgets/project_partner_badge.js"></script>
+        <script type='text/javascript' src='https://www.openhub.net/p/mrbs/widgets/project_basic_stats?format=js'></script>
+        <!--<script type="text/javascript" src="http://www.ohloh.net/p/433/widgets/project_partner_badge.js"></script>-->
       </div>
     </div>
     
