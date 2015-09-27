@@ -59,8 +59,8 @@ function page_footer()
         <a href="http://sourceforge.net/projects/mrbs/">
           <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=5113&amp;type=5"
                width="120" height="30" border="0"
-               alt="Get Meeting Room Booking System at SourceForge.net. Fast, secure and Free Open Source software downloads">
-        </a>
+               alt="Get Meeting Room Booking System at SourceForge.net. Fast, secure and Free Open Source software downloads"></a>
+        <br>
         <script type='text/javascript' src='https://www.openhub.net/p/mrbs/widgets/project_basic_stats?format=js'></script>
         <!--<script type="text/javascript" src="http://www.ohloh.net/p/433/widgets/project_partner_badge.js"></script>-->
       </div>
