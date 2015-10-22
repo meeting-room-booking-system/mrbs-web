@@ -1235,4 +1235,4 @@ session code removed. A simple module (auth_config.inc) was added, managing a
 simple list of users in config.inc.php. Eventually there will also be another
 authentication module, using a table of users in the MRBS database.
 
-$Id: AUTHENTICATION 1996 2011-09-22 14:41:57Z jberanek $
+$Id$
