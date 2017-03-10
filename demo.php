@@ -15,14 +15,16 @@ page_header(NULL, "Demo");
 </ul>
 <p>
   These installations should always be running the latest released version.
-  If they happen to be running an older versions they should still be a good
-  demo of what MRBS does.
+  If they happen to be running an older version they should still be a good
+  demo of what MRBS does. Sometimes the Sourceforge web servers hosting the
+  demo run rather slowly, you should see better performance on your own
+  web server!
 </p>
 <p>
   The installations are a standard installation of MRBS, using the simpler
   'config' authentication system, to stop people deleting users.
   You can use the <a href="mrbs/admin.php">area/room configuration</a>
-  system, although we'd prefer it if you didn't delete other users configuration!
+  system, although we'd prefer it if you didn't delete other users' configuration!
   You can login as any of the following users, only the user "admin" has
   administrative rights. Additional help is available under the
   <a href="mrbs/help.php">help</a> link at the top of the page.
