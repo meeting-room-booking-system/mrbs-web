@@ -16,7 +16,7 @@ page_header(NULL, "Contact");
   mailing list, <a href="mailto:mrbs-general@lists.sourceforge.net">
     mrbs-general@lists.sourceforge.net</a>. You can send absolutely anything
   there - you can sign up or browse the archives from the
-  <a href="http://lists.sourceforge.net/mailman/listinfo/mrbs-general">
+  <a href="https://sourceforge.net/projects/mrbs/lists/mrbs-general">
     mailing list management page</a>. <b>Note: You will not be able to
   post to the list until you subscribe, but you can subscribe and
   disable email delivery (or choose to receive digests) if you prefer.

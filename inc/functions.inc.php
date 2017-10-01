@@ -56,8 +56,8 @@ function page_header($title, $section)
 function page_footer()
 {
 ?>    
-        <a href="http://sourceforge.net/projects/mrbs/">
-          <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=5113&amp;type=5"
+        <a href="https://sourceforge.net/projects/mrbs/">
+          <img src="https://sflogo.sourceforge.net/sflogo.php?group_id=5113&amp;type=5"
                width="120" height="30" border="0"
                alt="Get Meeting Room Booking System at SourceForge.net. Fast, secure and Free Open Source software downloads"></a>
         <br>
@@ -76,10 +76,8 @@ function page_footer()
     piwik_url = pkBaseURL + "piwik.php";
     piwik_log(piwik_action_name, piwik_idsite, piwik_url);
     </script>
-    <object><noscript><p><img src="http://apps.sourceforge.net/piwik/mrbs/piwik.php?idsite=1" alt="piwik"/></p></noscript></object>
-    <!-- End Piwik Tag -->
-    
-    <!-- Piwik --> 
+    <object><noscript><p><img src="https://apps.sourceforge.net/piwik/mrbs/piwik.php?idsite=1" alt="piwik"/></p></noscript></object>
+    <!-- End Piwik Tag --> <!-- Piwik --> 
     <script type="text/javascript">
     var pkBaseURL = (("https:" == document.location.protocol) ? "https://mrbs.sourceforge.net/piwik/" : "http://mrbs.sourceforge.net/piwik/");
     document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
@@ -89,7 +87,7 @@ function page_footer()
     piwikTracker.trackPageView();
     piwikTracker.enableLinkTracking();
     } catch( err ) {}
-    </script><noscript><p><img src="http://mrbs.sourceforge.net/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+    </script><noscript><p><img src="https://mrbs.sourceforge.net/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
     <!-- End Piwik Tracking Code -->
     
   </body>
