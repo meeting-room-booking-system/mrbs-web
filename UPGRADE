@@ -11,10 +11,10 @@ the upgrade.
 
 1. Take a backup of your database, just in case
 2. Take a backup copy of your existing mrbs directory on your web server
-3. Upload all the files and directories, except the config file, in the web 
+3. Upload all the files and directories, except the config file, in the web
    directory of the release to your server, overwriting your existing files.
-4. Run MRBS. You'll be prompted for a database (note database, not MRBS) username
-   and password.
+4. Go to MRBS in your browser. If a database upgrade is required, you'll be
+   prompted for a database (note database, not MRBS) username and password.
 
 MRBS database upgrades are in general intended to be backwards compatible,
 so that you should still be able to run the old version of MRBS against the
@@ -23,7 +23,7 @@ in a separate directory while you configure and test it.   When you are happy
 with the new release you can switch the directory to be your production
 directory.
 
-There are however some exceptions to this backward compatiblity, namely at
+There are however some exceptions to this backward compatibility, namely at
 the following transitions:
 
 MRBS 1.4.4.1 -> 1.4.5
@@ -35,6 +35,22 @@ performing the upgrade on your production database.
 
 See the advice in INSTALL about potentially creating a fresh "config.inc.php"
 when you upgrade MRBS, especially for a major version change.
+
+Upgrading from prior to MRBS 1.8.0
+==================================
+
+The following configuration settings have changed:
+    $area_list_format         Redundant. All area and room lists are now select elements.
+    $display_calendar_bottom  Redundant. The mini-calendars have moved.
+    $max_slots                Redundant. The code has been rewritten.
+    $simple_trailer           Redundant. There is no longer a trailer!
+
+The following $strftime_format settings have changed:
+    'day_month'   redundant
+    'dayname_cal' replaced by 'minical_dayname'
+    'month_cal'   replaced by 'minical_monthname'
+    'monthyear'   replaced by 'view_month'
+
 
 Upgrading from prior to MRBS 1.7.1
 ==================================
@@ -99,8 +115,8 @@ previously used character set to Unicode :
           from) ONCE, and then move it back out of the web directory. We
           recommend you backup your database before running this script if
           you are at all worried.
-          Running it more than once will make a right mess of any non-ASCII 
-          text in the database. 
+          Running it more than once will make a right mess of any non-ASCII
+          text in the database.
 
           Additionally, this script can correct an MRBS database that used
           to run on an old version of MySQL (earlier than 4.1), but that
@@ -139,7 +155,7 @@ Upgrading from prior MRBS 1.2-pre3
 
 mrbs 1.2-pre3 introduced area and room administrator email fields.
 
-Please apply the upgrade3.my.sql to add these fields. This file should work 
+Please apply the upgrade3.my.sql to add these fields. This file should work
 both with mysql and pgsql.
 
 
@@ -148,14 +164,14 @@ Upgrading from prior MRBS 1.2-pre2
 
 Upgrading mysql database from previous charsets to Unicode :
 
-          You can use convert_db_to_utf8.php script to convert text in the 
+          You can use convert_db_to_utf8.php script to convert text in the
           database to UTF8. The administrator should copy the file into
           the web directory, run it (choosing the encoding to convert from)
           ONCE, and then move it back out of the web directory. We recommend
           you backup your database before running this script if you are at
           all worried.
-          Running it more than once will make a right mess of any non-ASCII 
-          text in the database. 
+          Running it more than once will make a right mess of any non-ASCII
+          text in the database.
 
 
 Upgrading from prior to MRBS 1.0 final

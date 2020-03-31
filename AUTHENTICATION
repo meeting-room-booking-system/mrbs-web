@@ -56,8 +56,8 @@ module. There are two general categories:
 
 Internal PHP modules support the following kinds of authentication servers:
 LDAP servers; POP3 email servers; IMAP email servers; NIS servers ; NW servers.
-In addition, three special internal modules support a local list of users for 
-one; a local list of users stored in databse for the second; and 
+In addition, three special internal modules support a local list of users for
+one; a local list of users stored in the database for the second; and
 authenticating anybody for the other.
 
 External programs support: NT Domain controllers; Netware servers; PAM servers.
@@ -65,12 +65,18 @@ External programs support: NT Domain controllers; Netware servers; PAM servers.
 Which authentication scheme to choose
 =====================================
 
-The right choice for you depends on where your users are:
+The default authentication scheme is 'db', which stores users' details in the
+MRBS database in the 'users' table.  However, the right choice for you will
+depend on whether your users are already listed somehere else.
 
-If they're all in a closed organization (A private company; a university; etc),
+If they're all in a closed organization (eg a private company or a university),
 then this organization probably already has its own authentication service.
-MRBS can connect to several kinds of services, like LDAP servers; NT domain
-controllers; Netware servers; pop3 or imap mail servers; etc.
+MRBS can connect to several kinds of services, such as LDAP servers, NT domain
+controllers, Netware servers and POP3 or IMAP mail servers.
+
+If your website is using a Joomla! or WordPress CMS and you already require your
+users to authenticate, then MRBS can be configured to authenticate your users
+against the existing list of users in the CMS.
 
 PHP authentication modules
 --------------------------
@@ -88,7 +94,7 @@ PHP authentication modules
 |         |                        |  - Simple to      |  - Users cannot update |
 |         |                        |  setup.           |  their own password.   |
 |         |                        |                   |                        |
-|         |                        |  - Not dependant  |  - Administrators      |
+|         |                        |  - Not dependent  |  - Administrators      |
 |         |                        |  on an external   |  manually set the user |
 |         |                        |  authentication   |  passwords, which is   |
 |         |                        |  server, so usable|  against normal        |
@@ -96,13 +102,13 @@ PHP authentication modules
 |         |                        |                   |                        |
 +---------+------------------------+-------------------+------------------------+
 |db       |Users validated using   |                   |                        |
-|         |web-based authentication|  - Simple to setup|                        |
+|(default)|web-based authentication|  - Simple to setup|                        |
 |         |based on a table in mrbs|                   |  - Does not use        |
 |         |database                |  - Built in MRBS  |  existing directory    |
 |         |                        |  but more secure  |                        |
 |         |                        |  than 'config'    |                        |
 |         |                        |                   |                        |
-|         |                        |  - easy to        |                        |
+|         |                        |  - Easy to        |                        |
 |         |                        |  configure        |                        |
 +---------+------------------------+-------------------+------------------------+
 |db_ext   |Users validated using   |                   |                        |
@@ -204,50 +210,6 @@ External authentication programs
 |                  |passwords         |                 |                   |
 |                  |encrypted.        |                 |                   |
 +------------------+------------------+-----------------+-------------------+
-|smb_auth          |Uses Samba SMB API|                 |                   |
-|                  |to authenticate   |                 |                   |
-|                  |users at an NT    |  - For corporate|  - Only works on a|
-|                  |domain controller.|  intranets using|  Unix server.     |
-|                  |smb_auth.c source |  NT domain      |                   |
-|                  |provided.         |  security.      |  - Requires a Unix|
-|                  |                  |                 |  server in an     |
-|                  |                  |                 |  organization     |
-|                  |                  |                 |  using Windows    |
-|                  |                  |                 |  security.        |
-|                  |                  |                 |  Vicious!         |
-|                  |                  |                 |                   |
-+------------------+------------------+-----------------+-------------------+
-|nwauth            |Connects to a     |                 |                   |
-|                  |Netware server.   |                 |                   |
-|                  |                  |  - For corporate|  - Only works on a|
-|                  |                  |  intranets using|  Unix server.     |
-|                  |                  |  Netware servers|                   |
-|                  |                  |  security.      |  - Requires a Unix|
-|                  |                  |                 |  server in an     |
-|                  |                  |                 |  organization     |
-|                  |                  |                 |  using Netware    |
-|                  |                  |                 |  security.        |
-|                  |                  |                 |  Vicious!         |
-|                  |                  |                 |                   |
-+------------------+------------------+-----------------+-------------------+
-|auth_ldap.pl      |Uses LDAP         |                 |                   |
-|                  |                  |                 |                   |
-|                  |                  |                 |  - The PHP ldap   |
-|                  |                  |                 |  module is        |
-|                  |                  |                 |  recommended      |
-|                  |                  |                 |  instead of this  |
-|                  |                  |                 |  one.             |
-|                  |                  |                 |                   |
-+------------------+------------------+-----------------+-------------------+
-|auth_ldapsearch.pl|Uses LDAP         |                 |                   |
-|                  |                  |                 |                   |
-|                  |                  |                 |  - The PHP ldap   |
-|                  |                  |                 |  module is        |
-|                  |                  |                 |  recommended      |
-|                  |                  |                 |  instead of this  |
-|                  |                  |                 |  one.             |
-|                  |                  |                 |                   |
-+------------------+------------------+-----------------+-------------------+
 |auth_pam.pl       |Uses PAM          |                 |                   |
 |                  |                  |                 |                   |
 |                  |                  |  - For Unix     |                   |
@@ -263,17 +225,17 @@ Which session scheme to choose
 
 The session scheme is the way the user and password is queried and recorded.
 
-This one is a no-brainer. Use the "php" session scheme, unless you are using
-'wordpress; authentication, in which case use the 'wordpress' session scheme.
-The others are left in for historical reasons:
+The default session scheme is 'php'.  Some authentication schemes, eg 'joomla',
+'wordpress', 'cas' and 'saml' require you to use their own session schemes. The
+others are left in for historical reasons:
 
 +---------+------------------------------+--------------------+----------------+
 |Type     |Description                   |Pros                |Cons            |
 +---------+------------------------------+--------------------+----------------+
 |php      |Use PHP's native session      |                    |                |
-|         |handling. Recommended.        |                    |                |
-|         |(Session data is usually saved|  - Recommended by  |  - Any?        |
-|         |in a file on the server)      |  PHP doctors, PHP  |                |
+|(default)|handling. Recommended.        |                    |                |
+|         |Session data is saved in the  |  - Recommended by  |  - Any?        |
+|         |MRBS database.                |  PHP doctors, PHP  |                |
 |         |                              |  moms, etc.        |                |
 |         |                              |                    |                |
 +---------+------------------------------+--------------------+----------------+
@@ -390,7 +352,7 @@ passwords in config.inc.php. This is done by specifying: $auth["user"][
 "username1"] = "password1"; $auth["user"]["username2"] = "password2";
 etc
 - The "db" authentication is managed by MRBS, using a list of names and
-passwords stored in mrbs database.
+passwords stored in the MRBS database.
 
 Administrators
 --------------
@@ -456,14 +418,15 @@ If you want to use an external authentication program, set $auth["type"] =
     Don't forget to prefix it with "./" under Unix and ensure that the
     program is executable by the "user" that the webserver runs as.
     Example:
-    $auth["prog"] = "./smb_auth";
+    $auth["prog"] = "./cryt_passwd.pl";
 
     - The arguments to pass to the above program in $auth["params"].
 
-    $auth["params"] = "#USERNAME# #PASSWORD#";
+    $auth["params"] = "passwd_file #USERNAME# #PASSWORD#";
     At runtime "#USERNAME#" and "#PASSWORD#" will get replaced with the username
     and password that the user entered to login. The string can contain other
     arguments in addition to the above two.
+
 
 Internal PHP Authentication Modules Configuration
 =================================================
@@ -500,58 +463,42 @@ DB Authentication
 Authentication method, usable on the Internet.
 
 It works by storing the list of users in a new table called mrbs_users in
-the mrbs database.
-
-The authentication is done by the module auth_db.inc.
+the mrbs database.  The authentication is done by the module auth_db.inc.
 Enable it by setting $auth["type"]="db" in config.inc.php.
 
-The list of users is displayed by clicking on the "User list" link in
-the logon box in the top banner.
-This list is managed by module edit_users.php.
-Administrators have the right to edit every entry, and add or remove users.
-Simple users only have the right to edit their own entry.
+The list of users is displayed by clicking on the "Users" menu item in the
+top banner.  This list is managed by module edit_users.php. Administrators
+have the right to edit every entry, and add or remove users. Ordinary users
+only have the right to edit their own entry.
 
-The first time it is accessed, the mrbs_users table is automatically
-created.
-
-*** WARNING ***
- 
-After you have set up MRBS, the first thing you must do is go to the 
-"User list" and set up a user with administrator rights.    Until you 
-do this the system is open and the first person to go to the "User list" link
+When you first run MRBS it will prompt you to set up a user with administrator
+rights. Until you do this the system is open and the first person to use MRBS
 will be able to set up an administrator and lock you out of the system.  You
-will then only be able to get back into the system by droppng the users
+will then only be able to get back into the system by emptying the users
 table.
- 
-Once you have set up the first administrator you can then log on to
-the system using the username and password you have just created and
-create more users.
- 
-*** END OF WARNING ***
+
+Once you have set up the first administrator you can then log on to the system
+using the username and password you have just created and create more users.
 
 Upgrading from pre-1.4.2 systems:
- 
+
 Versions of MRBS before 1.4.2 did not store access rights in the database
 and relied on the list of admins in the config file.    If you are upgrading
 from a pre-1.4.2 system, MRBS will automatically upgrade the users table in the
 database by adding a field for access rights level and give admin rights to
-those users for whom admin access is defined in the config file.   So, if 
+those users for whom admin access is defined in the config file.   So, if
 upgrading, you will need to make sure that your admins are set in the config
-file until you have run edit_users.php (by following the "User list" link) for 
-the first time.  Once you have run edit_users.php the admin definitions in the 
+file until you have run edit_users.php (by following the "User list" link) for
+the first time.  Once you have run edit_users.php the admin definitions in the
 config file are no longer used and can be deleted if you wish.
- 
+
 It's possible, and very simple, to add new application-specific fields in
-the mrbs_users table.
-No change is needed in edit_users.php editor code.
-Edit_users.php will automatically detect the new fields and add columns for
-them.
-The new fields can either be added beforehand in the code that creates the
-table in the beginning of edit_users.php (See comments there);
-Or they can be added afterwards using database admin tools
-Note: The first three fields (id, level, name, password) must not be
-tampered with. All others are modifiable at will.
- 
+the mrbs_users table. No change is needed to the MRBS code. It will automatically
+detect the new fields and add columns for them.  You can turn the field names
+into meaningful labels by using the $vocab_override config setting, eg
+
+$vocab_override['en']['address'] = 'Postal address';
+
 Future improvements
  - Have a second level of administrators (level 3 users), with only such
  level 3 users allowed to edit the user database. This would be similar to
@@ -604,6 +551,7 @@ $auth['db_ext']['column_name_level'] = 'level';
 
 This configuration item is optional and contains the name of the column
 that hold the access level of the user.
+
 
 POP3 Authentication
 -------------------
@@ -698,12 +646,8 @@ and ports must be specified or authentication will fail.
 LDAP Authentication
 -------------------
 
-There are currently three methods for doing LDAP authentication, auth_ldap,
-auth_ldap.pl, auth_ldapsearch.pl.  The preferred method, auth_ldap, uses
-PHP's LDAP extension which must be compiled into PHP or installed and loaded
-as a plugin extension in your php.ini. This method is described here.
-The other methods use the 'ext' authentication method and are described
-further on in this file.
+This method uses PHP's LDAP extension which must be compiled into PHP
+or installed and loaded as a plugin extension in your php.ini.
 
 This method can be used by setting config.inc.php as follows:
 
@@ -734,7 +678,7 @@ to true, respectively.
 
 This method will attempt an authenticated bind to the ldap server using
 the supplied password and a distinguished name, which is formed from the
-base distinguished name, the user attribute and the user name. 
+base distinguished name, the user attribute and the user name.
 
 This method supports multiple values for most of the configuration
 parameters, including $ldap_base_dn entries and $ldap_user_attrib
@@ -854,6 +798,7 @@ $auth["type"] = "none";
 Note that technically Omni authentication is actually an MRBS session scheme.
 We put it in this list as it is related with authentication anyway.
 
+
 REMOTE_USER Authentication
 --------------------------
 
@@ -867,8 +812,8 @@ To use this session scheme, set in config.inc.php:
 If you want to display a logout link, set in config.inc.php:
 
   $auth['remote_user']['logout_link'] = '/logout/link.html'
-  
-  
+
+
 Joomla! Authentication
 ----------------------
 
@@ -910,7 +855,7 @@ $auth['wordpress']['rel_path'] = '..';   // Path to the WordPress installation r
 // 'mrbs_admin', and that you assigned that role to those users that you want to be MRBS admins.
 $auth['wordpress']['admin_roles'] = 'administrator';  // can also be an array, eg = array('administrator', 'mrbs_admin');
 // List of WordPress roles that have MRBS User capabilities.  This allows you to have some WordPress users
-// who are authorised to use MRBS and some who are not. 
+// who are authorised to use MRBS and some who are not.
 $auth['wordpress']['user_roles'] = array('subscriber', 'contributor', 'author', 'editor', 'administrator');
 
 Then in your WordPress wp-config.php file set:
@@ -921,7 +866,7 @@ define('COOKIEPATH', '/');
 define('SITECOOKIEPATH', '/');
 // In the definition below the '.' is necessary for older browsers (see
 // http://php.net/manual/en/function.setcookie.php).
-define('COOKIE_DOMAIN', ".$domain_name");  
+define('COOKIE_DOMAIN', ".$domain_name");
 define('COOKIEHASH', md5($domain_name));
 
 
@@ -950,6 +895,7 @@ https://simplesamlphp.org/docs/stable/simplesamlphp-sp
 
 External Authentication Programs Configuration
 ==============================================
+
 
 Perl password list
 ------------------
@@ -983,11 +929,12 @@ says:
 
 $auth["admin"][] = "....";
 
-Crypted password authentication
+
+Encrypted password authentication
 -------------------------------
 
 crypt_passwd.pl is like the badpw.pl method above but uses a file containing
-usernames and their crypted passwords
+usernames and their encrypted passwords
 
 config.inc.php should be changed to have a section that reads something like:
 
@@ -1001,158 +948,14 @@ As you can see the crypt_passwd.pl script takes 3 parameters.
 The first parameter is the filename of the password file.
 It must be readable by the user which PHP is running as, which is usually the
 user the web server is running as. The password file must consist of pairs of
-username and crypted password, seperated by a colon. See crypt_passwd.example
+username and encrypted password, separated by a colon. See crypt_passwd.example
 for an example password file.
 
 NOTE: Under Unix, make sure crypt_passwd.pl has execution rights: 'chmod +x
 crypt_passwd.pl'
 
-SMB Authentication
-------------------
 
-Here are instructions gathered from several users for using SMB authentication:
-
-Included is the source (smb_auth.c). This is a very simple program, that
-returns "true" if the username/password are valid and "false" otherwise.
-
-FOLLOW THESE STEPS TO INSTALL
-
-- Download the PAM library from
-
-http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/ (current one is 1.1.7)
-or type:
-
-$ wget http://www.mirror.ac.uk/sites/ftp.samba.org/pam_smb/pam_smb-1.1.7.tar.gz
-
-- $ tar -xvzf pam_smb-1.1.7.tar.gz
-
-or gtar -xvzf pam_smb-1.1.7.tar.gz
-
-- $ cd pam_smb
-
-- $ ./configure
-
-[or if you want to disable encrypted passwords you can run
-$ ./configure --disable-encrypt-pass
-]
-
-- $ make
-
-[ or maybe on Solaris
-$ gmake ]
-
-You can ignore any errors/warnings after the line
-
-make[1]: Leaving directory `...../pam_smb/smbval'
-any problems before this need to be fixed as smbvalid.a needs to be created.
-
-- copy smb_auth.c that come with the MRBS package in /pam_smb/ directory:
-$ cp /<wherever>/smb_auth.c .
-
-- $ gcc -o smb_auth smb_auth.c smbval/smbvalid.a
-
-[ or on Solaris :
-$ gcc -o smb_auth smb_auth.c smbval/smbvalid.a -lsocket -lnsl
-The extra libraries (-lsocket -lnsl) are not mentioned in the documentation but
-this might just be a Solaris thing ]
-
-This creates a binary that does not rely on anything in the pam_smb release. So
-this can be deleted after you have copied smb_auth to another location.
-
-- [ $ strip smb_auth ] (shrink the file, optional)
-
-- Now move/copy smb_auth to somewhere that the web server can access it and
-specify the path in config.inc.php. For example : $ cp smb_auth /usr/bin
-and verify smb_auth has enough execute rights.
-
-USAGE: smb_auth [username] [password] [server] [backup] [domain]
-
-You can bypass domain if you specify username like [domain/username]
-
-returns 0 on success
-
-returns 1 on failure
-
-- Then set config.inc.php as follows:
-
-# Authentication settings - read AUTHENTICATION
-
-$auth["type"] = "ext";
-$auth["prog"] = "/usr/bin/smb_auth";
-$auth["params"] = "#USERNAME# #PASSWORD# SERVER BACKUP DOMAIN";
-
-The [params] are:
-
-* #USERNAME# is replaced by the actual username presented
-* #PASSWORD# is replaced by the user's password
-* Primary Server used for password validation
-* Secondary server used for password validation
-* NT domain under which the user is registered
-
-Netware Authentication
-----------------------
-
-This is only going to work on Linux.
-
-There's a program called "nwauth" which is included with ncpfs. To use it
-you'll need to have IPX support compiled in your kernel. There might be other
-requirements as well - see the stuff that comes with ncpfs.
-
-You can get it from ftp://platan.vc.cvut.cz/pub/linux/ncpfs/
-
-I've only tested this with ncpfs-2.2.0.18
-
-Please see README.nwauth for more information on Netware authentication.
-
-LDAP Authentication
--------------------
-
-The preferred LDAP authentication method uses the internal PHP module described
-above. Two alternatives are available though:
-
-The second LDAP authentication method uses a very small Perl program
-ldap_auth.pl. It requires the Net::LDAP module be installed and working.
-For me this simply meant doing:
-
-perl -MCPAN -e"install Net::LDAP"
-
-The script simply attemps to bind to a server using a supplied dn and password.
-It expects the full thing to be passed in - eg
-
-cn=root, o=University of Michigan, c=us
-
-In my case, I can pass just the cn and it works. My config.inc.php settings
-are:
-
-# Authentication settings - read AUTHENTICATION
-
-$auth["type"] = "ext";
-$auth["prog"] = "/home/httpd/html/mrbs/auth_ldap.pl";
-$auth["params"] = "LDAPSERVER cn=#USERNAME# #PASSWORD#";
-
-NOTE: Under Unix, make sure auth_ldap.pl has execution rights: 'chmod +x
-auth_ldap.pl'
-
-The third also uses a perl script that simply calls ldapsearch.
-
-You will need specify the path to ldapsearch in auth_ldapsearch.pl
-You might try this as a last resort if your site has an unusual
-LDAP configuration. NOTE, the script disallows any usernames which
-contain uppercase or space characters in them, for the reason behind
-this please see the script its self.
-
-$auth["realm"] = "MRBS";
-
-$auth["type"] = "ext";
-$auth["prog"] = "/home/httpd/html/mrbs/auth_ldapsearch.pl";
-$auth["params"] = "LDAPSERVER cn=#USERNAME# #PASSWORD#";
-$auth["params"] = "YourServer \"Your search root\" \"#USERNAME#\"
-\"#PASSWORD#\"";
-
-NOTE: Under Unix, make sure auth_ldapsearch.pl has execution rights: 'chmod +x
-auth_ldapsearch.pl'
-
-PAM Authentification
+PAM Authentication
 --------------------
 
 In case your Unix system uses PAM (especially Linux, but also SUN Solaris)
@@ -1164,7 +967,7 @@ This perl script requires Authen::PAM.
 The script has to be run as SUID. Therefore you should take some precautions
 to not undermine your system's security. Change the group of the script to that
 of your Web Server (for Apache this is normally nobody or apache) and don't
-make it readable and executeable to anybody else, eg.:
+make it readable and executable to anybody else, eg.:
 
 chgrp nobody auth_pam.pl
 
