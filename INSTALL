@@ -5,7 +5,7 @@
 REQUIREMENTS
 ---------------------------------------------------------------------------
 MRBS works with both MySQL (Version 5.5.3 and above) and PostgreSQL
-(Version 8.2 and above) systems. You must have at least PHP 5.5.0, with support
+(Version 8.2 and above) systems. You must have at least PHP 7.2, with support
 for your chosen database system installed and working for this application.
 See the PHP (www.php.net), MySQL (www.mysql.com), and PostgreSQL
 (www.postgresql.org) sites for more info on setting these up.   You need
@@ -168,12 +168,13 @@ as long as it is in the permitted set, ie a letter, number or underscore.
 restrictions on the characters allowed in order to simplify the code. For
 a technical explanation see below).
 
-At the moment only text, varchar, decimal/numeric, int, smallint and tinyint
-columns are  supported, displayed as textarea, text, number or checkbox fields
-as appropriate.  Whether a varchar is displayed as a text or textarea input
-depends on its maximum length, with the breakpoint determined by a configuration
-variable. Ints are treated as integer types, as you would expect.   However
-smallints and tinyints are assumed to be booleans and are displayed as checkboxes.
+At the moment only text, varchar, date (user table only), decimal/numeric,
+int, smallint and tinyint columns are  supported, displayed as textarea, text,
+date, number or checkbox fields as appropriate.  Whether a varchar is displayed
+as a text or textarea input depends on its maximum length, with the breakpoint
+determined by a configuration variable. Ints are treated as integer types, as
+you would expect.   However smallints and tinyints are assumed to be booleans
+and are displayed as checkboxes.
 
 [Note:  smallints are assumed to be booleans because the boolean type in
 PostgreSQL presents some problems in PHP when trying to process the results
@@ -190,7 +191,7 @@ entry.column_name tags:  you don't need to add a repeat.column_name tag.
 As an example, to add a field to the room table recording whether or not
 there is a coffee machine you would, in MySQL, add the column
 
-coffee_machine     tinyint(1)
+coffee_machine     tinyint
 
 to the room table and add the line
 
@@ -251,10 +252,27 @@ You can also specify that a field is private, ensuring that the contents
 are only visible to yourself and the administrators.   For example:
 
 $is_private_field['entry.refreshments'] = true;
+$is_private_field['users.tel'] = true;
 
 would prevent the details of your refreshments being visible to other
 users - provided that private bookings are enabled.   See the section
 on private bookings in systemdefaults.inc.php for more information.
+Note that private fields are only supported in the entry and users tables.
+
+4)
+
+You can also enter regular expressions for validating text field input using
+the pattern attribute.  At the moment this is limited to custom fields in the
+users table.  For example the following could be used to ensure a valid US ZIP
+code (you might want to have a better regex - this is just for illustration):
+
+$pattern['users.zip_code'] = "^[0-9]{5}(?:-[0-9]{4})?$";
+
+You would probably also want to enter a custom error message by using
+$vocab_override, with the tag consisting of "table.field.oninvalid" eg
+
+$vocab_override['users.zip_code.oninvalid']['en'] = "Please enter a valid " .
+  "ZIP code, eg '12345' or '12345-6789'";
 
 
 Technical explanation of the restriction on column names for custom fields
