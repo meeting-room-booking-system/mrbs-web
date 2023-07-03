@@ -11,7 +11,6 @@ function page_header($title, $section)
       "Documentation" => array("link" => "docs.php"),
       "NEWS" => array("link" => "view_text.php?section=NEWS&amp;file=NEWS"),
       "ChangeLog" => array("link" => "view_text.php?section=ChangeLog&amp;file=ChangeLog"),
-      "Donate" => array("link" => "donate.php"),
       "Contact" => array("link" => "contact.php"),
     );
 ?>
