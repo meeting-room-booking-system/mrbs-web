@@ -8,7 +8,7 @@ page_header(NULL, "Contact");
 
 <p>
   The preferred method of getting support from the MRBS development team is
-  via the <a href="https://github.com/meeting-room-booking-system/mrbs-code/issue">GitHub issue tracker</a>.
+  via the <a href="https://github.com/meeting-room-booking-system/mrbs-code/issues">GitHub issue tracker</a>.
 </p>
 
 <p>
