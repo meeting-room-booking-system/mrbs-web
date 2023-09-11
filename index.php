@@ -80,8 +80,8 @@ page_header(NULL, "Introduction");
 </p>
 <p>
   Everything is provided by <a href="http://sourceforge.net/">SourceForge</a> -
-  because they're nice like that, apart from the code has now moved to
-  <a href="https://github.com/meeting-room-booking-system/mrbs-code.git">GitHub</a>.
+  because they're nice like that, apart from the code and issue tracker have now moved to
+  <a href="https://github.com/meeting-room-booking-system/mrbs-code">GitHub</a>.
 </p>
 
 <?php
