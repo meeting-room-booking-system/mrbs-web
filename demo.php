@@ -8,10 +8,10 @@ page_header(NULL, "Demo");
 ?>
 
 <ul>
-  <li><a href="https://mrbsdemo.uk.to/mrbs/">Demonstration installation</a></li>
-  <li><a href="https://mrbsdemo.uk.to/periodmrbs/">Demonstration using periods</a></li>
-  <li><a href="https://mrbsdemo.uk.to/mrbs/admin.php">Area/room configuration</a></li>
-  <li><a href="https://mrbsdemo.uk.to/mrbs/help.php">Additional Help</a></li>
+  <li><a href="https://mrbsdemo.mooo.com/mrbs/">Demonstration installation</a></li>
+  <li><a href="https://mrbsdemo.mooo.com/periodmrbs/">Demonstration using periods</a></li>
+  <li><a href="https://mrbsdemo.mooo.com/mrbs/admin.php">Area/room configuration</a></li>
+  <li><a href="https://mrbsdemo.mooo.com/mrbs/help.php">Additional Help</a></li>
 </ul>
 <p>
   These installations should always be running the latest released version.
